@@ -108,19 +108,20 @@ een kosten- dan wel omzetrekening betreft.</p>
 
 <p>Dagboeken worden gedefinieerd in het onderdeel "dagboeken". EekBoek
 ondersteunt vijf soorten dagboeken: Kas, Bank, Inkoop, Verkoop en
-Memoriaal. Elk dagboek heeft een unieke, numerieke code, voor intern
-gebruik. Verder moet voor elk dagboek worden opgegeven van welke soort
-het is. Voor rekeningen van de soort Kas en Bank moet bovendien een
-tegenrekening worden opgegeven. </p>
+Memoriaal. Elk dagboek heeft een unieke, alfanumerieke code (max. 4
+tekens). Deze wordt in een toekomstige versie gebruikt om
+boekstuknummers te produceren. Verder moet voor elk dagboek worden
+opgegeven van welke soort het is. Voor rekeningen van de soort Kas en
+Bank moet bovendien een tegenrekening worden opgegeven. </p>
 
 <p>Een illustratief voorbeeld:</p>
 
 <blockquote class="code">Dagboeken
-   1  Kas                   :type=kas        :rekening=1000
-   4  Postbank              :type=bank       :rekening=1120
-   6  Inkoop                :type=inkoop
-   7  Verkoop               :type=verkoop
-   8  Memoriaal             :type=memoriaal</blockquote>
+   K  Kas                   :type=kas        :rekening=1000
+   P  Postbank              :type=bank       :rekening=1120
+   I  Inkoop                :type=inkoop
+   V  Verkoop               :type=verkoop
+   M  Memoriaal             :type=memoriaal</blockquote>
 
 <a name="btw"></a><h3>De BTW tariefgroepen</h3>
 
@@ -128,7 +129,8 @@ tegenrekening worden opgegeven. </p>
 tariefgroep bepaalt het rekeningnummer waarop de betreffende boeking
 plaatsvindt. Binnen elke tariefgroep zijn meerdere tarieven mogelijk,
 hoewel dit in de praktijk niet snel zal voorkomen.</p> <p>Elke tarief
-heeft een unieke, numerieke code, voor intern gebruik. Voor elk tarief
+heeft een unieke, numerieke code. Deze kan o.m. worden gebruikt om
+expliciet een BTW tarief op te geven bij het boeken. Voor elk tarief
 (behalve die van groep "geen") moet verder het percentage worden
 opgegeven. Met de aanduiding '<code>:exclusief</code>' kan worden
 opgegeven dat boekingen op rekeningen met deze tariefgroep standaard

@@ -1,6 +1,101 @@
 [%# $Id$ %]
 
-<h2>Het openen van de administratie.</h2>
+<h2>Het openen van de administratie</h2>
 
+<p>Het openen van de administratie is de laatste stap in het
+gebruiksklaar maken.</p>
 
-<h2>*** In voorbereiding ***</h2>
+<p>Het openen omvat de volgende stappen:</p>
+
+<ul>
+  <li><a href="#amdgg">Het invoeren van administratie-specifieke gegevens zoals
+      begindatum en omschrijving</a>;</li>
+  <li><a href="#opbal">Het invoeren van de openingsbalans</a>;</li>
+  <li><a href="#debcrd">Het invoeren van openstaande posten</a>;</li>
+  <li><a href="#open">Het eigenlijke openen</a>.</li>
+</ul>
+
+<p>De EekBoek shell opdrachten die te maken hebben met het openen van
+de administratie beginnen alle met het voorvoegsel '<code>adm_</code>'.</p>
+
+<a name="#amdgg"></a><h3>Het invoeren van administratie-specifieke gegevens</h3>
+
+<blockquote class="code">adm_naam "EekBoek Demo Administratie 2004"</blockquote>
+
+<p>Met deze opdracht wordt de naam van de te openen administratie
+opgegeven.<br>Deze opdracht is verplicht.</p>
+
+<blockquote class="code">adm_btwperiode jaar</blockquote>
+
+<p>Met deze opdracht wordt de periode opgegeven waarin BTW aangifte
+moet worden gedaan. Mogelijke waarden zijn "jaar", "kwartaal" of
+"maand".<br>Deze opdracht is verplicht.</p>
+
+<blockquote class="code">adm_begindatum 2004</blockquote>
+
+<p>Met deze opdracht wordt de begindatum opgegeven. Het boekjaar loopt
+dan van 1 januari tot en met 31 december van het opgegeven jaar.<br>Deze opdracht
+is verplicht.</p>
+
+<blockquote class="code">adm_boekjaarcode 2004</blockquote>
+
+<p>Met deze opdracht wordt een code (verkorte aanduiding van maximaal
+4 tekens) voor het boekjaar opgegeven. Aan de hand van deze code kan
+later het boekjaar worden geselecteerd.<p>
+
+<p>Deze opdracht is niet verplicht. Indien geen code is opgegeven dan
+wordt het jaartal gebruikt.</p>
+
+<a name="opbal"></a><h3>Het invoeren van de openingsbalans</h3>
+
+<p>De openingsbalans wordt ingevoerd met de opdracht
+'<code>adm_balanstotaal</code>', indien nodig gevolgd door twee of
+meermaal '<code>adm_balans</code>'.</p>
+
+<blockquote class="code">adm_balanstotaal 15854,77</blockquote>
+
+<p>Het totaal van de openingsbalans.</p>
+
+<blockquote class="code">adm_balans  230 1344,37
+adm_balans  231 1304.81
+...</blockquote>
+
+<p>Elke opdracht geeft het openingssaldo van de betreffende
+grootboekrekening. Aan het eind van de reeks moet het totaal van de
+debetrekeningen gelijk zijn aan het totaal van de creditrekeningen,
+en tevens gelijk aan het eerder opgegeven balanstotaal.</p>
+
+<a name="debcrd"></a><h3>Het invoeren van de openstaande posten</h3>
+
+<p>Indien er nog onbetaalde fakturen uit het voorgaande boekjaar
+staan, dan moeten die nu worden ingevoerd met een of meer
+'<code>adm_relatie</code>' opdrachten.</p>
+
+<blockquote class="code">adm_relatie 2003-12-31 "Printwerk" crd KESTER 48.79</blockquote>
+
+<p>De '<code>adm_relatie</code>' opdracht kent de volgende
+onderdelen:</p>
+<ul>
+  <li>De faktuurdatum. Deze ligt dus v&ograve;&ograve;r het begin van
+      dit boekjaar.</li>
+  <li>De omschrijving van de faktuur.</li>
+  <li>De aanduiding '<code>crd</code>' indien het een faktuur aan een
+      crediteur betreft, of '<code>deb</code>' voor slechtbetalende
+      debiteuren.</li>
+  <li>De relatie-code voor de betreffende debiteur/crediteur.
+      <br><strong>Belangrijk:</strong> Deze code moet bekend zijn,
+      zodat het nodig kan zijn eerst de opdracht
+      '<a href="../debcrd.html"><code>relatie</code></a>' te gebruiken om de relatie te
+      defini&euml;ren.</li>
+  <li>Het bedrag van de openstaande post.</li>
+</ul>
+
+<a name="open"></a><h3>Het eigenlijke openen.</h3>
+
+<p>Nadat alle informatie op bovenstaande wijze is opgegeven wordt de
+administratie geopend met volgende opdracht:</p>
+
+<blockquote class="code">adm_open</blockquote>
+
+<p>De administratie is nu klaar voor gebruik.</p>
+

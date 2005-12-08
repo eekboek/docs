@@ -1,3 +1,72 @@
 [%# $Id$ %]
 
-<h2>In voorbereiding</h2>
+<h2>Het openen van een nieuw boekjaar</h2>
+
+<p>Wanneer de eerste boekingen van een nieuw jaar moeten worden
+ingevoerd moet eerst een nieuw boekjaar worden geopend. De EekBoek
+shell opdracht daarvoor is hetzelfde als die waarmee de administratie
+oorspronkelijk werd geopend:</p>
+
+<blockquote class="code">adm_open</blockquote>
+
+<p>Na het uitvoeren van deze opdracht is de administratie gereed om
+boekingen in het nieuwe jaar uit te voeren.</p>
+
+<p>De opdracht '<code>adm_open</code>' kan worden voorafgegaan door:</p>
+
+<blockquote class="code">adm_naam <var>naam</var></blockquote>
+
+<p>Hiermee wordt aan het nieuwe boekjaar een nieuwe naam toegekend.
+Als deze opdracht niet is gebruikt blijft de huidige naam
+gehandhaafd.</p>
+
+<blockquote class="code">adm_boekjaarcode <var>code</var></blockquote>
+
+<p>Hiermee wordt aan het nieuwe boekjaar expliciet een code toegekend.
+Wanneer deze opdracht niet is gegeven dan wordt het jaartal van het
+nieuwe boekjaar gebruikt.</p>
+
+<blockquote class="code">adm_btwperiode <var>keuze</var></blockquote>
+
+<p>Hiermee wordt aan het nieuwe boekjaar een, mogelijk gewijzigde, BTW
+periode toegekend.</p>
+
+<p>Voor meer informatie over de '<code>adm_</code>' opdrachten, zie <a
+href="setup/opening.html">Het openen van de administratie</a></p>
+
+<h2>De jaarafsluiting</h2>
+
+<p>Wanneer alle boekingen voor het boekjaar zijn afgewerkt, kan het
+boekjaar worden afgesloten.</p>
+
+<p>Afsluiten houdt in dat de saldi van alle resultaatrekeningen worden
+opgeteld, dit levert het bedrijfsresultaat, en de saldi op nul worden
+gesteld. Het nieuwe boekjaar begint dus voor wat betreft de
+resultaatrekeningen met een schone lei.</p>
+
+<p>Het bedrijfsresultaat wordt geboekt op de balansrekening die
+daarvoor is aangewezen, zie <a href="stdacc.html">Koppelingen</a>.</p>
+
+<p>Tevens worden de balansrekeningen voor de BTW afgeboekt naar de
+balansrekening 'BTW betaald', zie <a
+href="stdacc.html">Koppelingen</a>. Ook de BTW rekeningen beginnen dus
+met een schone lei.</p>
+
+<p>De jaarafsluiting wordt uitgevoerd met de EekBoek shell opdracht:</p>
+
+<blockquote class="code">jaareinde --boekjaar=<var>code</var></blockquote>
+
+<p>Uit veiligheidsoverwegingen moet het boekjaar expliciet worden
+opgegeven.</p>
+
+<p>Een jaarafsluiting kan zo vaak worden uitgevoerd als nodig is,
+bijvoorbeeld wanneer er toch nog nagekomen boekingen in het vorige
+boekjaar zijn uitgevoerd. Het is ook mogelijk de jaarafsluiting
+ongedaan te maken met de opdracht:</p>
+
+<blockquote class="code">jaareinde --boekjaar=<var>code</var> --verwijder</blockquote>
+
+<p>De jaarafsluiting wordt definitief door de optie
+'<code>--definitief</code>' aan de opdracht mee te geven. Hierna kan
+niet meer worden geboekt in het afgesloten jaar, en de afsluiting kan
+uiteraard niet meer worden verwijderd.</p>
