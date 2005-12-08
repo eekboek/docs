@@ -1,0 +1,3 @@
+menu "Aanmaken database" createdb
+menu "Administratiegegevens" schema
+menu "Opening" opening

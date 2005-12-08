@@ -1,0 +1,208 @@
+<h2>Giro- en Bankafschriften</h2>
+
+<p>Deze afschriften worden geboekt in een dagboek van het type Bank.
+Zo'n dagboek heet typisch 'Postgiro' of 'Rabobank'. De keuze van de
+naam is vrij, en er mogen meerdere bankdagboeken tegelijk zijn.
+</p>
+
+<p>Aan elk bank-dagboek is een grootboekrekening gekoppeld (zie <a
+href="../stdacc.html">Koppelingen</a>). De balanswaarde van deze
+grootboekrekening komt overeen met het saldo op de bank- of
+giro-rekening.</p>
+
+<p>De naam van de boekingsopdracht is gelijk aan die van het dagboek.
+We nemen hier als voorbeeld het dagboek 'Postgiro'.</p>
+
+<p>Er zijn twee controle-opties: het boekstuktotaal en het banksaldo.
+Het boekstuktotaal kan worden geverifieerd door aan de
+boekingsopdracht de optie '<code>--totaal=<var>bedrag</var></code>'
+toe te voegen. Het eindsaldo na boeking kan worden geverifieerd met de
+optie '<code>--saldo=<var>bedrag</var></code>'. Zowel het
+boekstuktotaal als het eindsaldo treft u als regel aan op het
+bankafschrift.</p>
+
+<p>Zoals alle boekingen bestaat ook de verkoopboeking uit twee delen:
+de <dfn>boekstukkop</dfn> en een of meer <dfn>boekstukregels</dfn>. Er
+zijn drie soorten boekstukregels: betaling aan crediteur (crd),
+betaling van debiteur (deb), en vrije betaling (std). Het totaal van
+alle boekstukregels vormt het boekstuktotaal, dit wordt geboekt op de
+aan het betreffende dagboek gekoppelde grootboekrekening.</p>
+
+<p>Syntaxvoorbeeld van een boekstukkop:</p>
+
+<blockquote class="code">postgiro:16 19-09-2005 "KPN, ACME"</blockquote>
+
+<p>De onderdelen:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>postgiro:16</code></td>
+    <td>Het boekstuknummer. Dit bestaat uit de naam van het dagboek
+	en een vrij te kiezen volgnummer, gescheiden door een
+	dubbele punt '<code>:</code>'.
+	<br>Het volgnummer mag worden weggelaten, in welk geval
+	EekBoek zelf een volgnummer toekent. Het verdient echter
+	aanbeveling om altijd expliciet een volgnummer op te geven.
+	<br>Het is een goede gewoonte om hier altijd het
+	volgnummer van het bankafschrift op te geven.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>11-09-2005</code></td>
+    <td>De boekingsdatum in <a href="../date.html">een van de ondersteunde vormen</a>.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>"KPN, ACME"</code></td>
+    <td>De omschrijving van dit boekstuk.
+	<br>Indien deze spaties bevat moeten er aanhalingstekens
+	omheen worden geplaatst.
+    </td>
+  </tr>
+</table>
+
+<p>Syntaxvoorbeeld van een boekingsregel &ldquo;betaling aan crediteur&rdquo;:</p>
+
+<blockquote class="code">crd 04-09-2005 KPN -131,68</blockquote>
+
+<p>De onderdelen:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>crd</code></td>
+    <td>Dit geeft aan dat het een betaling aan een crediteur betreft.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>04-09-2005</code></td>
+    <td>De boekingsdatum voor deze boekstukregel.
+	<br>Deze mag worden weggelaten, in welk geval de boekingsdatum
+	van het boekstuk wordt gebruikt.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>KPN</code></td>
+    <td>De code van de crediteur. Conventioneel wordt deze in
+	hoofdletters gegeven, maar dit is niet vereist.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>-131,68</code></td>
+    <td>Het bedrag.
+	<br>Een te betalen bedrag wordt als negatief bedrag opgegeven,
+	want het banksaldo vermindert erdoor.
+	<br>Een te ontvangen bedrag wordt als positief bedrag
+	opgegeven.
+	<br>Zie <a href="#paymatch">hieronder</a> voor een
+	omschrijving hoe EekBoek bepaalt met welk inkoop-boekstuk deze
+	betaling correspondeert.
+    </td>
+  </tr>
+</table>
+
+<p>Syntaxvoorbeeld van een boekingsregel &ldquo;betaling van debiteur&rdquo;:</p>
+
+<blockquote class="code">deb 06-09-2005 ACME 369,82</blockquote>
+
+<p>De onderdelen:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>deb</code></td>
+    <td>Dit geeft aan dat het een betaling van een debiteur betreft.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>06-09-2005</code></td>
+    <td>De boekingsdatum voor deze boekstukregel.
+	<br>Deze mag worden weggelaten, in welk geval de boekingsdatum
+	van het boekstuk wordt gebruikt.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>ACME</code></td>
+    <td>De code van de debiteur. Conventioneel wordt deze in
+	hoofdletters gegeven, maar dit is niet vereist.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>369,82</code></td>
+    <td>Het bedrag.
+	<br>Een te ontvangen bedrag wordt als positief debdrag opgegeven,
+	want het banksaldo vermeerdert erdoor.
+	<br>Een te betalen bedrag wordt als negatief bedrag opgegeven.
+	<br>Zie <a href="#paymatch">hieronder</a> voor een
+	omschrijving hoe EekBoek bepaalt met welk verkoop-boekstuk deze
+	betaling correspondeert.
+    </td>
+  </tr>
+</table>
+
+<p>Syntaxvoorbeeld van een vrije boekingsregel:</p>
+
+<blockquote class="code">std 07-09-2005 Girotel -3,50 4980</blockquote>
+
+<p>De onderdelen:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>std</code></td>
+    <td>Dit geeft aan dat het een standaard (vrije) boeking betreft.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>07-09-2005</code></td>
+    <td>De boekingsdatum voor deze boekstukregel.
+	<br>Deze mag worden weggelaten, in welk geval de boekingsdatum
+	van het boekstuk wordt gebruikt.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>Girotel</code></td>
+    <td>De omschrijving van deze boekstukregel.
+	<br>Indien deze spaties bevat moeten er aanhalingstekens
+	omheen worden geplaatst.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-3,50</code></td>
+    <td>Het bedrag.
+	<br>Een te ontvangen bedrag wordt als positief debdrag opgegeven,
+	want het banksaldo vermeerdert erdoor.
+	<br>Een te betalen bedrag wordt als negatief bedrag opgegeven.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>4980</code></td>
+    <td>De grootboekrekening waarop dit bedrag dient te worden geboekt.
+	<br>Indien aan deze grootboekrekening een BTW tarief is
+	gekoppeld, kan dit op deze boeking worden toegepast. 
+	Omdat dit een ongebruikelijke handeling is, moet in dit
+	geval moet de BTW tariefcode ter bevestiging expliciet worden
+	opgegeven met de toevoeging '<code>@<var>X</var></code>'
+	achter het bedrag.
+	<br>In andere gevallen wordt de waarschuwing &ldquo;Boekingen
+	met BTW zijn niet mogelijk in een bankboek. De BTW is op nul
+	gesteld.&rdquo; gegeven. Om deze te vermijden specificeert u
+	'<code>@0</code>' achter het bedrag.
+    </td>
+  </tr>
+</table>
+
+<a name="paymatch"></a><h3>Hoe wordt een betaling gekoppeld aan een
+boekstuk?</h3>
+
+<p>Wanneer een betaling wordt geboekt voor een bepaalde crediteur of
+debiteur, dan zal EekBoek in de openstaande posten zoeken naar een
+boekstuk (inkoop resp. verkoop) waarvan het boekstuktotaal overeenkomt
+met het opgegeven bedrag. Hiermee kunnen 98% van de betalingen soepel
+en eenvoudig worden afgewerkt.</p>
+
+<p>Wanneer er meerdere openstaande posten zijn voor dezelfde relatie
+met hetzelfde bedrag, dan wordt de oudste openstaande post geacht te
+zijn voldaan.</p>
+
+<p>Een complicatie ontstaat wanneer een betaling niet precies
+overeenkomt met het betreffende inkoop/verkoop boekstuk. Dit kan
+bijvoorbeeld optreden wanneer een betaling in gedeelten wordt voldaan.
+In dit geval kunt u, in plaats van de debiteur/crediteur code, een
+boekstuknummer opgeven. Het opgegeven bedrag wordt dan op dit (geheel
+of gedeeltelijk openstaand) boekstuk in mindering gebracht.
+

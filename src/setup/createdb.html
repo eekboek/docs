@@ -1,0 +1,26 @@
+[%# $Id$ %]
+
+<h2>Het aanmaken van de database</h2>
+
+<p>Elke administratie wordt opgeslagen in een eigen database. De
+eerste stap in het opzetten van een administratie is daarom het
+aanmaken van de database. Deze handeling moet buiten EekBoek worden
+uitgevoerd, omdat er geen database-onafhankelijke manier is om
+databases aan te maken.</p>
+
+<p>EekBoek databases dragen namen die alle beginnen met het
+voorvoegsel '<code>eekboek_</code>', dit om ze te kunnen onderscheiden
+van andere, niet-EekBoek databases die op het systeem aanwezig kunnen
+zijn.</p>
+
+<p>Het aanmaken van een '<code>test</code>' database in PostgreSQL
+kan met de volgende systeemopdracht:</p>
+
+<blockquote class="code">createdb eekboek_test</blockquote>
+
+<p>PostgreSQL werkt standaard met UNICODE data. Indien de
+administratiegegevens zijn gesteld in de ISO Latin1 tekenset dient bij
+het aanmaken van de database de command line optie '<code>-E</code>'
+te worden meegegeven:</p>
+
+<blockquote class="code">createdb -E latin1 eekboek_test</blockquote>

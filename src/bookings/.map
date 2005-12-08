@@ -1,0 +1,5 @@
+menu Inkoopfakturen payable
+menu Verkoopfakturen receivable
+menu Bankafschriften bank
+menu Kas cash
+menu Memoriaal memorial

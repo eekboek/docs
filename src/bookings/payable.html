@@ -1,0 +1,112 @@
+<h2>Inkoopfakturen</h2>
+
+<p>Inkoopfakturen worden geboekt in een dagboek van het type Inkoop.
+Zo'n dagboek heet typisch 'Inkoop' of 'Inkopen', maar de keuze van de
+naam is vrij. Ook mogen er meerdere inkoopdagboeken tegelijk zijn.</p>
+
+<p>De naam van de boekingsopdracht is gelijk aan die van het dagboek. We
+nemen hier als voorbeeld het dagboek 'Inkopen'.</p>
+
+<p>Zoals alle boekingen bestaat ook de inkoopboeking uit twee delen:
+de <dfn>boekstukkop</dfn> en een of meer <dfn>boekstukregels</dfn>.</p>
+
+<p>Syntaxvoorbeeld van een boekstukkop:</p>
+
+<blockquote class="code">inkopen:24 14-09-2005 Kantoorartikelen OFFCENTR</blockquote>
+
+<p>De onderdelen:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>inkopen:24</code></td>
+    <td>Het boekstuknummer. Dit bestaat uit de naam van het dagboek
+	en het (vrij te kiezen) boekstuknummer, gescheiden door een
+	dubbele punt '<code>:</code>'.
+	<br>Het volgnummer mag worden weggelaten, in welk geval
+	EekBoek zelf een volgnummer toekent. Het verdient echter
+	aanbeveling om altijd expliciet een volgnummer op te geven.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>24-09-2005</code></td>
+    <td>De boekingsdatum in <a href="../date.html">een van de ondersteunde vormen</a>.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>Kantoorartikelen</code></td>
+    <td>De omschrijving van dit boekstuk.
+	<br>Indien deze spaties bevat moeten er aanhalingstekens
+	omheen worden geplaatst.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>OFFCENTR</code></td>
+    <td>De code van de crediteur. Conventioneel wordt deze in
+	hoofdletters gegeven, maar dit is niet vereist.</td>
+  </tr>
+</table>
+
+<p>Syntaxvoorbeeld van een boekingsregel:</p>
+
+<blockquote class="code">Papier 29,95 4930</blockquote>
+
+<p>De onderdelen:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>Papier</code></td>
+    <td>De omschrijving van deze boekstukregel.
+	<br>Indien deze spaties bevat moeten er aanhalingstekens
+	omheen worden geplaatst.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>29,95</code></td>
+    <td>Het bedrag.
+	<br>Een te betalen bedrag wordt als positief bedrag opgegeven,
+	een credit-faktuur als negatief bedrag.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>4930</code></td>
+    <td>De grootboekrekening waarop dit bedrag moet worden
+	geboekt.</td>
+  </tr>
+</table>
+
+<p>Zoals gezegd kan een boekstuk meerdere regels bevatten. Dit wordt
+voornamelijk bepaald door de aard van de faktuur. De som van alle
+bedragen is het boekstuktotaal. Dit wordt geboekt op de vaste
+tegenrekening voor inkoopboekingen (zie <a
+href="../stdacc.html">Koppelingen</a>).</p>
+
+[% PROCESS "$page.dir/btw.tt" %]
+
+<p>Tot slot is het mogelijk het boekstuktotaal te verifiëren door aan
+de boekingsopdracht de optie '<code>--totaal=<var>bedrag</var></code>'
+toe te voegen.</p>
+
+<p>Een voorbeeld:</p>
+
+<blockquote class="code">inkopen:24 14-09-2005 Kantoorartikelen OFFCENTR --totaal=54,25 \
+  Papier   29,95   4930 \
+  Leerboek 24,30@L 4930</blockquote>
+
+<p>In dit voorbeeld worden twee boekstukregels verwerkt in dagboek
+Inkopen. Op het leerboek is het lage BTW tarief van toepassing, dit is
+opgegeven door middel van de toevoeging '<code>@L</code>'.</p>
+
+<p>Een wat meer complex voorbeeld. KPN stuurt een telefoonrekening van
+131,68. Het bedrag exclusief BTW is 110,73. Van dit bedrag is 0,48
+BTW-vrij. Dit resulteert in de volgende boeking:</p>
+
+<blockquote class="code">Inkopen:22 31-08-2005 KPN --totaal=131,68 \
+  "Telefoon BTW hoog" 110,73-0,48@2 4900 \
+  "Telefoon BTW vrij" 0,48@0 4900</blockquote>
+
+<p>In de eerste boekstukregel wordt de 0,48 afgetrokken van 110,73, en
+<em>dat geheel</em> wordt geboekt tegen BTW tariefcode 2. Dit is in deze
+administratie hoog tarief waarbij het bedrag <em>exclusief</em> de BTW
+wordt opgegeven.</p>
+
+<p>In de tweede boekstukregel wordt de 0,48 opgevoerd zonder BTW
+(toevoeging '<code>@0</code>').</p>

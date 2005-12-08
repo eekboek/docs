@@ -1,0 +1,189 @@
+[%# $Id$ %]
+
+<h2>De EekBoek Shell</h2>
+
+<p>De EekBoek Shell '<code>ebshell</code>' is een tekst-interface voor
+het EekBoek systeem.</p>
+
+<p>De shell kan op drie manieren worden gebruikt: interactief,
+single-line en batch.</p>
+
+<p>In single-line mode wordt een enkele opdracht direct op de
+opstartregel meegegeven, voorafgegaan door de aanduiding
+'<code>-c</code>':</p>
+
+<blockquote class="code">ebshell -c btwaangifte januari</blockquote>
+
+<p>De shell draait in batch mode indien er bij het opstarten een
+bestand als standaardinvoer wordt meegegeven:</p>
+
+<blockquote class="code">ebshell &lt; opdrachten.eb</blockquote>
+
+<p>Het gehele bestand wordt gelezen en alle opdrachten uitgevoerd.</p>
+
+<p>In batch mode geldt dat lege regels, en regels die met een
+'<code>#</code>'-teken beginnen worden genegeerd. Verder mogen
+opdrachten over meerdere regels worden gespreid door het plaatsen van
+een '<code>\</code>'-teken aan het eind van de regel,
+bijvoorbeeld:</p>
+
+<blockquote class="code">postbank:12 12-03-2004 "Diverse boekingen" \
+      crd XS4ALL 21,78 \
+      deb ACME 632,11</blockquote>
+
+<p>Als de shell niet op een van bovengenoemde manieren wordt
+opgestart, dan draait hij interactief en zal opdrachten lezen vanaf de
+terminal. Elke ingelezen regel vormt een opdracht. Het inlezen vindt
+plaats door middel van de perl module
+<code>Term::ReadLine::Gnu</code>. Zie de <a href="http://search.cpan.org/~hayashi/Term-ReadLine-Gnu-1.15/Gnu.pm">documentatie van deze module</a>
+voor alle mogelijkheden. Uitgevoerde opdrachten worden tot in bepaalde
+mate bewaard en kunnen later worden teruggehaald door middel van de
+pijltje-omhoog toets.</p>
+
+<p>De shell interpreteert de invoer als een serie argumenten
+gescheiden door spaties of andere whitespace. Indien een argument
+spaties moet bevatten, bijvoorbeeld de omschrijving van een boeking,
+dan dient om dit argument aanhalingstekens te worden geplaatst. Een
+voorbeeld hiervan zag u reeds hierboven.</p>
+
+<h3>Completion</h3>
+
+<p>De shell ondersteunt zg. completion door middel van de TAB
+toets.</p>
+
+<p>Aan het begin van de regel, bij het intoetsen van de naam van de
+opdracht, zal het indrukken van de TAB toets de opdrachtnaam aanvullen
+voor zover mogelijk, en anders een lijstje tonen van
+mogelijkheden.</p>
+
+<p>Bij voorbeeld:</p>
+
+<blockquote class="code">eekboek> ver<font color="red">[TAB]</font>
+verkopen   verwijder  
+ver<font color="red"><blink>_</blink></font></blockquote>
+
+<p>Na het intoetsen van de letters "ver" wordt op de TAB gedrukt. De
+opdracht "ver" is nog niet uniek, en de twee mogelijkheden "verkopen"
+en "verwijder" worden getoond. De ingetoetste tekst wordt weer
+aangeboden om verder afgemaakt te worden.</p>
+
+<p>In boekingsopdrachten, op plaatsen waar de code van een relatie
+wordt verwacht, zal het indrukken van de TAB toets proberen de relatie
+code op te zoeken en af te maken, Zijn er meerdere mogelijkheden dan
+worden deze getoond:</p>
+
+<blockquote class="code">eekboek> inkopen:24 16-08-2005 XS<font color="red">[TAB]</font>
+inkopen:24 16-08-2005 XS4ALL <font color="red"><blink>_</blink></font></blockquote>
+
+<p>In boekingsopdrachten, op plaatsen waar een grootboekrekening wordt
+verwacht, zal het indrukken van de TAB toets proberen dit nummer op te
+zoeken en af te maken, Zijn er meerdere mogelijkheden dan worden deze
+getoond, samen met de beschrijving van de grootboekrekening:</p>
+
+<blockquote class="code">eekboek> inkopen:24 16-08-2005 XS4ALL Kosten 490<font color="red">[TAB]</font>
+     4900  Telefoon- en faxkosten
+     4905  Internetkosten
+inkopen:24 16-08-2005 XS4ALL Kosten 490<font color="red"><blink>_</blink></font></blockquote>
+
+<h3>Command line opties</h3>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>-c<br>--command</code></td>
+    <td>De rest van de opdrachtregel wordt als een ebshell opdracht
+	ge&iuml;nterpreteerd.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-e<br>--echo</code></td>
+    <td>In batch mode worden alle ingelezen commando's ook
+	weggeschreven (ge-echo-t) naar de standaard uitvoer.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--dataset=<var>name</var></code></td>
+    <td>De opgegeven database wordt gebruikt in plaats van de
+	standaard database. Zie <a
+	href="#EB_DB_NAME"><code>EB_DB_NAME</code></a> hieronder.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--journaal</code></td>
+    <td>Na elke boeking wordt automatisch de bijbehorende
+	journaalregel getoond.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--boekjaar=<var>code</var></code></td>
+    <td>Selecteer een boekjaar uit een administratie die meerdere
+	boekjaren omvat.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--schema=<var>name</var></code></td>
+    <td>Initialiseer de administratie met het opgegeven schema. Dit
+	kan uitsluitend indien de te gebruiken database nog helemaal
+	leeg is.
+	<br>Het opgegeven schema wordt gezocht in de volgende
+	plaatsen:
+	<br><code>./<var>naam</var>.dat</code>
+	<br><code>schema/<var>naam</var>.dat</code>
+	<br><code><var>EBLIB</var>/<var>naam</var>.dat</code>
+	<br>In het laatste geval staat <var>EBLIB</var> voor de
+	locatie waar EekBoek is ge&iuml;nstalleerd.
+    </td>
+  </tr>
+</table>
+
+<h3>Environment variabelen</h3>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="EB_DB_NAME"><code>EB_DB_NAME</code></a></td>
+    <td>De naam van de te gebruiken database.<br>
+	De command line optie <code>--dataset</code> (zie hierboven)
+	prevaleert over het
+	zetten van deze environment variabele.
+	Let op! De werkelijke naam wordt voorzien van het voorvoegsel
+	<code>eekboek_</code>. Dit om de EekBoek databases te kunnen
+	onderscheiden van de overige databases.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>EB_LANG</code></td>
+    <td>Deze variable kan worden gebruikt om de door EekBoek te
+	gebruiken taal (locale) te selecteren.<br>Standaard wordt de
+	instelling van het systeem overgenomen.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>EB_SQL_NOW</code></td>
+    <td>Deze variable kan worden gebruikt om de 'huidige' datum te
+	zetten. Dit is enkel relevant voor regressietests, waarin
+	de gegenereerde rapporten worden vergeleken met
+	standaardversies en het onwenselijk is als steeds de
+	rapportage-datum zou wijzigen.<br>
+	<em>In alle andere gevallen kan het zetten van deze environment
+	variabele tot ongewenste problemen leiden.</em>
+    </td>
+  </tr>
+</table>
+
+<h3>Bestanden</h3>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>$HOME/.eekboek/history</code></a></td>
+    <td>In dit bestand worden de eerder uitgevoerde opdrachten
+	opgeslagen voor hergebruik door
+	<code>Term::ReadLine::Gnu</code>.
+    </td>
+  </tr>
+</table>
+
+<h3>Excuus</h3>
+
+<p>De EB-shell maakt gebruik van enkele standaard <a
+href="http://www.cpan.org">CPAN</a> modules. Hierdoor kan het
+voorkomen dat er soms Engelse meldingen tussen de Nederlandse teksten
+door verschrijnen. Dit zal op termijn worden aangepast.</p>

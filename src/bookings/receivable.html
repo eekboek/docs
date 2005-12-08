@@ -1,0 +1,87 @@
+<h2>Verkoopfakturen</h2>
+
+<p>Verkoopfakturen worden geboekt in een dagboek van het type Verkoop.
+Zo'n dagboek heet typisch 'Verkoop' of 'Verkopen'. De keuze van de
+naam is vrij, en er mogen meerdere verkoopdagboeken tegelijk zijn.</p>
+
+<p>De naam van de boekingsopdracht is gelijk aan die van het dagboek.
+We nemen hier als voorbeeld het dagboek 'Verkopen'.</p>
+
+<p>Zoals alle boekingen bestaat ook de verkoopboeking uit twee delen: de
+<dfn>boekstukkop</dfn> en een of meer <dfn>boekstukregels</dfn>.</p>
+
+<p>Syntaxvoorbeeld van een boekstukkop:</p>
+
+<blockquote class="code">verkopen:12 11-09-2005 Consultancy ACME</blockquote>
+
+<p>De onderdelen:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>verkopen:12</code></td>
+    <td>Het boekstuknummer. Dit bestaat uit de naam van het dagboek
+	en het (vrij te kiezen) boekstuknummer, gescheiden door een
+	dubbele punt '<code>:</code>'.
+	<br>Het volgnummer mag worden weggelaten, in welk geval
+	EekBoek zelf een volgnummer toekent. Het verdient echter
+	aanbeveling om altijd expliciet een volgnummer op te geven.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>11-09-2005</code></td>
+    <td>De boekingsdatum in <a href="../date.html">een van de ondersteunde vormen</a>.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>Consultancy</code></td>
+    <td>De omschrijving van dit boekstuk.
+	<br>Indien deze spaties bevat moeten er aanhalingstekens
+	omheen worden geplaatst.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>ACME</code></td>
+    <td>De code van de debiteur. Conventioneel wordt deze in
+	hoofdletters gegeven, maar dit is niet vereist.</td>
+  </tr>
+</table>
+
+<p>Syntaxvoorbeeld van een boekingsregel:</p>
+
+<blockquote class="code">Werkzaamheden 369,82 8104</blockquote>
+
+<p>De onderdelen:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>Werkzaamheden</code></td>
+    <td>De omschrijving van deze boekstukregel.
+	<br>Indien deze spaties bevat moeten er aanhalingstekens
+	omheen worden geplaatst.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>369,82</code></td>
+    <td>Het bedrag.
+	<br>Een te ontvangen bedrag wordt als positief bedrag opgegeven,
+	een debitering als negatief bedrag.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>8104</code></td>
+    <td>De grootboekrekening waarop dit bedrag moet worden
+	geboekt.</td>
+  </tr>
+</table>
+
+<p>Zoals gezegd kan een boekstuk meerdere regels bevatten. Dit wordt
+voornamelijk bepaald door de aard van de faktuur. De som van alle
+bedragen is het boekstuktotaal. Dit wordt geboekt op de vaste
+tegenrekening voor verkoopboekingen (zie <a
+href="../stdacc.html">Koppelingen</a>).</p>
+
+[% PROCESS "$page.dir/btw.tt" %]
+
+<p>Tot slot is het mogelijk het boekstuktotaal te verifiëren door aan
+de boekingsopdracht de optie '<code>--totaal=<var>bedrag</var></code>'
+toe te voegen.</p>
+

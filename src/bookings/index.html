@@ -1,0 +1,33 @@
+<h2>Boekingen</h2>
+
+<p>Alle wijzigingen in de boekhouding worden uitgevoerd door middel
+van boekingen. Voorbeelden van boekingen zijn inkoopfakturen,
+verkoopfakturen, giro- en bankafschriften, en afschrijvingen.</p>
+
+<p>Boekingen vinden plaats in z.g. dagboeken. Een administratie kan
+een willekeurig aantal dagboeken omvatten, vari&euml;rend van een stuk
+of vijf tot vele tientallen, zelfs honderden. In elk van de dagboeken
+vinden verwante boekingen plaats.</p>
+
+<p>EekBoek ondersteunt vijf soorten dagboeken:</p>
+<ul>
+  <li>Inkoop, voor het boeken van inkoopfakturen;</li>
+  <li>Verkoop, voor het boeken van verkoopfakturen;</li>
+  <li>Bank, voor het boeken van giro- en bankafschriften;</li>
+  <li>Kas, voor het boeken van kastransacties;</li>
+  <li>Memoriaal, voor overige boekingen.</li>
+</ul>
+
+<p>Aan elk dagboek, behalve de memoriaals, is een grootboekrekening
+gekoppeld (zie <a href="../stdacc.html">Koppelingen</a>). Boekhoudtechnisch moet
+elke boeking in evenwicht zijn, dus evenveel debet als credit. Dit
+wordt bereikt door het totale bedrag van de boeking tegen te boeken op
+de gekoppelde grootboekrekening.</p>
+
+<p>Elke boeking resulteert in een journaalpost. In de EekBoek shell
+kan deze journaalpost worden getoond door direct na de
+boekingsopdracht de opdracht "journaal" in te geven. Ook is het
+mogelijk de EekBoek shell op te starten met de command line optie
+"<code>--journaal</code>", waardoor de journaalposten automatisch
+worden getoond na elke boeking.
+
