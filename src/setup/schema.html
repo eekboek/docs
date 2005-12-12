@@ -2,7 +2,8 @@
 
 <h2>Het vullen van de database met de administratiegegevens</h2>
 
-<p>Nadat de database is aangemaakt moet deze worden gevuld met de administratiegegevens.</p>
+<p>Nadat de database is aangemaakt moet deze worden gevuld met de
+administratiegegevens.</p>
 
 <p>Een administratie omvat twee soorten gegevens: de beschrijving van
 de structuur en de inhoud van de administratie.</p>
@@ -24,6 +25,19 @@ gedefinieerd:</p>
   <li>Een niet-ingesprongen tekst introduceert een nieuw onderdeel.</li>
   <li>Alle ingesprongen regels zijn gegevens voor dat onderdeel.</li>
 </ul>
+
+<p>Het verwerken van de schema-definities geschiedt met de ebshell als
+volgt:</p>
+
+<blockquote class="code">ebshell --schema=<var>naam</var></blockquote>
+
+<p>Het opgegeven schema wordt gezocht in de volgende
+plaatsen:
+<br><code>./<var>naam</var>.dat</code>
+<br><code>schema/<var>naam</var>.dat</code>
+<br><code><var>EBLIB</var>/schema/<var>naam</var>.dat</code>
+<br>In het laatste geval staat <var>EBLIB</var> voor de
+locatie waar EekBoek is ge&iuml;nstalleerd.<p.>
 
 <a name="acc"></a><h3>Het rekeningschema</h3>
 
@@ -144,3 +158,9 @@ het bedrag exclusief BTW aangeven.</p>
    2  BTW 19% excl.     :tariefgroep=hoog :perc=19,00 :exclusief
    3  BTW 6,0% incl.    :tariefgroep=laag :perc=6,00
    4  BTW 6,0% excl.    :tariefgroep=laag :perc=6,00 :exclusief</blockquote>
+
+<h3>Opnieuw aanmaken schema-gegevens</h3>
+
+<p>Met de ebshell opdracht '<code>dump_schema</code>' wordt het schema
+van de onderhavige administratie naar de standaard uitvoer geschreven
+in een vorm die later weer kan worden gebruikt om in te voeren.</p>

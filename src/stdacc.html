@@ -2,4 +2,52 @@
 
 <h2>Koppelingen</h2>
 
-<h2>*** In voorbereiding ***</h2>
+<p>Door middel van zogenaamde 'koppelingen' kunnen speciale
+betekenissen worden toegekend aan grootboekrekeningen.</p>
+
+<p>Bijvoorbeeld, de vaste tegenrekening voor inkoopboekingen heet
+conventioneel 'Crediteuren'. In het <a
+href="setup/schema.html#acc">schema</a> kan de koppeling worden
+aangegeven als volgt:</p>
+
+<blockquote class="code">  1600  C  Crediteuren    :koppeling=crd</blockquote>
+
+<p>De volgende koppelingen zijn mogelijk:</p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td>crd</td>
+    <td>de tegenrekening (Crediteuren) voor inkoopboekingen</td>
+  </tr>
+  <tr valign="top">
+    <td>deb</td>
+    <td>de tegenrekening (Debiteuren) voor verkoopboekingen</td>
+  </tr>
+  <tr valign="top">
+    <td>btw_ih</td>
+    <td>de rekening voor BTW boekingen voor inkopen, hoog tarief</td>
+  </tr>
+  <tr valign="top">
+    <td>btw_il</td>
+    <td>idem, laag tarief</td>
+  </tr>
+  <tr valign="top">
+    <td>btw_vh</td>
+    <td>idem, verkopen, hoog tarief</td>
+  </tr>
+  <tr valign="top">
+    <td>btw_vl</td>
+    <td>idem, laag tarief</td>
+  </tr>
+  <tr valign="top">
+    <td>btw_ok</td>
+    <td>rekening voor de betaalde BTW</td>
+  </tr>
+  <tr valign="top">
+    <td>winst</td>
+    <td>rekening waarop het bedrijfsresultaat wordt geboekt</td>
+  </tr>
+</table>
+
+<p><strong>Let op!</strong> Elk van deze koppelingen moet precies
+&eacute;&eacute;nmaal in het schema voorkomen.</p>

@@ -19,10 +19,10 @@ vinden verwante boekingen plaats.</p>
 </ul>
 
 <p>Aan elk dagboek, behalve de memoriaals, is een grootboekrekening
-gekoppeld (zie <a href="../stdacc.html">Koppelingen</a>). Boekhoudtechnisch moet
-elke boeking in evenwicht zijn, dus evenveel debet als credit. Dit
-wordt bereikt door het totale bedrag van de boeking tegen te boeken op
-de gekoppelde grootboekrekening.</p>
+gekoppeld (zie <a href="../stdacc.html">Koppelingen</a>).
+Boekhoudtechnisch moet elke boeking in evenwicht zijn, dus evenveel
+debet als credit. Dit wordt bereikt door het totale bedrag van de
+boeking tegen te boeken op de gekoppelde grootboekrekening.</p>
 
 <p>Elke boeking resulteert in een journaalpost. In de EekBoek shell
 kan deze journaalpost worden getoond door direct na de
@@ -30,4 +30,50 @@ boekingsopdracht de opdracht "journaal" in te geven. Ook is het
 mogelijk de EekBoek shell op te starten met de command line optie
 "<code>--journaal</code>", waardoor de journaalposten automatisch
 worden getoond na elke boeking.
+
+<h3>Identificatie van boekingen: boekstuknummers</h3>
+
+<p>Elke boeking in het systeem is uniek identificeerbaar middels het
+boekstuknummer.</p>
+
+<p>Het boekstuknummer wordt gevormd door de naam van het dagboek, een
+dubbele punt '<code>:</code>', en het volgnummer. Dit laatste nummer
+is bij het boeken vrij te kiezen maar het verdient aanbeveling (en het
+is wettelijk verplicht) om aaneengesloten nummers te gebruiken.</p>
+
+<p>Indien een administratie meerdere boekjaren omvat kunnen de
+boekstukken uit een ander boekjaar worden ge&iuml;dentificeerd door de
+boekjaarcode ook op te nemen in het boekstuknummer, b.v. '<code>inkopen:2003:57</code>'.</p>
+
+<h3>Verwijderen van boekingen</h3>
+
+<p>De EekBoek shell opdracht '<code>verwijder</code>' verwijdert een
+boeking.</p> 
+
+<p>De verwijderde boeking wordt teruggeplaatst in de invoer van de
+EekBoek shell en kan met de Pijltje-Omhoog toets worden klaargezet
+voor verdere verwerking.</p>
+
+<p>De opdracht verwijdert standaard de laatst uitgevoerde boeking,
+maar er kan ook een boekstuk worden geselecteerd door dit als argument
+mee te geven, bijvoorbeeld:</p>
+
+<blockquote class="code">verwijder inkopen:12</blockquote>
+
+<p><strong>Let op:</strong> Een boeking kan alleen worden verwijderd
+wanneer deze niet wordt gebruikt, bijvoorbeeld in een ander
+boekstuk.</p>
+
+<p>De opdracht '<code>toon</code>' toont een boeking in een
+vorm waarin deze opnieuw (of gewijzigd) kan worden uitgevoerd.</p>
+
+<p>De getoonde boeking wordt tevens teruggeplaatst in de invoer van de
+EekBoek shell en kan met de Pijltje-Omhoog toets worden klaargezet
+voor verdere verwerking.</p>
+
+<p>De opdracht toont standaard de laatst uitgevoerde boeking, maar er
+kan ook een boekstuk worden geselecteerd door dit als argument mee te
+geven, bijvoorbeeld:</p>
+
+<blockquote class="code">toon inkopen:12</blockquote>
 

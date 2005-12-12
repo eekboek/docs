@@ -1,0 +1,51 @@
+[%# $Id$ %]
+
+<h3>Command line opties</h3>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>-c<br>--command</code></td>
+    <td>De rest van de opdrachtregel wordt als een ebshell opdracht
+	ge&iuml;nterpreteerd.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-e<br>--echo</code></td>
+    <td>In batch mode worden alle ingelezen commando's ook
+	weggeschreven (ge-echo-t) naar de standaard uitvoer.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--dataset=<var>name</var></code></td>
+    <td>De opgegeven database wordt gebruikt in plaats van de
+	standaard database. Zie <a
+	href="#EB_DB_NAME"><code>EB_DB_NAME</code></a> hieronder.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--journaal</code></td>
+    <td>Na elke boeking wordt automatisch de bijbehorende
+	journaalregel getoond.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--boekjaar=<var>code</var></code></td>
+    <td>Selecteer een boekjaar uit een administratie die meerdere
+	boekjaren omvat.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--schema=<var>name</var></code></td>
+    <td>Initialiseer de administratie met het opgegeven schema. Dit
+	kan uitsluitend indien de te gebruiken database nog helemaal
+	leeg is.
+	<br>Het opgegeven schema wordt gezocht in de volgende
+	plaatsen:
+	<br><code>./<var>naam</var>.dat</code>
+	<br><code>schema/<var>naam</var>.dat</code>
+	<br><code><var>EBLIB</var>/schema/<var>naam</var>.dat</code>
+	<br>In het laatste geval staat <var>EBLIB</var> voor de
+	locatie waar EekBoek is ge&iuml;nstalleerd.
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,8 @@
+menu Openingsbalans open
+menu Balans balans
+menu "Proef- en Saldibalans" proef
+menu Resultatenrekening result
+menu Journaal journaal
+menu Grootboek grootboek
+menu "Openstaande posten" unpaid
+menu "BTW aangifte" btw
