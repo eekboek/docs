@@ -1,0 +1,39 @@
+[%# $Id$ %]
+
+<h2>Werkwijze</h2>
+
+<p>Zoals verderop in deze documentatie wordt beschreven, wordt een
+EekBoek administratie bepaald door twee zaken: het <dfn>schema</dfn>
+en de <dfn>mutaties</dfn>.</p>
+
+<p>Het schema bepaalt de <em>structuur</em> van de administratie,
+zoals het rekingschema, de dagboeken en BTW tarieven. Het schema wordt
+aangemaakt en onderhouden in de vorm van een tekstbestand, dat bij
+het aanmaken van de administratie eenmalig wordt geladen. Meer
+hierover in <a href="../setup/schema.html#acc">Het vullen van de database
+met de administratiegegevens</a>.</p>
+
+<p>De mutaties (in bredere zin) bepalen de <em>inhoud</em> van de
+administratie, zoals de debiteuren en crediteuren, openingsbalans, en
+de eigenlijke boekingen.</p>
+
+<p>Vanwege de batch-faciliteit van de <a
+href="../ebshell/index.html">EekBoek shell</a> is het mogelijk ook
+alle mutaties te onderhouden in een tekstbestand. Met een enkele druk
+op de knop kan te allen tijde de gehele administratie opnieuw worden
+opgebouwd door het verwerken van het schema en het mutatiebestand.</p>
+
+<p>Natuurlijk is het ook mogelijk om incrementeel te werken, en steeds
+interactief met de <a href="../ebshell/index.html">EekBoek
+shell</a> mutaties toe te voegen. Of een combinatie: elke nieuwe
+mutatie toevoegen aan het mutatiebestand en dan alleen de nieuw
+toegevoegde mutaties via de batch-faciliteit verwerken. De meeste
+tekst-editors beschikken over de mogelijkheid om een deel van een
+tekstbestand naar een programma te sturen.</p>
+
+<p>De EekBoek grafische shell (GUI), op dit moment nog in
+ontwikkeling, werkt uiteraard incrementeel.</p>
+
+<p>Te zijner tijd zal EekBoek ook de voorziening bieden om de actuele
+inhoud van een administratie weer geheel weg te schrijven naar een
+volledig mutatiebestand. En daarmee is de cirkel weer rond.</p>
