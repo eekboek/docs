@@ -71,17 +71,23 @@ en tevens gelijk aan het eerder opgegeven balanstotaal.</p>
 staan, dan moeten die nu worden ingevoerd met een of meer
 '<code>adm_relatie</code>' opdrachten.</p>
 
-<blockquote class="code">adm_relatie 2003-12-31 "Printwerk" crd KESTER 48.79</blockquote>
+<blockquote class="code">adm_relatie inkoop:2003:67 2003-12-31 "Printwerk" KESTER 48.79</blockquote>
 
 <p>De '<code>adm_relatie</code>' opdracht kent de volgende
 onderdelen:</p>
 <ul>
+  <li>Het boekstuknummer, in volledige vorm:
+      '<code><var>Dagboek</var>:<var>Boekjaar</var>:<var>Volgnummer</var></code>'.
+      <br>Hier kan dus hetzelfde nummer worden opgegeven als in het
+      oorpronkelijke, voorafgaande boekjaar is gebruikt.
+      <br><strong>Belangrijk:</strong> Indien het oorspronkelijke dagboek
+      niet in de huidige administratie voorkomt, kan een willekeurig
+      inkoop/verkoop dagboek worden genomen. Het dagboek wordt
+      uitsluitend gebruikt om te bepalen of deze relatie een debiteur
+      dan wel crediteur is.</li>
   <li>De faktuurdatum. Deze ligt dus v&ograve;&ograve;r het begin van
       dit boekjaar.</li>
   <li>De omschrijving van de faktuur.</li>
-  <li>De aanduiding '<code>crd</code>' indien het een faktuur aan een
-      crediteur betreft, of '<code>deb</code>' voor slechtbetalende
-      debiteuren.</li>
   <li>De relatie-code voor de betreffende debiteur/crediteur.
       <br><strong>Belangrijk:</strong> Deze code moet bekend zijn,
       zodat het nodig kan zijn eerst de opdracht
