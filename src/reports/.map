@@ -4,5 +4,7 @@ menu "Proef- en Saldibalans" proef
 menu Resultatenrekening result
 menu Journaal journaal
 menu Grootboek grootboek
+menu "Debiteuren" debiteuren
+menu "Crediteuren" crediteuren
 menu "Openstaande posten" unpaid
 menu "BTW aangifte" btw
