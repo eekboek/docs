@@ -1,0 +1,32 @@
+  <tr valign="top">
+    <td><code>--output=<var>file</var></code></td>
+    <td>De uitvoer wordt naar het opgegeven bestand geschreven. De
+	extensie van de bestandsnaam bepaalt de vorm waarin de
+	rapportage plaatsvindt.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>--page=<var>regels</var></code></td>
+    <td>Voor tekstuele rapportages, het aantal regels per pagina.
+	<br>(Experimenteel)
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--gen-<var>type</var></code></td>
+    <td>Bepaalt de vorm waarin de
+	rapportage plaatsvindt. <code>--gen-text</code>, <code>--gen-csv</code> en
+	<code>--gen-html</code> zijn vrijwel altijd
+	mogelijk, overige waarden hangen af van de voor deze
+	rapportage ondersteunde plug-ins.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>--style=<var>name</var></code></td>
+    <td>Voor HTML uitvoer: specificeert de naam van de te gebruiken
+	stylesheet.
+	<br>Indien geen stylesheet wordt opgegeven wordt een
+	stylesheet genoemd naar de rapportage gebruikt. Bijvoorbeeld,
+	voor een balans rapportage wordt stylesheet
+	'<code>css/balans.css</code>' gebruikt. Met de optie
+	<code>--style=other</code> zou de gebruikte stylesheet worden:
+	'<code>css/other.css</code>'
+    </td>
+  </tr>
