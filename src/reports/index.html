@@ -17,38 +17,27 @@ opdrachten accepteren als regel de volgende opties:</p>
   <tr valign="top">
     <td><code>--periode=<var>periode</var></code></td>
     <td>De rapportage wordt uitgevoerd over de opgegeven <a
-	href="../period.html">periode</a>.</td>
+	href="../period.html">periode</a>.
+	<br>Het hangt af van de rapportage of een
+	<code>--periode</code> of <code>--per</code> optie is toegestaan.
+    </td>
   </tr>
   <tr valign="top">
     <td><code>--per=<var>datum</var></code></td>
-    <td>De rapportage wordt uitgevoerd met de opgegeven einddatum.</td>
+    <td>De rapportage wordt uitgevoerd met de opgegeven
+	<a href="../date.html">einddatum</a>.
+	<br>Het hangt af van de rapportage of een
+	<code>--periode</code> of <code>--per</code> optie is toegestaan.
+    </td>
   </tr>
   <tr valign="top">
-    <td><code>--output=<var>file</var></code></td>
-    <td>De uitvoer wordt naar het opgegeven bestand geschreven. De
-	extensie van de bestandsnaam bepaalt de vorm waarin de
-	rapportage plaatsvindt.</td>
+    <td><code>--boekjaar=<var>code</var></code></td>
+    <td>Het boekjaar waarover de rapportage moet worden aangemaakt.
+	<br>Deze optie kan niet worden gebruikt samen met
+	<code>--per</code> of <code>--periode</code>.
+    </td>
   </tr>
-  <tr valign="top">
-    <td><code>--page=<var>regels</var></code></td>
-    <td>Voor tekstuele rapportages, het aantal regels per pagina.</td>
-  </tr>
-  <tr valign="top">
-    <td><code>--gen-<var>type</var></code></td>
-    <td>Bepaalt de vorm waarin de
-	rapportage plaatsvindt. <code>--gen-text</code> is altijd
-	mogelijk, overige waarden hangen af van de voor deze
-	rapportage ondersteunde plug-ins.</td>
-  </tr>
-  <tr valign="top">
-    <td><code>--style=<var>name</var></code></td>
-    <td>Voor HTML uitvoer: specificeert de naam van de te gebruiken
-	stylesheet.
-	<br>Indien geen stylesheet wordt opgegeven wordt een
-	stylesheet genoemd naar de rapportage gebruikt. Bijvoorbeeld,
-	voor een balans rapportage wordt stylesheet
-	'<var>css/balans.css</var>' gebruikt. </td>
-  </tr>
+  [% PROCESS reports/outopt.tt2 -%]
 </table>
 
 <p>De volgende uitvoervormen zijn mogelijk:</p>
@@ -72,9 +61,9 @@ opdrachten accepteren als regel de volgende opties:</p>
     <td>Rapportage in HTML vorm.</td>
   </tr>
   <tr valign="top">
-    <td><code>--gen-odf</code></td>
-    <td><code>.odc</code></td>
-    <td>Rapportage in OpenDocument (OpenOffice.org Calc) vorm.</td>
+    <td><code>--gen-csv</code></td>
+    <td><code>.csv</code></td>
+    <td>Rapportage in CSV (generieke spreadsheet import) vorm.</td>
   </tr>
 </table>
 
@@ -86,6 +75,8 @@ opdrachten accepteren als regel de volgende opties:</p>
   <li><a href="result.html">Resultatenrekening</a></li>
   <li><a href="journaal.html">Journaal</a></li>
   <li><a href="grootboek.html">Grootboek</a></li>
+  <li><a href="debrept.html">Debiteurenboekingen</a></li>
+  <li><a href="crdrept.html">Crediteurenboekingen</a></li>
   <li><a href="unpaid.html">Openstaande posten</a></li>
   <li><a href="btw.html">BTW aangifte</a></li>
 </ul>
