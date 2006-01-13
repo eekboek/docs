@@ -45,18 +45,8 @@ deze grootboekrekening uitgevoerde boekingen.</p>
 <h3>Opties</h3>
 
 <table border="1" width="100%" cellpadding="5">
-  <tr valign="top">
-    <td><code>--per=<var>datum</var></code></td>
-    <td>De <a href="../date.html">einddatum</a> voor dit rapport. Deze datum moet liggen tussen
-	het begin van de administratie en de huidige datum.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--boekjaar=<var>code</var></code></td>
-    <td>Het boekjaar waarover de rapportage moet worden aangemaakt.
-	<br>Deze optie kan niet worden gebruikt samen met <code>--per</code>.
-    </td>
-  </tr>
+  [% PROCESS "$page.dir/tr_per.tt2" %]
+  [% PROCESS "$page.dir/tr_boekjaar.tt2" %]
   <tr valign="top">
     <td><code>--detail=<var>N</var></code></td>
     <td>Selecteert de verdichte vorm van balansrapportage, en bepaalt
@@ -73,10 +63,10 @@ deze grootboekrekening uitgevoerde boekingen.</p>
     <td>Een verkorte vorm voor <code>--detail=2</code>.
     </td>
   </tr>
-  [% PROCESS reports/outopt.tt2 %]
+  [% PROCESS "$page.dir/tr_outopt.tt2" %]
 </table>
 
-<p>Zonder datum-opties wordt een rapportage op grootboekrekening
+<p>Zonder datum- en detail-opties wordt een rapportage op grootboekrekening
 aangemaakt over het lopende boekjaar.</p>
 
 <h2>Uitvoer (rapportage op grootboekrekening)</h2>
@@ -112,7 +102,7 @@ programma-versie met de rapportagedatum.</p>
   <dt>Debet</dt>
   <dd>De debet waarde.</dd>
   <dt>Credit</dt>
-  <dd>De credet waarde.</dd>
+  <dd>De credit waarde.</dd>
 </dl>
 
 <h2>Uitvoer (verdichte rapportage)</h2>

@@ -1,0 +1,6 @@
+  <tr valign="top">
+    <td><code>--periode=<var>periodeaanduiding</var></code></td>
+    <td>De <a href="../period.html">begin- en einddatum</a> voor dit rapport. Deze datums moeten liggen tussen
+	het begin van de administratie en de huidige datum.
+    </td>
+  </tr>

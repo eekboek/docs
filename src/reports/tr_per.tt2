@@ -1,0 +1,6 @@
+  <tr valign="top">
+    <td><code>--per=<var>datum</var></code></td>
+    <td>De <a href="../date.html">einddatum</a> voor dit rapport. Deze datum moet liggen tussen
+	het begin van de administratie en de huidige datum.
+    </td>
+  </tr>
