@@ -44,18 +44,8 @@ begin van de rapportage-periode.</p>
 <h3>Opties</h3>
 
 <table border="1" width="100%" cellpadding="5">
-  <tr valign="top">
-    <td><code>--periode=<var>periodeaanduiding</var></code></td>
-    <td>De <a href="../period.html">begin- en einddatum</a> voor dit rapport. Deze datums moeten liggen tussen
-	het begin van de administratie en de huidige datum.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--boekjaar=<var>code</var></code></td>
-    <td>Het boekjaar waarover de rapportage moet worden aangemaakt.
-	<br>Deze optie kan niet worden gebruikt samen met <code>--periode</code>.
-    </td>
-  </tr>
+  [% PROCESS "$page.dir/tr_periode.tt2" %]
+  [% PROCESS "$page.dir/tr_boekjaar.tt2" %]
   <tr valign="top">
     <td><code>--detail=<var>N</var></code></td>
     <td>Selecteert de verdichte vorm van rapportage, en bepaalt
@@ -72,7 +62,7 @@ begin van de rapportage-periode.</p>
     <td>Een verkorte vorm voor <code>--detail=2</code>.
     </td>
   </tr>
-  [% PROCESS "$page.dir/outopt.tt2" %]
+  [% PROCESS "$page.dir/tr_outopt.tt2" %]
 </table>
 
 <p>Zonder datum- en detail-opties wordt een rapportage op grootboekrekening
