@@ -1,0 +1,165 @@
+[%# $Id %]
+
+<h3>Configuratiebestanden</h3>
+
+<p>De configuratie van EekBoek wordt vastgelegd in
+configuratiebestanden. Deze bestanden zijn gemodelleerd naar een va de
+vele de-facto standaards, die van de INI files.</p>
+
+<p>Bij het opstarten zal EekBoek de volgende configuratiebestanden
+verwerken indien ze aanwezig zijn:</p>
+
+<ol>
+  <li>Het systeem-globale configuratiebestand. Op een Unix of Linux
+      systeem is dit het bestand
+      <code>/etc/eekboek/eekboek.conf</code>.
+      <br>In dit bestand kan bijvoorbeeld de systeembeheerder de
+      instellingen voor de databases opnemen.
+  </li>
+  <li>Het gebruikers-specifieke configuratiebestand. Op een Unix of Linux
+      systeem is dit het bestand
+      <code>.eekboek/eekboek.conf</code> in de home-directory van de
+      gebruiker.
+      <br>In dit bestand kan een gebruiker bijvoorbeeld 
+      taalinstellingen en andere voorkeuren opnemen.
+      Wanneer er met slechts &eacute;&eacute;n administratie wordt gewerkt 
+      kan hier ook de naam van de te gebruiken database worden opgenomen.
+  </li>
+  <li>Het administratie-specifieke configuratiebestand. Op een Unix of Linux
+      systeem is dit het bestand
+      <code>.eekboek.conf</code> in de huidige directory.
+      <br>Wanneer met meerdere administraties wordt gewerkt is dit een
+      goede plek om de naam van de te gebruiken database op te nemen.
+  </li>
+</ol>
+
+<p>De gegevens uit de specifieke bestanden hebben voorrang boven die uit
+meer generieke bestanden.<p>
+
+<p>De EekBoek shell <code>ebshell</code> kan bovendien op de command
+line een <a href="ebshell/clo.html#config">configuratie-optie</a>
+worden meegegeven. Met deze optie wordt een extra configuratiebestand
+aangewezen dat weer voorrang heeft boven alle andere.</p>
+
+<p>De configuratiebestanden zijn verdeeld in secties, die elk een of
+meer variabelen kunnen bevatten. Bijvoorbeeld</p>
+
+<blockquote class="code">[Database]
+name = demoadmin
+</blockquote>
+
+<p>In dit kleine voorbeeldje is er sprake van een sectie,
+&lsquo;Database&rsquo;, met een variabele &lsquo;name&rsquo; met de
+waarde &lsquo;demoadmin&rsquo;. Voor meer details, zie b.v. <a
+href="http://en.wikipedia.org/wiki/Initialization_file">WikiPedia</a>.</p>
+
+<p><em>Omdat in de configuratiebestanden onder meer de
+internationalisatie-gegevens kunnen worden bepaald, kunnen deze
+bestanden zelf geen gebruik maken van internationalisatie. De
+gebruikte namen van secties en variabelen in de configuratiebestanden
+zijn daarom voor alle talen vast, en enigszins taal-neutraal (lees:
+engels-achtig).</em></p>
+
+<p>Verschillende configuratiegegevens hebben een fallback naar
+environment variabelen. Het gebruik van environment variabelen voor
+configuratiegegevens wordt echter afgeraden en zal wellicht in een
+toekomstige versie komen te vervallen.</p>
+
+<p><a name="locale"></a><b>Sectie "Locale"</b></p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="locale_lang"></a><code>lang</code></td>
+    <td>Deze variable kan worden gebruikt om de door EekBoek te
+	gebruiken taal (locale) te selecteren.<br>Standaard wordt de
+	instelling van het systeem overgenomen.
+	<br>Fallback: <code>EB_LANG</code>.
+	<br><em>Taalinstelling is alleen effectief in de
+	internationale versie van EekBoek, en niet in de standaardversie.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="locale_dpt"></a><code>decimalpt</code></td>
+    <td>Deze variable kan worden gebruikt om de door EekBoek te
+	gebruiken decimaalpunt te wijzigen.
+    </td>
+  </tr>
+</table>
+
+<p><a name="database"></a><b>Sectie "Database"</b></p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="database_name"></a><code>name</code></td>
+    <td>De naam van de te gebruiken database.<br>
+	De command line optie <code>--dataset</code> (zie hierboven)
+	prevaleert over het
+	zetten van deze configuratievariabele.
+	Let op! De werkelijke naam wordt, indien nodig, voorzien van
+	het voorvoegsel	<code>eekboek_</code>. Dit om de EekBoek
+	databases te kunnen onderscheiden van de overige databases.
+	<br>Fallback: <code>EB_DB_NAME</code>.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="database_user"></a><code>user</code></td>
+    <td>De naam van de database-gebruiker.<br>
+	Indien deze configuratievariabele niet is gezet, wordt de
+	loginnaam gebruikt.
+	<br>Fallback: <code>EB_DB_NAME</code>.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="database_password"></a><code>password</code></td>
+    <td>De toegangscode van de database-gebruiker, indien nodig.
+	<br>Fallback: <code>EB_DB_PASSWORD</code>.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="database_host"></a><code>host</code></td>
+    <td>De naam van het systeem waarop de database draait.<br>
+	Indien deze configuratievariabele niet is gezet wordt de
+	database verondersteld op het lokale systeem te draaien.
+	<br>Fallback: <code>EB_DB_HOST</code>.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="database_port"></a><code>port</code></td>
+    <td>De poort waarlangs de database is te benaderen.<br>
+	Indien deze configuratievariabele niet is gezet wordt een
+	database-specifieke standaardwaarde genomen.
+	<br>Fallback: <code>EB_DB_PORT</code>.
+    </td>
+  </tr>
+</table>
+
+<p><a name="internal"></a><b>Sectie "CSV"</b></p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="csv_separator"></a><code>separator</code></td>
+    <td>Deze variable kan worden gebruikt om de kolom-scheider in te
+	stellen voor de in de vorm van CSV bestanden aangemaakte
+	rapporten. Standaard staat de kolom-scheider ingesteld op
+	&lsquo;<code>,</code>&rsquo;.
+    </td>
+  </tr>
+</table>
+
+<p><a name="internal"></a><b>Sectie "Internal"</b></p>
+
+<p><em>Het gebruik van deze variabelen is strict intern en kan tot
+ongewenste problemen leiden.</em></p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="internal_now"></a><code>now</code></td>
+    <td>Deze variable kan worden gebruikt om de 'huidige' datum te
+	zetten. Dit is enkel relevant voor regressietests, waarin
+	de gegenereerde rapporten worden vergeleken met
+	standaardversies en het onwenselijk is als steeds de
+	rapportage-datum zou wijzigen.
+	<br>Fallback: <code>EB_SQL_NOW</code>.
+    </td>
+  </tr>
+</table>
