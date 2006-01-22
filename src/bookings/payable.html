@@ -79,13 +79,16 @@ bedragen is het boekstuktotaal. Dit wordt geboekt op de vaste
 tegenrekening voor inkoopboekingen (zie <a
 href="../stdacc.html">Koppelingen</a>).</p>
 
+[% PROCESS "$page.dir/oneline.tt" %]
+
 [% PROCESS "$page.dir/btw.tt" %]
 
 <p>Tot slot is het mogelijk het boekstuktotaal te verifiëren door aan
 de boekingsopdracht de optie '<code>--totaal=<var>bedrag</var></code>'
 toe te voegen.</p>
 
-<p>Een voorbeeld:</p>
+<p>Een voorbeeld (de opdracht is over meerdere regels gespreid voor de
+duidelijkheid):</p>
 
 <blockquote class="code">inkopen:24 14-09-2005 Kantoorartikelen OFFCENTR --totaal=54,25 \
   Papier   29,95   4930 \
