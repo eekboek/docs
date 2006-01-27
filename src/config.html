@@ -39,7 +39,23 @@ meer generieke bestanden.<p>
 <p>De EekBoek shell <code>ebshell</code> kan bovendien op de command
 line een <a href="ebshell/clo.html#config">configuratie-optie</a>
 worden meegegeven. Met deze optie wordt een extra configuratiebestand
-aangewezen dat weer voorrang heeft boven alle andere.</p>
+aangewezen dat weer voorrang heeft boven alle andere. Ook is het
+mogelijk om met de command line optie <code>-X</code> de EekBoek shell
+te instrueren alle standaard-configuratiebestanden over te slaan. Dit
+is uiteraard alleen zinvol in combinatie met <code>--config</code>.</p>
+
+<p>De waarde van configuratie-variabelen kan worden opgevraagd met de
+EekBoek shell. Als de <em>eerste</em> optie op de command line
+<code>--printcfg</code> is, of de verkorte vorm <code>-P</code>, dan
+worden alle volgende argumenten gezien als configuratie-variabelen en
+wordt de waarde ervan afgedrukt. Dit is met name zinvol in shell
+scripts, bijvoorbeeld om de actuele naam van de database op te vragen.
+<em>Na het afdrukken van de variabelen stopt de EekBoek shell, er wordt
+dus geen normale verwerking opgestart.</em>
+<br>Configuratie-variabelen kunnen worden opgegeven in de vorm
+<var>sectie</var><code>:</code><var>variabele</var>. Ook is het
+mogelijk een sectie te selecteren voor een reeks van variabelen met de
+optie <code>--section=<var>sectie</var></code>.
 
 <p>De configuratiebestanden zijn verdeeld in secties, die elk een of
 meer variabelen kunnen bevatten. Bijvoorbeeld</p>
