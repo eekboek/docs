@@ -109,12 +109,23 @@ toekomstige versie komen te vervallen.</p>
     <td><a name="database_name"></a><code>name</code></td>
     <td>De naam van de te gebruiken database.<br>
 	De command line optie <code>--dataset</code> (zie hierboven)
-	prevaleert over het
-	zetten van deze configuratievariabele.
+	prevaleert over het zetten van deze configuratievariabele.
 	Let op! De werkelijke naam wordt, indien nodig, voorzien van
 	het voorvoegsel	<code>eekboek_</code>. Dit om de EekBoek
 	databases te kunnen onderscheiden van de overige databases.
+	Deze configuratievariabele, indien opgevraagd, zal altijd de
+	naam weergeven <em>zonder</em> voorvoegsel. Zie ook
+	<code>fullname</code> hieronder.
 	<br>Fallback: <code>EB_DB_NAME</code>.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="database_fullname"></a><code>fullname</code></td>
+    <td>De volledige naam van de database, dus inclusief het
+	<code>eekboek_</code> voorvoegsel.<br>
+	Deze veriabele kan niet worden opgegeven in de
+	configuratiebestanden maar wordt automatisch afgeleid van de
+	database naam.
     </td>
   </tr>
   <tr valign="top">
