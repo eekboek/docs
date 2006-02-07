@@ -31,13 +31,16 @@ volgt:</p>
 
 <blockquote class="code">ebshell --schema=<var>naam</var></blockquote>
 
-<p>Het opgegeven schema wordt gezocht in de volgende
+<p>Als de opgegeven schemanaam alleen letters,
+cijfers en onderstrepingen bevat wordt het schema gezocht in de volgende
 plaatsen:
 <br><code>./<var>naam</var>.dat</code>
 <br><code>schema/<var>naam</var>.dat</code>
 <br><code><var>EBLIB</var>/schema/<var>naam</var>.dat</code>
 <br>In het laatste geval staat <var>EBLIB</var> voor de
 locatie waar EekBoek is ge&iuml;nstalleerd.<p.>
+<br>Als de opgegeven schemanaam andere tekens bevat wordt het als een
+bestandsnaam beschouwd en wordt het schema vanuit dat bestand geladen.
 
 <p>Meestal zal het aanmaken van de database en het vullen met
 het schema in een enkele aktie plaatsvinden:</p>

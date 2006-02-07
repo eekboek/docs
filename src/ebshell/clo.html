@@ -70,13 +70,16 @@
     <td>Initialiseer de administratie met het opgegeven schema. Dit
 	kan uitsluitend indien de te gebruiken database nog helemaal
 	leeg is.
-	<br>Het opgegeven schema wordt gezocht in de volgende
+	<br>Als de opgegeven schemanaam alleen letters,
+	cijfers en onderstrepingen bevat wordt het schema gezocht in de volgende
 	plaatsen:
 	<br><code>./<var>naam</var>.dat</code>
 	<br><code>schema/<var>naam</var>.dat</code>
 	<br><code><var>EBLIB</var>/schema/<var>naam</var>.dat</code>
 	<br>In het laatste geval staat <var>EBLIB</var> voor de
 	locatie waar EekBoek is ge&iuml;nstalleerd.
+	<br>Als de opgegeven schemanaam andere tekens bevat  wordt het als een
+	bestandsnaam beschouwd en wordt het schema vanuit dat bestand geladen.
     </td>
   </tr>
 </table>
