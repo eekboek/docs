@@ -64,12 +64,13 @@ We nemen hier als voorbeeld het dagboek 'Verkopen'.</p>
     <td>Het bedrag.
 	<br>Een te ontvangen bedrag wordt als positief bedrag opgegeven,
 	een debitering als negatief bedrag.
+	<br>Achter het bedrag mag een <a href="btw.html">BTW-specificatie</a> worden opgegeven.
     </td>
   </tr>
   <tr valign="top">
     <td><code>8104</code></td>
     <td>De grootboekrekening waarop dit bedrag moet worden
-	geboekt.</td>
+	geboekt. Deze rekening behoort een omzetrekening te zijn.</td>
   </tr>
 </table>
 
@@ -80,8 +81,6 @@ tegenrekening voor verkoopboekingen (zie <a
 href="../stdacc.html">Koppelingen</a>).</p>
 
 [% PROCESS "$page.dir/oneline.tt" %]
-
-[% PROCESS "$page.dir/btw.tt" %]
 
 <p>Tot slot is het mogelijk het boekstuktotaal te verifiëren door aan
 de boekingsopdracht de optie '<code>--totaal=<var>bedrag</var></code>'
