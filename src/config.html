@@ -169,10 +169,13 @@ toekomstige versie komen te vervallen.</p>
 <table border="1" width="100%" cellpadding="5">
   <tr valign="top">
     <td><a name="shell_userdefs"></a><code>userdefs</code></td>
-    <td>Deze variable kan worden gebruikt om een module aan te geven
-	die bij het opstarten van de EekBoek shell mee wordt geladen.
-	Deze module kan eigen opdrachten defini&euml;ren, of bestaande
-	opdrachten aanpassen.
+    <td>De EekBoek shell zoekt bij het opstarten standaard een
+	module met de naam <code>EB::Shell::Userdefs</code>. Indien
+	deze module bestaat, wordt deze geladen. Deze module kan eigen
+	opdrachten defini&euml;ren, of bestaande opdrachten aanpassen. 
+	<br>Met deze configuratie-variable kan een andere module in
+	plaats van de standaardmodule worden gespecificeerd. In dit
+	geval moet de module echter succesvol geladen kunnen worden.
     </td>
   </tr>
 </table>
