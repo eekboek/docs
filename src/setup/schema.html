@@ -150,8 +150,7 @@ standaardrekening voor inkoopboekingen:</p>
 <blockquote class="code">  1600  C   Crediteuren                    :koppeling=crd</blockquote>
 
 <p>Voor een volledig overzicht van alle mogelijke koppelingen, zie <a
-href="../stdacc.html">Koppelingen</a>. Elke koppeling moet exact
-&eacute;&eacute;n maal in het schema voorkomen.</p>
+href="../stdacc.html">Koppelingen</a>.
 
 <a name="dbk"></a><h3>De dagboeken</h3>
 
@@ -179,27 +178,35 @@ opgegeven.</p>
    M  Memoriaal             :type=memoriaal</blockquote>
 
 
-<a name="btw"></a><h3>De BTW tariefgroepen</h3>
+<a name="btw"></a><h3>De BTW tarieven</h3>
+
+<p>De BTW tarieven worden gespecificeerd in het onderdeel "btw
+tarieven". Dit onderdeel moet enkel worden opgegeven wanneer een
+BTW administratie wordt gevoerd.</p>
 
 <p>Er zijn drie tariefgroepen: "hoog", "laag" en "nul". De
 tariefgroep bepaalt het rekeningnummer waarop de betreffende boeking
 plaatsvindt. Binnen elke tariefgroep zijn meerdere tarieven mogelijk,
-hoewel dit in de praktijk niet snel zal voorkomen.</p> <p>Elke tarief
-heeft een unieke, numerieke code. Deze kan o.m. worden gebruikt om
-expliciet een BTW tarief op te geven bij het boeken. Voor elk tarief
-(behalve die van groep "nul") moet verder het percentage worden
-opgegeven. Met de aanduiding '<code>:exclusief</code>' kan worden
-opgegeven dat boekingen op rekeningen met deze tariefgroep standaard
-het bedrag exclusief BTW aangeven.</p>
+hoewel dit in de praktijk niet snel zal voorkomen.</p>
+
+<p>Elke tarief heeft een unieke, numerieke code. Deze kan o.m. worden
+gebruikt om expliciet een BTW tarief op te geven bij het boeken. Voor
+elk tarief (behalve die van groep "nul") moet verder het percentage
+worden opgegeven. Met de aanduiding '<code>:exclusief</code>' kan
+worden opgegeven dat boekingen op rekeningen met deze tariefgroep
+standaard het bedrag exclusief BTW aangeven.</p>
 
 <p>Een illustratief voorbeeld:</p>
 
 <blockquote class="code">BTW Tarieven
-   0  BTW 0%            :tariefgroep=geen
+   0  BTW 0%            :tariefgroep=nul
    1  BTW 19% incl.     :tariefgroep=hoog :perc=19,00
    2  BTW 19% excl.     :tariefgroep=hoog :perc=19,00 :exclusief
    3  BTW 6,0% incl.    :tariefgroep=laag :perc=6,00
    4  BTW 6,0% excl.    :tariefgroep=laag :perc=6,00  :exclusief</blockquote>
+
+<p>De rekeningen waarop de BTW moet worden geboekt worden
+gespecifieerd met <a href="../stdacc.html">koppelingen</a>.
 
 <h3>Opnieuw aanmaken schema-gegevens</h3>
 
