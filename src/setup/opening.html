@@ -65,6 +65,31 @@ grootboekrekening. Aan het eind van de reeks moet het totaal van de
 debetrekeningen gelijk zijn aan het totaal van de creditrekeningen,
 en tevens gelijk aan het eerder opgegeven balanstotaal.</p>
 
+<p>Boekhouders hebben een speciale opvatting over hoe het balanstotaal
+te bepalen. Voor een boekhouder geldt dat een negatief bedrag op een
+<strong>debet</strong>rekening aan de <strong>credit</strong> kant
+hoort, terwijl het rekenkundig gebruikelijk is een negatief getal van
+het saldo af te trekken. Hetzelfde geldt uiteraard voor negatieve
+bedragen op creditrekeningen, die door een boekhouder als debet
+worden beschouwd.<p>
+
+<p>Bijvoorbeeld:</p>
+
+<blockquote class="code">adm_balans <var>debetrek</var>  100
+adm_balans <var>debetrek</var>  -10
+adm_balans <var>creditrek</var>  90
+</blockquote>
+
+<p>Rekenkundig gezien is de som van de debetzijde <code>100-10</code>,
+dus <code>90</code>, en gelijk aan de creditzijde. Boekhoudkundig
+gezien is de debetzijde <code>100</code>, en de creditzijde
+<code>10+90</code>, ook <code>100</code>. In beide opvattingen is de
+belans in evenwicht, alleen het balanstotaal wijkt af.</p>
+
+<p>EekBoek vindt beide opvattingen correct en zal daarom zowel de
+boekhoudkundige als de rekenkundige berekening van het balanstotaal
+accepteren.</p>
+
 <a name="debcrd"></a><h3>Het invoeren van de openstaande posten</h3>
 
 <p>Indien er nog onbetaalde fakturen uit het voorgaande boekjaar
