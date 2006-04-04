@@ -93,9 +93,22 @@ toekomstige versie komen te vervallen.</p>
     <td>Deze variable kan worden gebruikt om de door EekBoek te
 	gebruiken taal (locale) te selecteren.<br>Standaard wordt de
 	instelling van het systeem overgenomen.
+	<br>De waarde is doorgaans een string als
+	<code>nl_NL.iso8859-1</code> of <code>nl_NL.utf8</code>. Als
+	de tekensetaanduiding <code>utf8</code> is, zal EekBoek alle
+	invoer en uitvoer in Unicode verzorgen. In alle andere
+	gevallen vindt in- en uitvoer in ISO-8859-1 (Latin1) plaats.
 	<br>Fallback: <code>EB_LANG</code>.
 	<br><em>Taalinstelling is alleen effectief in de
 	internationale versie van EekBoek, en niet in de standaardversie.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="locale_unicode"></a><code>unicode</code></td>
+    <td>Deze variable kan worden gebruikt om expliciet aan te geven dat
+	EekBoek UNICODE moet gebruiken. 
+	<br>Deze variabele heeft voorrang boven de waarde van
+	<code>lang</code>.
     </td>
   </tr>
   <tr valign="top">
