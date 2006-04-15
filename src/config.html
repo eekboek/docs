@@ -99,6 +99,8 @@ toekomstige versie komen te vervallen.</p>
 	invoer en uitvoer in Unicode verzorgen. In alle andere
 	gevallen vindt in- en uitvoer in ISO-8859-1 (Latin1) plaats.
 	<br>Fallback: <code>EB_LANG</code>.
+	<br>Default: <code>nl_NL.utf8</code> voor MS Windows systemen,
+	anders <code>nl_NL</code>.
 	<br><em>Taalinstelling is alleen effectief in de
 	internationale versie van EekBoek, en niet in de standaardversie.
     </td>
@@ -198,6 +200,24 @@ toekomstige versie komen te vervallen.</p>
 	<br>Met deze configuratie-variable kan een andere module in
 	plaats van de standaardmodule worden gespecificeerd. In dit
 	geval moet de module echter succesvol geladen kunnen worden.
+    </td>
+  </tr>
+</table>
+
+<p><a name="text"></a><b>Sectie "Format"</b></p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="format_date"></a><code>date</code></td>
+    <td>De vorm waarin datums moeten worden getoond.
+	<br>De volgende vormen zijn mogelijk:
+	<table border="0" width="100%">
+	  <tr valign="top"><td><code>YYYY-MM-DD</code></td><td>&nbsp;</td><td>ISO standaardvorm.</tr>
+	  <tr valign="top"><td><code>DD-MM-YYYY</code></td><td>&nbsp;</td><td>NEN standaardvorm.</tr>
+	  <tr valign="top"><td><code>DD-MM</code></td><td>&nbsp;</td><td>Verkorte NEN standaardvorm.<br>In dit
+	geval zullen, waar nodig, de datums toch compleet met jaartal
+	worden weergegeven.</tr>
+	</table>
     </td>
   </tr>
 </table>
