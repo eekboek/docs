@@ -86,3 +86,17 @@ href="../stdacc.html">Koppelingen</a>).</p>
 de boekingsopdracht de optie '<code>--totaal=<var>bedrag</var></code>'
 toe te voegen.</p>
 
+<h3>Creditering van verkoopfakturen</h3>
+
+<p>Met het crediteren van een verkoopfaktuur wordt deze niet
+automatisch als afgewerkt beschouwd. In het overzicht <a
+href="../reports/unpaid.html">Openstaande Posten</a> zullen dus zowel
+de oorspronkelijke, als de credit-faktuur worden getoond.</p>
+<p>De beide boekingen dienen daarom tegen elkaar te worden weggeboekt
+in een <a href="memorial.html">memoriaalboeking</a>, bijvoorbeeld:
+
+<blockquote class="code">memoriaal 20-11-2005 Creditering \
+  deb ACME Werkzaamheden 369,82 \
+  deb ACME "Creditering Werkzaamheden" -369,82
+</blockquote>
+
