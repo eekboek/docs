@@ -1,0 +1,46 @@
+[%# $Id$ %]
+
+<h2>Import en Export</h2>
+
+<p>Een EekBoek administratie kan te allen tijde worden
+ge&euml;xporteerd in de vorm van een set EekBoek bestanden, zoals
+beschreven in <a href="intro/working.html">Werkwijze</a>. Deze set
+bestanden kan vervolgens weer worden ge&iuml;mporteerd. De
+resulterende administratie is dan zoveel mogelijk identiek aan het
+origineel.</p>
+
+<h3>Export</h3>
+
+<p>De opdracht tot exporteren is <code>export</code> en heeft
+&eacute;&eacute;n argument: de bestemming. Op dit moment is enkel
+mogelijk te exporteren naar een directory, welke zo nodig wordt
+aangemaakt.</p>
+
+<blockquote class="code">export --dir=<var>directory</var></blockquote>
+
+<p>Het is ook mogelijk deze opdracht direct op de command-line uit te voeren:</p>
+
+<blockquote class="code">ebshell --export --dir=<var>directory</var></blockquote>
+
+<p>In de opgegeven directory worden de volgende bestanden geplaatst:</p>
+
+<ul>
+<li>Het schema: <code>schema.dat</code></li>
+<li>De relaties: <code>relaties.eb</code></li>
+<li>De openingsgegevens: <code>opening.eb</code></li>
+<li>De mutaties: <code>mutaties.eb</code></li>
+</ul>
+
+<h3>Import</h3>
+
+<p>Met de opdracht <code>import</code> wordt een eerder aangemaakte
+set exportbestanden weer ge&iuml;mporteerd.</p>
+
+<blockquote class="code">import --dir=<var>directory</var></blockquote>
+
+<p>Het is ook mogelijk deze opdracht direct op de command-line uit te
+voeren. Daarbij wordt, indien nodig, de database automatisch
+aangemaakt:</p>
+
+<blockquote class="code">ebshell --import --dir=<var>directory</var></blockquote>
+

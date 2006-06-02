@@ -7,3 +7,4 @@ menu "Relaties"		      debcrd
 menu "Boekingen"	      bookings
 menu "Overzichten"	      reports
 menu "Jaarafsluiting"	      yearend
+menu "Import en Export"	      inex
