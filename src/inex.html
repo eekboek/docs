@@ -12,8 +12,8 @@ origineel.</p>
 <h3>Export</h3>
 
 <p>De opdracht tot exporteren is <code>export</code> en heeft
-&eacute;&eacute;n argument: de bestemming. Op dit moment is enkel
-mogelijk te exporteren naar een directory, welke zo nodig wordt
+&eacute;&eacute;n argument: de bestemming. Dit kan zowel een
+bestandsnaam zijn, als een directory, welke zo nodig wordt
 aangemaakt.</p>
 
 <blockquote class="code">export --dir=<var>directory</var></blockquote>
@@ -31,16 +31,44 @@ aangemaakt.</p>
 <li>De mutaties: <code>mutaties.eb</code></li>
 </ul>
 
+<p>Indien wordt ge&euml;xporteerd naar een bestand:</p>
+
+<blockquote class="code">export --file=<var>archive</var></blockquote>
+
+<p>Dit cre&euml;ert het opgeven bestand met daarin alle benodigde
+data. Een eventueel reeds bestaand bestand wordt daarbij overschreven.</p>
+<p>Het export-bestand is een ZIP file met daarin de eerdergenoemde
+bestanden. Het kan daarom ook met standaard <code>zip</code> utilities worden
+benaderd, bijvoorbeeld:</p>
+
+<blockquote class="code">$ <strong>unzip -v export.ebx</strong>
+Archive:  export.ebx
+Export van dataset sample aangemaakt door EekBoek 0.61 op 2006-06-20
+ Length   Method    Size  Ratio   Date   Time   CRC-32    Name
+--------  ------  ------- -----   ----   ----   ------    ----
+   16887  Defl:N     5001  70%  06-20-06 17:48  a5c19c12  schema.dat
+     425  Defl:N      252  41%  06-20-06 17:48  6a23ef70  relaties.eb
+     713  Defl:N      365  49%  06-20-06 17:48  ab8a8032  opening.eb
+    4776  Defl:N     1125  76%  06-20-06 17:48  f363779e  mutaties.eb
+--------          -------  ---                            -------
+   22801             6743  70%                            4 files
+</blockquote>
+
 <h3>Import</h3>
 
-<p>Met de opdracht <code>import</code> wordt een eerder aangemaakte
-set exportbestanden weer ge&iuml;mporteerd.</p>
+<p>Met de opdracht <code>import</code> wordt een eerder aangemaakt
+export bestand of set exportbestanden weer ge&iuml;mporteerd.</p>
 
-<blockquote class="code">import --dir=<var>directory</var></blockquote>
+<blockquote class="code">import --dir=<var>directory</var>
+import --file=<var>archive</var></blockquote>
 
 <p>Het is ook mogelijk deze opdracht direct op de command-line uit te
 voeren. Daarbij wordt, indien nodig, de database automatisch
 aangemaakt:</p>
 
-<blockquote class="code">ebshell --import --dir=<var>directory</var></blockquote>
+<blockquote class="code">ebshell --import --dir=<var>directory</var>
+ebshell --import --file=<var>archive</var></blockquote>
 
+<p>In dit geval moeten de <code>--import</code> en
+<code>--file</code> of <code>--dir</code> opties achteraan de
+opdrachregel staan. </p>
