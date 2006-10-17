@@ -1,0 +1,91 @@
+[%# $Id$ %]
+[% META title = "Installeren op Microsoft Windows" %]
+<h2>Systeemeisen</h2>
+<p>Elk modern Microsoft Windows systeem (vanaf Windows98) is in staat
+om zonder problemen EekBoek te installeren en te draaien.</p>
+
+<p>Om EekBoek te kunnen draaien is Perl nodig. Daartoe dient u
+ActivePerl versie 5.8.8 of later te installeren. Meer
+informatie hierover op de <a
+href="http://www.activestate.com/Products/ActivePerl">ActiveState web site</a>.</p>
+
+<p>Controleer na installatie eerst of de versie van Perl toereikend
+is. Open daartoe een command prompt window en geef de opdracht:</p>
+
+<blockquote class="code">perl --version</blockquote>
+
+<p>De uitvoer begint met de melding</p>
+
+<blockquote class="code">This is perl, v5.8.8 built for ...</blockquote>
+
+<p>De Perl versie moet tenminste 5.8.6 zijn.</p>
+
+<p>Let verder op dat veel van de genoemde bestandsnamen zowel hoofd-
+als kleine letters bevatten, en deze <em>exact zo</em> moeten worden
+ingegeven! 
+
+<h2>Installeren met PPM</h2>
+
+<p>ActivePerl komt met het installatieprogramma <strong>ppm</strong>,
+de Perl Package Manager. Installatie van EekBoek hiermee is erg eenvoudig.</p>
+
+<p>De volgende stappen dienen daartoe te worden uitgevoerd:</p>
+
+<ol>
+  <li><p>Open een command prompt window.</li>
+  <li><p>Geef de opdracht:
+      <blockquote class="code">ppm install [% site.dl %]/EekBoek.ppm</blockquote>
+      Let op de hoofdletters <strong>E</strong> en <strong>B</strong>!
+      <p>Het is mogelijk dat <strong>ppm</strong> enkele aanvullende
+      pakketten wil installeren.
+  </li>
+</ol>
+
+</p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
+dan kan dit eenvoudig met de opdracht:</p>
+
+<blockquote class="code">ppm upgrade [% site.dl %]/EekBoek.ppm</blockquote>
+
+<p>Hiermee wordt steeds de meeste recente versie
+ge&iuml;nstalleerd.</p>
+
+<h2>Configureren van de database</h2>
+
+<p>Hoewel EekBoek met meerdere databasesystemen kan werken is het
+onder Microsoft Windows het meest eenvoudig om <a
+href="http://www.sqlite.org">SQLite</a> te gebruiken.
+Dit mini-databasesysteem wordt meegeleverd met ActivePerl.</p>
+
+<p>U kunt verifi&euml;ren dat SQLite beschikbaar is door in een
+command prompt window de volgende opdracht uit te voeren:</p>
+
+<blockquote class="code">perl -MDBD::SQLite -e 0</blockquote>
+
+<p>Deze opdracht dient zonder problemen, en ook zonder uitvoer, te
+eindigen.</p>
+
+<h3>Aanmaken van de probeer-database</h3>
+
+<ol>
+  <li><p>Cre&euml;er een nieuwe folder, bijvoorbeeld <strong>sample</strong>.</li>
+  <li><p>Open een geschikte editor, bijvoorbeeld Notepad of Wordpad,
+      en tik het navolgende in:
+      <blockquote class="code">[database]
+name = sample
+driver = sqlite</blockquote>
+  <li><p>Sla dit bestandje op onder de naam
+      <strong>.eekboek.conf</strong> (let op: de naam begint met een
+      puntje) in de eerder aangemaakte folder.
+  <li><p>Open een command prompt window in deze folder, en geef daar
+      de volgende opdracht:
+      <blockquote class="code">ebshell --import --dir c:\Perl\site\lib\EB\example</blockquote>
+      De probeer-database wordt nu geladen.
+      <p>Let op: het kan zijn dat de example directory ergens anders
+staat. Zoek indien nodig naar het bestand <strong>mutaties.eb</strong>
+en kijk waar de betreffende example directory staat.
+</ol>
+
+Na het aanmaken van de probeer-database kunt u hiermee gaan spelen door <em>in de <strong>sample</strong> directory</em> in een command prompt window de volgende opdracht te geven:
+<blockquote class="code">ebshell</blockquote>
+<p>Raadpleeg verder de <a href="../docs/index.html">EekBoek documentatie</a>.</p>
+      

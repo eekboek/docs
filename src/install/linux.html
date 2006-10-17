@@ -1,0 +1,161 @@
+[%# $Id$ %]
+[% META title = "Installeren op GNU/Linux systemen" %]
+<h2>Systeemeisen</h2>
+
+<p>Elk modern GNU/Linux systeem is in staat om zonder problemen EekBoek
+te installeren en te draaien.</p>
+
+<p>Controleer eerst of de versie van Perl toereikend is. Open daartoe
+een terminal window en geef de opdracht:
+
+<blockquote class="code">perl --version</blockquote>
+
+De uitvoer begint met de melding
+
+<blockquote class="code">This is perl, v5.8.8 built for ...</blockquote>
+
+De Perl versie moet tenminste 5.8.6 zijn.
+
+<h2>Installeren met YUM</h2>
+
+<p>Installatie met het installatieprogramma <strong>yum</strong> is de
+meest eenvoudige methode. Dit programma wordt op veel moderne Linux
+systemen standaard geleverd, en is anders vaak toe te voegen.
+Raadpleeg daartoe de systeemdocumentatie.
+
+<p>Het grootste voordeel van installatie met <strong>yum</strong> is
+dat dit programma zelf onthoudt waar de te installeren software
+vandaan moet worden gehaald, en automatisch de meest recente versie
+installeert.</p>
+
+<p>De volgende stappen dienen uitgevoerd te worden als super-user
+<strong>root</strong>.
+
+<ol>
+  <li>Installeer de EekBoek OpenPGP key, waarmee de bestanden kunnen
+      worden gecontroleerd op echtheid en correctheid:
+      <blockquote class="code">rpm --import [% site.gpgkey %]</blockquote></li>
+  <li>Open met de browser de yum repository <a href="[% site.yum %]">[% site.yum %]</a>, zoek de laatste versie van <strong>Eekboek-yum</strong>, klik erop, en download de <strong>noarch.rpm</strong> kit.
+  <br>Als u het versienummer weet kunt u ook direct downloaden vanaf de command line, bijvoorbeeld met
+      het programma <strong>wget</strong>:
+      <blockquote class="code">wget [% site.dl %]/EekBoek-yum-<var>versie</var>.noarch.rpm</blockquote>
+      <p>De <var>versie</var> is iets als 1.0-1.</li>
+  <li>Verifieer de kit:
+      <blockquote class="code">rpm -K EekBoek-yum-<var>versie</var>.noarch.rpm</blockquote>
+      De uitvoer ziet er ongeveer zo uit:
+      <blockquote class="code">EekBoek-yum-<var>versie</var>.noarch.rpm: (sha1) dsa sha1 md5 gpg OK</blockquote>
+      Let er op dat in de uitvoer met name de tekst &ldquo;<code>gpg OK</code>&rdquo; voorkomt als teken dat de verificatie van
+      de herkomst is geslaagd.</p></li>
+  <li>Installeer de eekboek repository kit:
+      <blockquote class="code">rpm -ivh EekBoek-yum-<var>versie</var>.noarch.rpm</blockquote></li>
+  <li>Installeer EekBoek:
+      <blockquote class="code">yum install EekBoek</blockquote>
+      Het is mogelijk dat <strong>yum</strong> enkele aanvullende
+      pakketten wil installeren.
+  </li>
+</ol>
+
+</p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
+dan kan dit eenvoudig met de opdracht:
+<blockquote class="code">yum upgrade EekBoek</blockquote>
+
+<p>Zoals gezegd wordt dan steeds de meeste recente versie
+ge&iuml;nstalleerd.</p>
+
+<p>Voor ingebruikname van EekBoek moet u eerst de database
+configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
+
+<h2>Installeren met RPM</h2>
+
+<p>Als het systeem geen <strong>yum</strong> heeft, maar wel
+<strong>rpm</strong>, dan dient u steeds expliciet op te geven waar de
+te installeren software vandaan moet worden gehaald, alsmede de versie
+van de te installeren software.</p>
+<p>De volgende stappen
+dienen uitgevoerd te worden als super-user <strong>root</strong>.</p>
+
+<ol>
+  <li>Installeer de EekBoek OpenPGP key, waarmee de bestanden kunnen
+      worden gecontroleerd op echtheid en correctheid:
+      <blockquote class="code">rpm --import [% site.gpgkey %]</blockquote></li>
+  <li>Open met de browser de yum repository <a href="[% site.yum %]">[% site.yum %]</a>, zoek de laatste versie van <strong>Eekboek</strong>, klik erop, en download de <strong>noarch.rpm</strong> kit.
+  <br>Als u het versienummer weet kunt u ook direct downloaden vanaf de command line, bijvoorbeeld met
+      het programma <strong>wget</strong>:
+      <blockquote class="code">wget [% site.dl %]/EekBoek-<var>versie</var>.noarch.rpm</blockquote>
+      <p>De <var>versie</var> is iets als 1.01.00-1.</li>
+  <li>Verifieer de kit:
+      <blockquote class="code">rpm -K EekBoek-<var>versie</var>.noarch.rpm</blockquote>
+      De uitvoer ziet er ongeveer zo uit:
+      <blockquote class="code">EekBoek-<var>versie</var>.noarch.rpm: (sha1) dsa sha1 md5 gpg OK</blockquote>
+      Let er op dat in de uitvoer met name de tekst &ldquo;<code>gpg OK</code>&rdquo; voorkomt als teken dat de verificatie van
+      de herkomst is geslaagd.</p></li>
+      <li>Installeer de eekboek kit:
+      <blockquote class="code">rpm -ivh EekBoek-<var>versie</var>.noarch.rpm</blockquote>
+      Het is mogelijk dat <strong>rpm</strong> aangeeft dat nog enkele
+      aanvullende pakketten nodig zijn. Deze dient u dan eerst te
+      installeren en vervolgens de installatie van EekBoek opnieuw uit
+      te voeren.
+      </li>
+</ol>
+
+</p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
+dan dienen de stappen 2 t/m 4 opnieuw te worden uitgevoerd, met
+uiteraard het nieuwe versienummer.
+
+<p>Voor ingebruikname van EekBoek moet u eerst de database
+configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
+
+<h2>Installeren met Alien</h2>
+
+<p>Voor het installeren op Debian, of daarvan afgeleide
+Linux-varianten zoals Ubuntu, is het pakket Alien te gebruiken. Dit
+verbouwt het Eekboek-rpm pakket om tot een voor de Debian installer
+<strong>apt</strong> geschikt deb pakket.</p>
+
+<ol>
+  <li><p>Eekboek maakt gebruik van verschillende Perl-onderdelen, en we
+      installeren het Eekboek-pakket via Alien. We gebruiken daarnaast
+      fakeroot om dit te kunnen afronden zonder root-rechten.</p>
+      <p>Om
+      alle benodigdheden klaar te zetten, voer de volgende opdracht
+      uit als root: 
+      <blockquote class="code">apt-get install fakeroot alien lsb-rpm lintian
+      libdbd-pg-perl libconfig-inifiles-perl libterm-readline-gnu-perl
+      libhtml-parser-perl</blockquote>
+      <strong>Let op:</strong> het bovenstaande moet als
+      &eacute;&eacute;n enkele regel worden ingetikt.
+      <p>Hierna kunt u uitloggen als root, en weer verder werken als
+      gewone gebruiker.</p>
+
+  <li><p>Importeer de EekBoek public key in <strong>gpg</strong>. Deze
+      heeft u straks nodig om de gedownloade pakketten te
+      verifi&euml;ren.
+      <blockquote class="code">wget [% site.gpgkey %]
+gpg --import RPM-GPG-KEY-EekBoek</blockquote></p>
+
+  <li>Open met de browser de Eekboek directory <a   href="[% site.dl
+      %]">[% site.dl %]</a>, zoek   de meest recente
+      eekboek-versie en download de <strong>noarch.rpm</strong>
+      alsmede de <strong>noarch.rpm.sig</strong>.
+      <p>U kunt dit ook direct downloaden vanaf de commandline:
+      <blockquote class="code">wget [% site.dl %]/EekBoek-<var>versie</var>.noarch.rpm
+wget [% site.dl %]/EekBoek-<var>versie</var>.noarch.rpm.sig</blockquote>
+  <li><p>Verifieer de software als volgt:
+      <blockquote class="code">gpg EekBoek-<var>versie</var>.noarch.rpm.sig</blockquote>
+      De  uitvoer moet duidelijk aangeven dat de verificatie klopt:
+      <blockquote class="code">gpg: Good signature from "EekBoek Software <info@eekboek.nl>"</blockquote>
+
+  <li>Om van het rpm een deb te
+      maken voert u de volgende opdracht uit:
+      <blockquote class="code">fakeroot alien EekBoek-<var>versie</var>.noarch.rpm</blockquote>
+      <p>Dit maakt een bestand genaamd
+      <strong>eekboek__<var>versie</var>all.deb</strong>. Dit kunt u
+      vervolgens installeren (als root) als volgt:
+      <blockquote class="code">dpkg -i eekboek__<var>versie</var>all.deb<blockquote></li>
+</ol>
+<p>Wilt u in de toekomst een nieuwe versie van
+EekBoek installeren, dan dienen de stappen 3 t/m 5 opnieuw te
+worden uitgevoerd, met uiteraard het nieuwe versienummer.</p>
+
+<p>Voor ingebruikname van EekBoek moet u eerst de database
+configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.

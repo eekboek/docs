@@ -1,0 +1,117 @@
+[%# $Id$ %]
+[% META title = "Database configuratie op GNU/Linux systemen" %]
+
+<h2>PostgreSQL</h2>
+
+<p>Installeer, indien nodig, <a
+href="http://www.postgresql.org">PostgreSQL</a>, bijvoorbeeld met het
+installatieprogramma <strong>yum</strong>.
+
+<p>U kunt verifi&euml;ren dat PostgreSQL beschikbaar is door in een
+terminal window de volgende opdracht uit te voeren:</p>
+
+<blockquote class="code">perl -MDBD::Pg -e 0</blockquote>
+
+<p>Deze opdracht dient zonder problemen, en ook zonder uitvoer, te
+eindigen.</p>
+
+<p>Om PostgreSQL te kunnen gebruiken dient u te beschikken over een
+PostgreSQL gebruikersnaam met bijbehorende toegangscode. De
+gebruikersnaam dient geauthoriseerd te zijn om nieuwe databases aan te
+maken. De beheerder van het databasesysteem kan dit regelen. Raadpleeg
+eventueel de PostgreSQL documentatie.</p>
+
+<p>De beheerder van het databasesysteem kan u ook vertellen via welke
+systeemnaam en (soms) poortnummer het databasesysteem moet worden
+benaderd. Als de database op het eigen systeem draait kunt u als
+systeemnaam <strong>localhost</strong> gebruiken.</p>
+
+<p>Stel dat u de PostgreSQL gebruikersnaam <strong>jansen</strong> met
+toegangscode <strong>pietersen</strong> heeft toegewezen gekregen, dan
+kunt u dit verifi&euml;ren door de volgende opdrachten uit te voeren:
+
+<blockquote class="code">psql -hlocalhost -Ujansen -W template1</blockquote>
+
+<p>Als het goed gaat krijgt u een welkomsboodschap. Sluit het
+programma af door ingave van <strong>\q</strong> gevolgd door het
+indrukken van de Enter-toets.</p>
+
+<p>Om vast te stellen of u databases kunt aanmaken, voert u de
+volgende opdrachten uit:</p>
+
+<blockquote class="code">createdb -hlocalhost -Ujansen -W jansen
+dropdb -hlocalhost -Ujansen -W jansen</blockquote>
+
+<p>Beide opdrachten dienen probleemloos te verlopen.</p>
+
+<h3>Aanmaken van de probeer-database</h3>
+
+<ol>
+  <li><p>Cre&euml;er een nieuwe directory, bijvoorbeeld <strong>sample</strong>.</li>
+  <li><p>Start een geschikte editor en tik het navolgende in:
+      <blockquote class="code">[database]
+name = sample
+user = jansen
+password = pietersen
+host = localhost
+driver = postgres</blockquote>
+      Uiteraard gebruikt u de echte waarden voor de toegekende
+      PostgreSQL gebruikersnaam, toegangscode, en het databasesysteem.
+  <li><p>Sla dit bestandje op onder de naam
+      <strong>.eekboek.conf</strong> (let op: de naam begint met een
+      puntje) in de eerder aangemaakte directory.
+  <li><p>Open een terminal window in deze directory, en geef daar
+      de volgende opdracht:
+      <blockquote class="code">ebshell --import --dir /usr/lib/EekBoek-<var>versie</var>/lib/EB/example</blockquote>
+      De probeer-database wordt nu geladen.
+      <p>Let op: het kan zijn dat de example directory ergens anders
+staat. Zoek indien nodig naar het bestand <strong>mutaties.eb</strong>
+en kijk waar de betreffende example directory staat.
+</ol>
+
+Na het aanmaken van de probeer-database kunt u hiermee gaan spelen
+door <em>in de <strong>sample</strong> directory</em> in een terminal
+window de volgende opdracht te geven:
+<blockquote class="code">ebshell</blockquote>
+<p>Raadpleeg verder de <a href="../docs/index.html">EekBoek documentatie</a>.</p>
+      
+<h2>SQLite</h2>
+
+<p>Installeer, indien nodig, <a
+href="http://www.sqlite.org">SQLite</a>, bijvoorbeeld met het
+installatieprogramma <strong>yum</strong>.
+
+<p>U kunt verifi&euml;ren dat SQLite beschikbaar is door in een
+terminal window de volgende opdracht uit te voeren:</p>
+
+<blockquote class="code">perl -MDBD::SQLite -e 0</blockquote>
+
+<p>Deze opdracht dient zonder problemen, en ook zonder uitvoer, te
+eindigen.</p>
+
+<h3>Aanmaken van de probeer-database</h3>
+
+<ol>
+  <li><p>Cre&euml;er een nieuwe directory, bijvoorbeeld <strong>sample</strong>.</li>
+  <li><p>Start een geschikte editor en tik het navolgende in:
+      <blockquote class="code">[database]
+name = sample
+driver = sqlite</blockquote>
+  <li><p>Sla dit bestandje op onder de naam
+      <strong>.eekboek.conf</strong> (let op: de naam begint met een
+      puntje) in de eerder aangemaakte directory.
+  <li><p>Open een terminal window in deze directory, en geef daar
+      de volgende opdracht:
+      <blockquote class="code">ebshell --import --dir /usr/lib/EekBoek-<var>versie</var>/lib/EB/example</blockquote>
+      De probeer-database wordt nu geladen.
+      <p>Let op: het kan zijn dat de example directory ergens anders
+staat. Zoek indien nodig naar het bestand <strong>mutaties.eb</strong>
+en kijk waar de betreffende example directory staat.
+</ol>
+
+Na het aanmaken van de probeer-database kunt u hiermee gaan spelen
+door <em>in de <strong>sample</strong> directory</em> in een terminal
+window de volgende opdracht te geven:
+<blockquote class="code">ebshell</blockquote>
+<p>Raadpleeg verder de <a href="../docs/index.html">EekBoek documentatie</a>.</p>
+      

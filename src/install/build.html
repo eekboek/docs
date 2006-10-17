@@ -1,0 +1,109 @@
+[% META title = "EekBoek bouwen vanaf source" %]
+
+<p>Naast de standaard Perl modules gebruikt EekBoek nog enkele
+aanvullende modules die, indien nodig, moeten worden
+ge&iuml;nstalleerd van <a href="http://www.cpan.org">CPAN</a>:
+
+<ul>
+  <li><a target="_blank"
+      href="http://search.cpan.org/search?module=Term%3A%3AReadLine%3A%3AGnu">Term::ReadLine::Gnu</a></li>
+  <li><a target="_blank"
+      href="http://search.cpan.org/search?module=DBD%3A%3APg">DBD::Pg</a>
+      (alleen nodig voor PostgreSQL), versie 1.41 of later</li>
+  <li><a target="_blank"
+      href="http://search.cpan.org/search?module=DBD%3A%3ASQLite">DBD::SQLite</a>
+      (alleen nodig voor SQLite), versie 1.13 of later</li>
+  <li><a target="_blank"
+      href="http://search.cpan.org/search?module=Config%3A%3AIniFiles">Config::IniFiles</a>,
+      versie 2.38 of later</li>
+  <li><a target="_blank"
+      href="http://search.cpan.org/search?module=Text%3A%3ACSV_XS">Text::CSV_XS</a>
+      (alleen nodig voor de importprogramma&rsquo;s), versie 0.23 of later</li>
+</ul>
+
+<h2>Bouwen met CPAN of CPANPLUS</h2>
+
+Wanneer u de <strong>CPAN</strong> of <strong>CPANPLUS</strong>
+installatiemodule beschikbaar (en werkend!) heeft, kan EekBoek worden
+gebouwd en ge&iuml;nstalleerd met een van deze eenvoudige opdrachten:
+
+<blockquote class="code">perl -MCPAN -e "install qw(EekBoek)"
+perl -MCPANPLUS -e "install qw(EekBoek)"</blockquote>
+
+<p>De meest recente versie wordt automatisch opgehaald van het CPAN
+archief, uitgepakt, gebouwd en ge&iuml;nstalleerd, waarbij eventueel
+benodigde aanvullende modules ook worden meegenomen.</p>
+
+<h2>Bouwen vanaf source</h2>
+
+Hiertoe dient u de <strong>.tar.gz</strong> file van de gewenste
+versie te downloaden van een van de <a
+href="../download.html">download sites</a>. In het navolgende wordt
+als voorbeeld de te installeren versie [% vv = "1.01.01"; vv %] gebruikt.
+
+<blockquote class="code">$ <strong>wget [% site.dl %]/EekBoek-[% vv %].tar.gz</strong>
+--16:31:22--  [% site.dl %]/EekBoek-[% vv %].tar.gz
+           => `EekBoek-[% vv %].tar.gz'
+Resolving www.eekboek.nl... 195.35.176.141
+Connecting to www.eekboek.nl|195.35.176.141|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 308,864 (302K) [application/x-tar]
+
+100%[====================================>] 308,864      370.91K/s             
+
+16:31:23 (370.38 KB/s) - `EekBoek-[% vv %].tar.gz' saved [308864/308864]
+
+$ <strong>wget [% site.dl %]/EekBoek-[% vv %].tar.gz.sig</strong>
+--16:31:42--  [% site.dl %]/EekBoek-[% vv %].tar.gz.sig
+           => `EekBoek-[% vv %].tar.gz.sig'
+Resolving www.eekboek.nl... 195.35.176.141
+Connecting to www.eekboek.nl|195.35.176.141|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 65 [application/x-tar]
+
+100%[====================================>] 65            --.--K/s             
+
+16:31:42 (2.21 MB/s) - `EekBoek-[% vv %].tar.gz.sig' saved [65/65]
+
+$ <strong>gpg --verify EekBoek-[% vv %].tar.gz.sig</strong>
+gpg: Signature made Fri 13 Oct 2006 03:59:11 PM CEST using DSA key ID C26FE4F7
+gpg: Good signature from "EekBoek Software <info@eekboek.nl>"
+$ <strong>tar -zxf EekBoek-[% vv %].tar.gz</strong> 
+$ <strong>cd EekBoek-[% vv %]</strong>
+$ <strong>perl Build.PL</strong> 
+Creating custom builder _build/lib/MyModuleBuilder.pm in _build/lib
+Checking whether your kit is complete...
+Looks good
+
+Checking prerequisites...
+Package 'Config::IniFiles' already declared with version '2.38'
+ignoring new version ''.
+Looks good
+
+Creating new 'Build' script for 'EekBoek' version '[% vv %]'
+$ <strong>./Build test</strong>
+lib/EB/css/balres.css -> blib/lib/EB/css/balres.css
+lib/EB/Report/BTWAangifte.pm -> blib/lib/EB/Report/BTWAangifte.pm
+...
+lib/EB/Booking/IV.pm -> blib/lib/EB/Booking/IV.pm
+script/ebshell -> blib/script/ebshell
+t/10_basic.........ok
+t/20_dates.........ok
+t/80_postgresql....ok
+t/81_sqlite........ok
+t/90_ivp...........ok
+t/91_ivp_sqlite....ok
+All tests successful.
+Files=6, Tests=128, 22 wallclock secs (12.58 cusr +  2.05 csys = 14.63 CPU)
+$ <strong>su</strong>
+Password: 
+# <strong>./Build install</strong>
+Manifying blib/script/ebshell -> blib/bindoc/ebshell.1
+Manifying blib/lib/EekBoek.pm -> blib/libdoc/EekBoek.3pm
+...
+Installing /usr/share/man/man1/ebshell.1
+Installing /usr/lib/perl5/site_perl/5.8.8/EB.pm
+...
+Installing /usr/bin/ebshell
+Writing /usr/lib/perl5/site_perl/.../EekBoek/.packlist
+# exit</blockquote>
