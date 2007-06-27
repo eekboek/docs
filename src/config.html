@@ -138,11 +138,11 @@ toekomstige versie komen te vervallen.</p>
     <td>De naam van de te gebruiken database.<br>
 	De command line optie <code>--dataset</code> (zie hierboven)
 	prevaleert over het zetten van deze configuratievariabele.
-	Let op! De werkelijke naam wordt, indien nodig, voorzien van
-	het voorvoegsel	<code>eekboek_</code>. Dit om de EekBoek
+	Let op! De werkelijke naam wordt voorzien van
+	een voorvoegsel, om de EekBoek
 	databases te kunnen onderscheiden van de overige databases.
 	Deze configuratievariabele, indien opgevraagd, zal altijd de
-	naam weergeven <em>zonder</em> voorvoegsel. Zie ook
+	naam weergeven <em>zonder</em> dit voorvoegsel. Zie ook
 	<code>fullname</code> hieronder.
 	<br>Fallback: <code>EB_DB_NAME</code>.
     </td>
@@ -150,10 +150,18 @@ toekomstige versie komen te vervallen.</p>
   <tr valign="top">
     <td><a name="database_fullname"></a><code>fullname</code></td>
     <td>De volledige naam van de database, dus inclusief het
-	<code>eekboek_</code> voorvoegsel.<br>
-	Deze veriabele kan niet worden opgegeven in de
+	voorvoegsel.<br>
+	Deze variabele kan niet worden opgegeven in de
 	configuratiebestanden maar wordt automatisch afgeleid van de
 	database naam.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="database_driver"></a><code>driver</code></td>
+    <td>De te gebruiken database-driverer.<br>
+	Mogelijke waarden zijn <code>postgres</code> voor het
+	PostgreSQL database systeem, en <code>sqlite</code> voor SQLite.
+	<br>Default: <code>postgres</code>.
     </td>
   </tr>
   <tr valign="top">
@@ -184,6 +192,30 @@ toekomstige versie komen te vervallen.</p>
 	Indien deze configuratievariabele niet is gezet wordt een
 	database-specifieke standaardwaarde genomen.
 	<br>Fallback: <code>EB_DB_PORT</code>.
+    </td>
+  </tr>
+</table>
+
+<p><a name="strategy"></a><b>Sectie "Strategy"</b></p>
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="strategy_round"></a><code>round</code></td>
+    <td>Hiermee kan worden ingesteld op welke wijze EekBoek bij
+	berekeningen bedragen moet afronden.
+	<br>De volgende methoden worden ondersteund:
+	<table border="0" width="100%">
+	  <tr valign="top">
+	    <td><code>ieee</code></td><td>Afronding volgens de IEEE
+		standaard.<br>Dit is de standaardinstelling.</td>
+	  </tr>
+	  <tr valign="top">
+	    <td><code>bankers</code></td><td>Afronding naar even getallen (het zg. Bankers
+		algoritme)</td>
+	  </tr>
+	  <tr valign="top">
+	    <td><code>posix</code></td><td>Afronding volgens de POSIX standaard.</td>
+	  </tr>
+        </table>
     </td>
   </tr>
 </table>
