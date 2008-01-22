@@ -13,12 +13,6 @@ ge&iuml;nstalleerd van <a href="http://www.cpan.org">CPAN</a>:
   <li><a target="_blank"
       href="http://search.cpan.org/search?module=DBD%3A%3ASQLite">DBD::SQLite</a>
       (alleen nodig voor SQLite), versie 1.13 of later</li>
-  <li><a target="_blank"
-      href="http://search.cpan.org/search?module=Config%3A%3AIniFiles">Config::IniFiles</a>,
-      versie 2.38 of later</li>
-  <li><a target="_blank"
-      href="http://search.cpan.org/search?module=Text%3A%3ACSV_XS">Text::CSV_XS</a>
-      (alleen nodig voor de importprogramma&rsquo;s), versie 0.23 of later</li>
 </ul>
 
 <h2>Bouwen met CPAN of CPANPLUS</h2>
@@ -33,6 +27,15 @@ perl -MCPANPLUS -e "install qw(EekBoek)"</blockquote>
 <p>De meest recente versie wordt automatisch opgehaald van het CPAN
 archief, uitgepakt, gebouwd en ge&iuml;nstalleerd, waarbij eventueel
 benodigde aanvullende modules ook worden meegenomen.</p>
+
+<p>Let op! Oudere versies van de CPAN module kunnen problemen
+opleveren. Indien u de melding:
+
+<blockquote class="code">Package seems to come without Makefile.PL.
+  Writing one on our own (setting NAME to EekBoek)
+</blockquote>
+krijgt is uw versie te oud en dient u een nieuwere versie van de CPAN
+module te gebruiken.
 
 <h2>Bouwen vanaf source</h2>
 
