@@ -1,5 +1,8 @@
 [%# $Id$ %]
 [% META title = "Installeren op Microsoft Windows" %]
+
+[% INCLUDE "$rootdir/src/vrij.tt2" %]
+
 <h2>Systeemeisen</h2>
 <p>Elk modern Microsoft Windows systeem (vanaf Windows98) is in staat
 om zonder problemen EekBoek te installeren en te draaien.</p>
@@ -18,16 +21,49 @@ is. Open daartoe een command prompt window en geef de opdracht:</p>
 
 <blockquote class="code">This is perl, v5.8.8 built for ...</blockquote>
 
-<p>De Perl versie moet tenminste 5.8.6 zijn.</p>
+<p>De Perl versie moet tenminste 5.8.8 zijn.</p>
 
 <p>Let verder op dat veel van de genoemde bestandsnamen zowel hoofd-
 als kleine letters bevatten, en deze <em>exact zo</em> moeten worden
 ingegeven! 
 
-<h2>Installeren met PPM</h2>
+<h2>Installeren met PPM (ActivePerl build 817 en later)</h2>
 
-<p>ActivePerl komt met het installatieprogramma <strong>ppm</strong>,
-de Perl Package Manager. Installatie van EekBoek hiermee is erg eenvoudig.</p>
+<p>ActivePerl komt met versie 4 van het installatieprogramma
+<strong>ppm</strong>, de Perl Package Manager.</p>
+
+<p>De volgende stappen dienen te worden uitgevoerd:</p>
+
+<ol>
+  <li><p>Open een command prompt window.</li>
+  <li><p>Geef de opdracht:
+      <blockquote class="code">ppm install --area=perl [% site.dl %]/EekBoek.ppd</blockquote>
+      Let op de hoofdletters <strong>E</strong> en <strong>B</strong>!
+      <p>Het is mogelijk dat <strong>ppm</strong> enkele aanvullende
+      pakketten wil installeren.
+  </li>
+</ol>
+
+<p>Krijgt u de opmerking dat Config-IniFiles niet kan worden gevonden
+dan is de PPM repository nog niet geïnitialiseerd. Voer dan het
+volgende commando uit:</p>
+<blockquote class="code">ppm install Config-IniFiles</blockquote>
+Dit installeert de benodigde module, en zorgt tevens ervoor dat de PPM
+repository wordt geïnitialiseerd.</p>
+
+</p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
+dan kan dit eenvoudig met de opdracht:</p>
+
+<blockquote class="code">ppm upgrade --area=perl [% site.dl %]/EekBoek.ppd</blockquote>
+
+<p>Hiermee wordt steeds de meeste recente versie
+ge&iuml;nstalleerd.</p>
+
+<h2>Installeren met PPM (ActivePerl build 816 en eerder)</h2>
+
+<p>Deze ActivePerl komt met versie 3 van het installatieprogramma
+<strong>ppm</strong>, de Perl Package Manager. Installatie van EekBoek
+is hiermee erg eenvoudig.</p>
 
 <p>De volgende stappen dienen daartoe te worden uitgevoerd:</p>
 
@@ -78,9 +114,9 @@ driver = sqlite</blockquote>
       puntje) in de eerder aangemaakte folder.
   <li><p>Open een command prompt window in deze folder, en geef daar
       de volgende opdracht:
-      <blockquote class="code">ebshell --import --dir c:\Perl\site\lib\EB\example</blockquote>
+      <blockquote class="code">ebshell --import --dir c:\Perl\site\lib\EB\examples</blockquote>
       De probeer-database wordt nu geladen.
-      <p>Let op: het kan zijn dat de example directory ergens anders
+      <p>Let op: het kan zijn dat de examples directory ergens anders
 staat. Zoek indien nodig naar het bestand <strong>mutaties.eb</strong>
 en kijk waar de betreffende example directory staat.
 </ol>
