@@ -120,8 +120,8 @@ verbouwt het Eekboek-rpm pakket om tot een voor de Debian installer
       alle benodigdheden klaar te zetten, voer de volgende opdracht
       uit als root: 
       <blockquote class="code">apt-get install fakeroot alien lsb-rpm lintian
-      libdbd-pg-perl libconfig-inifiles-perl libterm-readline-gnu-perl
-      libhtml-parser-perl</blockquote>
+      libconfig-inifiles-perl libterm-readline-gnu-perl
+      libarchive-zip-perl libhtml-parser-perl</blockquote>
       <strong>Let op:</strong> het bovenstaande moet als
       &eacute;&eacute;n enkele regel worden ingetikt.
       <p>Hierna kunt u uitloggen als root, en weer verder werken als
@@ -132,7 +132,8 @@ verbouwt het Eekboek-rpm pakket om tot een voor de Debian installer
       verifi&euml;ren.
       <blockquote class="code">wget [% site.gpgkey %]
 gpg --import RPM-GPG-KEY-EekBoek</blockquote></p>
-
+      <!-- WAAR KOMT GPG VANDAAN? -->
+      
   <li>Open met de browser de Eekboek directory <a   href="[% site.dl
       %]">[% site.dl %]</a>, zoek   de meest recente
       eekboek-versie en download de <strong>noarch.rpm</strong>
@@ -151,7 +152,7 @@ wget [% site.dl %]/EekBoek-<var>versie</var>.noarch.rpm.sig</blockquote>
       <p>Dit maakt een bestand genaamd
       <strong>eekboek__<var>versie</var>all.deb</strong>. Dit kunt u
       vervolgens installeren (als root) als volgt:
-      <blockquote class="code">dpkg -i eekboek__<var>versie</var>all.deb<blockquote></li>
+      <blockquote class="code">dpkg -i eekboek__<var>versie</var>all.deb</blockquote></li>
 </ol>
 <p>Wilt u in de toekomst een nieuwe versie van
 EekBoek installeren, dan dienen de stappen 3 t/m 5 opnieuw te
