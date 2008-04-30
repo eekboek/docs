@@ -30,3 +30,9 @@
 	'<code>css/other.css</code>'
     </td>
   </tr>
+  <tr valign="top">
+    <td><code>--title=<var>text</var></code></td>
+    <td>Voor HTML uitvoer: specificeert de titel van het document.
+	Deze wordt opgenomen in de HTML <code>&lt;title&gt;</code>.
+    </td>
+  </tr>
