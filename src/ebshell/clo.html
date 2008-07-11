@@ -46,16 +46,12 @@
   </tr>
   <tr valign="top">
     <td><code>--dataset=<var>name</var></code></td>
-    <td>De opgegeven database wordt gebruikt in plaats van de
+    <td><strong>Deze optie komt te vervallen. Gebruik in plaats
+	hiervan <code>--config</code>.</strong>
+	<br>De opgegeven database wordt gebruikt in plaats van de
 	standaard database. Zie <a
 	href="../config.html#database">Configuratiebestanden,
 	sectie Database</a>.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--journaal</code></td>
-    <td>Na elke boeking wordt automatisch de bijbehorende
-	journaalregel getoond.
     </td>
   </tr>
   <tr valign="top">
@@ -65,29 +61,11 @@
     </td>
   </tr>
   <tr valign="top">
-    <td><code>--createdb</code></td>
-    <td>Cre&euml;er een lege database. Indien de database al bestaat
-	wordt deze geheel leeggemaakt, anders wordt een nieuwe, lege
-	database aangemaakt.
-	<br>Deze opdracht is alleen zinvol in combinatie met de
-	opdracht <code>--schema</code>, zie hieronder.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--schema=<var>name</var></code></td>
-    <td>Initialiseer de administratie met het opgegeven schema. Dit
-	kan uitsluitend indien de te gebruiken database nog helemaal
-	leeg is.
-	<br>Als de opgegeven schemanaam alleen letters,
-	cijfers en onderstrepingen bevat wordt het schema gezocht in de volgende
-	plaatsen:
-	<br><code>./<var>naam</var>.dat</code>
-	<br><code>schema/<var>naam</var>.dat</code>
-	<br><code><var>EBLIB</var>/schema/<var>naam</var>.dat</code>
-	<br>In het laatste geval staat <var>EBLIB</var> voor de
-	locatie waar EekBoek is ge&iuml;nstalleerd.
-	<br>Als de opgegeven schemanaam andere tekens bevat  wordt het als een
-	bestandsnaam beschouwd en wordt het schema vanuit dat bestand geladen.
+    <td><code>--init</code></td>
+    <td>Initialiseer een nieuwe administratie.
+	<br>Dit is gelijk aan de opties <code>--import --dir .</code>,
+	maar gemakkelijker.
+	<br>Zie de EekBoek opdracht <a href="inex.html#import">import</a> voor details.
     </td>
   </tr>
   <tr valign="top">
@@ -101,6 +79,34 @@
     <td><code>--export <var>export-parameters</var></code></td>
     <td>Exporteer een administratie.
 	<br>Zie de EekBoek opdracht <a href="inex.html#export">export</a> voor details.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--createdb</code></td>
+    <td><strong>Waarschuwing: alleen voor experts.</strong>
+	<br>Cre&euml;er een lege database. Indien de database al bestaat
+	wordt deze geheel leeggemaakt, anders wordt een nieuwe, lege
+	database aangemaakt.
+	<br>Deze opdracht is alleen zinvol in combinatie met de
+	opdracht <code>--schema</code>, zie hieronder.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--schema=<var>name</var></code></td>
+    <td><strong>Waarschuwing: alleen voor experts.</strong>
+	<br>Initialiseer de administratie met het opgegeven schema. Dit
+	kan uitsluitend indien de te gebruiken database nog helemaal
+	leeg is.
+	<br>Als de opgegeven schemanaam alleen letters,
+	cijfers en onderstrepingen bevat wordt het schema gezocht in de volgende
+	plaatsen:
+	<br><code>./<var>naam</var>.dat</code>
+	<br><code>schema/<var>naam</var>.dat</code>
+	<br><code><var>EBLIB</var>/schema/<var>naam</var>.dat</code>
+	<br>In het laatste geval staat <var>EBLIB</var> voor de
+	locatie waar EekBoek is ge&iuml;nstalleerd.
+	<br>Als de opgegeven schemanaam andere tekens bevat  wordt het als een
+	bestandsnaam beschouwd en wordt het schema vanuit dat bestand geladen.
     </td>
   </tr>
 </table>
