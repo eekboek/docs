@@ -1,4 +1,4 @@
-[%# $Id %]
+[%# $Id$ %]
 
 <h3>Configuratiebestanden</h3>
 
@@ -38,11 +38,12 @@ meer generieke bestanden.<p>
 
 <p>De EekBoek shell <code>ebshell</code> kan bovendien op de command
 line een <a href="ebshell/clo.html#config">configuratie-optie</a>
-worden meegegeven. Met deze optie wordt een extra configuratiebestand
-aangewezen dat weer voorrang heeft boven alle andere. Ook is het
-mogelijk om met de command line optie <code>-X</code> de EekBoek shell
-te instrueren alle standaard-configuratiebestanden over te slaan. Dit
-is uiteraard alleen zinvol in combinatie met <code>--config</code>.</p>
+worden meegegeven. Met deze optie wordt een niet-standaard configuratiebestand
+aangewezen dat in de plaats van het administratie-specifieke bestand komt.
+Tevens is het mogelijk om met de command line optie <code>-X</code> de
+EekBoek shell te instrueren alle standaard-configuratiebestanden te
+negeren. Dit is uiteraard alleen zinvol in combinatie met
+<code>--config</code>.</p>
 
 <p>Configuratie-variabelen kunnen ook worden gezet op de command line
 bij het opstarten van EekBoek. Zie hiervoor <a
@@ -126,6 +127,52 @@ toekomstige versie komen te vervallen.</p>
 	&lsquo;puntje&rsquo;. De breedte van de kolommen in de
 	rapportages wordt automatisch aangepast om ruimte te bieden
 	aan de duizendpuntjes.
+    </td>
+  </tr>
+</table>
+
+<p><a name="prefs"></a><b>Sectie "Company"</b></p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="cpy_name"></a><code>name</code></td>
+    <td>De naam van de onderneming.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="cpy_id"></a><code>id</code></td>
+    <td>Administratienummer van de onderneming.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="cpy_address"></a><code>address</code></td>
+    <td>Adres.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="cpy_zip"></a><code>postalcode</code></td>
+    <td>Postcode.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="cpy_city"></a><code>city</code></td>
+    <td>Woonplaats.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="cpy_taxreg"></a><code>taxreg</code></td>
+    <td>Het fiscale nummer van de onderneming.
+    </td>
+  </tr>
+</table>
+
+<p><a name="prefs"></a><b>Sectie "Preferences"</b></p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="prefs_journal"></a><code>journal</code></td>
+    <td>Door deze variable een waarde ongelijk nul te geven wordt na
+	elke boeking automatisch de betreffende journaalpost getoond.
     </td>
   </tr>
 </table>
@@ -217,6 +264,30 @@ toekomstige versie komen te vervallen.</p>
 	  </tr>
         </table>
     </td>
+  </tr>
+  <tr valign="top">
+    <td><a name="strategy_bkm_multi"></a><code>bkm_multi</code></td>
+    <td>Indien ingesteld op een waarde anders dan 0 (default) zal
+	EekBoek proberen boekingen in een Bank, Kas of
+	Memoriaaldagboek waarvoor geen overeenstemmende open post kan
+	worden gevonden te verdelen over meerdere open posten.
+	<br>De boeking wordt alleen uitgevoerd indien er meerdere
+	open posten zijn die tezamen exact het gewenste bedrag uitmaken.
+  </tr>
+  <tr valign="top">
+    <td><a name="strategy_iv_vc"></a><code>iv_vc</code></td>
+    <td>Bij het boeken in een Inkoop- of Verkoopdagboek wordt BTW
+	berekend per boekstukregel. Sommige leveranciers berekenen
+	echter de BTW over het totaal van de boekstukregels. Daardoor
+	kunnen afrondingsverschillen ontstaan met als gevolg een
+	boekstuktotaal dat niet klopt met de opgegeven waarde. De
+	boeking zal dan worden geweigerd.
+	<p>EekBoek zal echter eerst proberen zo'n boeking te
+	corrigeren door de BTW 	te herberekenen over het totaal. Er
+	wordt dan een melding 	gegeven, en een correctieboekstukregel
+	aangemaakt.
+	<p>Dit gedrag kan worden <em>afgezet</em> door de strategy
+	optie <code>iv_vc</code> de waarde 0 te geven.
   </tr>
 </table>
 
