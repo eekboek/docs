@@ -32,26 +32,50 @@ aangegeven als volgt:</p>
   <tr valign="top">
     <td><code>btw_ih</code></td>
     <td>De rekening voor BTW boekingen voor inkopen, hoog tarief.
-    <br>Deze koppeling moet in het schema voorkomen als de
-	administratie BTW-plichtig is.</td>
-  </tr>
-  <tr valign="top">
-    <td><code>btw_il</code></td>
-    <td>Idem, laag tarief.
-    <br>Deze koppeling moet in het schema voorkomen als de
-	administratie BTW-plichtig is.</td>
+    <br>Deze koppeling moet in het schema voorkomen als
+	er BTW tarieven met deze tariefgroep zijn gedefinieerd.</td>
   </tr>
   <tr valign="top">
     <td><code>btw_vh</code></td>
     <td>Idem, verkopen, hoog tarief.
-    <br>Deze koppeling moet in het schema voorkomen als de
-	administratie BTW-plichtig is.</td>
+    <br>Deze koppeling moet in het schema voorkomen als
+	er BTW tarieven met deze tariefgroep zijn gedefinieerd.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>btw_il</code></td>
+    <td>Idem, inkopen, laag tarief.
+    <br>Deze koppeling moet in het schema voorkomen als
+	er BTW tarieven met deze tariefgroep zijn gedefinieerd.</td>
   </tr>
   <tr valign="top">
     <td><code>btw_vl</code></td>
-    <td>Idem, laag tarief.
-    <br>Deze koppeling moet in het schema voorkomen als de
-	administratie BTW-plichtig is.</td>
+    <td>Idem, verkopen, laag tarief.
+    <br>Deze koppeling moet in het schema voorkomen als
+	er BTW tarieven met deze tariefgroep zijn gedefinieerd.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>btw_ip</code></td>
+    <td>Idem, inkopen, tarief &lsquo;Priv&eacute;&rsquo;.
+    <br>Deze koppeling moet in het schema voorkomen als
+	er BTW tarieven met deze tariefgroep zijn gedefinieerd.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>btw_vp</code></td>
+    <td>Idem, verkopen, tarief &lsquo;Priv&eacute;&rsquo;.
+    <br>Deze koppeling moet in het schema voorkomen als
+	er BTW tarieven met deze tariefgroep zijn gedefinieerd.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>btw_ia</code></td>
+    <td>Idem, inkopen, tarief &lsquo;Anders&rsquo;.
+    <br>Deze koppeling moet in het schema voorkomen als
+	er BTW tarieven met deze tariefgroep zijn gedefinieerd.</td>
+  </tr>
+  <tr valign="top">
+    <td><code>btw_va</code></td>
+    <td>Idem, verkopen, tarief &lsquo;Anders&rsquo;.
+    <br>Deze koppeling moet in het schema voorkomen als
+	er BTW tarieven met deze tariefgroep zijn gedefinieerd.</td>
   </tr>
   <tr valign="top">
     <td><code>btw_ok</code></td>
@@ -67,4 +91,5 @@ aangegeven als volgt:</p>
 </table>
 
 <p>Elke koppelingen mag ten hoogste &eacute;&eacute;nmaal in het
-schema voorkomen.</p>
+schema voorkomen.</p> <p>Ongebruikte koppelingen worden bij het <a
+href="inex.html">exporteren</a> van het schema weggelaten.</p>
