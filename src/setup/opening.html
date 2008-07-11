@@ -1,9 +1,10 @@
 [%# $Id$ %]
 
-<h2>Het openen van de administratie</h2>
+<h2>Bestand <code>opening.eb</code> - Het openen van de administratie</h2>
 
 <p>Het openen van de administratie is de laatste stap in het
-gebruiksklaar maken.</p>
+gebruiksklaar maken. Alle opdrachten daartoe benodigd dienen te worden
+opgenomen in het bestand <code>opening.eb</code>.</p>
 
 <p>Het openen omvat de volgende stappen:</p>
 
@@ -15,8 +16,9 @@ gebruiksklaar maken.</p>
   <li><a href="#open">Het eigenlijke openen</a>.</li>
 </ul>
 
-<p>De EekBoek shell opdrachten die te maken hebben met het openen van
-de administratie beginnen alle met het voorvoegsel &lsquo;<code>adm_</code>&rsquo;.</p>
+<p>De EekBoek opdrachten die te maken hebben met het openen van de
+administratie beginnen alle met het voorvoegsel
+&lsquo;<code>adm_</code>&rsquo;.</p>
 
 <a name="#amdgg"></a><h3>Het invoeren van administratie-specifieke gegevens</h3>
 
@@ -126,10 +128,17 @@ met een &lsquo;normale&rsquo; in- of verkoopboeking.</p>
 
 <a name="open"></a><h3>Het eigenlijke openen.</h3>
 
-<p>Nadat alle informatie op bovenstaande wijze is opgegeven wordt de
-administratie geopend met volgende opdracht:</p>
+<p>Nadat alle informatie op bovenstaande wijze is opgegeven wordt als
+laatste opdracht gegeven om de administratie te openen:</p>
 
 <blockquote class="code">adm_open</blockquote>
 
-<p>De administratie is nu klaar voor gebruik.</p>
+<p>Het bestand <code>opening.eb</code> is nu klaar voor gebruik.</p>
+
+<p><strong>Let op!</strong> Openingsopdrachten kunnen ook interactief
+in de EekBoek shell worden ingegeven. Daarbij is van belang dat
+<strong>alle</strong> <code>adm_</code> opdrachten voor de opening in
+<strong>dezelfde</strong> shell worden ingegeven. Het programma mag
+dus niet meerdere malen worden gestart met telkens een deel van de
+<code>adm_</code> opdrachten.</p>
 
