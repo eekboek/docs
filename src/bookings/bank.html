@@ -23,7 +23,8 @@ Het <em>eindsaldo</em> na boeking kan worden geverifieerd met de optie
 &lsquo;<code>--beginsaldo=<var>bedrag</var></code>&rsquo;. Als dit
 niet is opgegeven wordt het eindsaldo van het eraan
 voorafgaande boekstuk genomen, indien deze reeds in de administratie
-aanwezig is.
+aanwezig is. Het beginstaldo van de eerste boeking is uiteraard het op
+de openingsbalans opgevoerde bedrag.
 <br>Zowel het
 boekstuktotaal als het begin- en eindsaldo treft u als regel aan op
 het bankafschrift.</p>
@@ -203,12 +204,18 @@ boekstuk?</h3>
 debiteur, dan zal EekBoek in de openstaande posten van het huidige
 &eacute;n eventuele voorafgaande boekjaren zoeken naar een boekstuk
 (inkoop resp. verkoop) waarvan het boekstuktotaal overeenkomt met het
-opgegeven bedrag. Hiermee kunnen 98% van de betalingen soepel en
+opgegeven bedrag. Hiermee kunnen bijna alle betalingen soepel en
 eenvoudig worden afgewerkt.</p>
 
 <p>Wanneer er meerdere openstaande posten zijn voor dezelfde relatie
 met hetzelfde bedrag, dan wordt de oudste openstaande post geacht te
 zijn voldaan.</p>
+
+<p>De configuratie-instelling <a
+href="../config.html#strategy_bkm_multi">bkm_multi</a> kan worden
+gebruikt om dit proces te versoepelen: De boeking wordt dan ook
+uitgevoerd indien er meerdere open posten zijn die tezamen exact het
+gewenste bedrag uitmaken.</p>
 
 <p>Een complicatie ontstaat wanneer een betaling niet precies
 overeenkomt met het bedrag van een inkoop/verkoop boekstuk. Dit kan
