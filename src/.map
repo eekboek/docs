@@ -3,7 +3,6 @@ menu "Inleiding"	      intro
 menu "De EekBoek shell"       ebshell
 menu "Configuratie"           config
 menu "Opzetten administratie" setup
-menu "Relaties"		      debcrd
 menu "Boekingen"	      bookings
 menu "Overzichten"	      reports
 menu "Jaarafsluiting"	      yearend
