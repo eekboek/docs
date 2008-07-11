@@ -42,10 +42,11 @@ ontbreken.</p>
 
 <table border="1" cellpadding="5">
   <tr valign="top">
-    <td><code>H</code><br><code>L</code><br><code>0</code><br><code><var>n</var></code></td>
-    <td>Pas het hoge BTW tarief toe.
-	<br>Pas het lage BTW tarief toe.
-	<br>(Het cijfer nul) Geen BTW toepassen.
+    <td><code>N</code><br><code>H</code><br><code>L</code><br><code>0</code><br><code><var>n</var></code></td>
+    <td>(Neutraal) Pas geen BTW toe.
+	<br>(Hoog) Pas het hoge BTW tarief toe.
+	<br>(Laag) Pas het lage BTW tarief toe.
+	<br>(Het cijfer nul) BTW 0% toepassen.
 	<br>Pas de BTW toe volgens de BTW code
 	<code><var>n</var></code>.
 	<hr>Standaard wordt het BTW-tarief toegepast dat aan de
@@ -73,6 +74,26 @@ ontbreken.</p>
     </td>
   </tr>
 </table>
+
+<a name="Afr"></a><h2>BTW-afrondingen</h2>
+
+<p>Bij het boeken in een Inkoop- of Verkoopdagboek wordt de BTW
+berekend per boekstukregel. Soms worden in fakturen de boekstukregels
+opgeteld, en daarover de BTW berekend. Hierdoor kunnen
+afrondingsverschillen ontstaan. Wanneer aan een boeking een
+totaalbedrag is meegegenve (de <code>--totaal</code> optie) zal het
+boekstuktotaal niet kloppen met de opgegeven waarde en de boeking zal
+dan worden geweigerd.
+
+<p>EekBoek zal in dit geval echter eerst proberen zo'n boeking te
+corrigeren door de BTW te herberekenen over het totaal van de
+boekstukregels. Indien het opgeven totaalbedrag dan wel klopt met het
+boekstuktotaal dan wordt een melding gegeven, en een
+correctieboekstukregel aangemaakt.
+
+<p>Indien deze voorziening ongewenst is kan deze worden afgezet met
+de configuratie-optie <a href="../config.html#strategy_iv_vc"><code>iv_vc</code></a>.
+
 
 <h2>Zie ook ...</h2>
 
