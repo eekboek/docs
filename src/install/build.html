@@ -1,12 +1,13 @@
 [% META title = "EekBoek bouwen vanaf source" %]
 
+<p>&lsquo;Bouwen&rsquo; is een groot woord, want EekBoek hoeft
+eigenlijk alleen maar te worden ge&iuml;nstalleerd. Maar traditioneel
+noemen we dat &lsquo;bouwen&rsquo;.</p>
 <p>Naast de standaard Perl modules gebruikt EekBoek nog enkele
 aanvullende modules die, indien nodig, moeten worden
 ge&iuml;nstalleerd van <a href="http://www.cpan.org">CPAN</a>:
 
 <ul>
-  <li><a target="_blank"
-      href="http://search.cpan.org/search?module=Term%3A%3AReadLine%3A%3AGnu">Term::ReadLine::Gnu</a></li>
   <li><a target="_blank"
       href="http://search.cpan.org/search?module=DBD%3A%3APg">DBD::Pg</a>
       (alleen nodig voor PostgreSQL), versie 1.41 of later</li>
@@ -15,7 +16,35 @@ ge&iuml;nstalleerd van <a href="http://www.cpan.org">CPAN</a>:
       (alleen nodig voor SQLite), versie 1.13 of later</li>
 </ul>
 
-<h2>Bouwen met CPAN of CPANPLUS</h2>
+<p>Daarnaast is het aan te bevelen de volgende modules te installeren:</p>
+<ul>
+  <li><a target="_blank"
+      href="http://search.cpan.org/search?module=Term%3A%3AReadLine%3A%3AGnu">Term::ReadLine::Gnu</a></li>
+  <li><a target="_blank"
+      href="http://search.cpan.org/search?module=Archive%3A%3AZip">Archive::Zip</a></li>
+  <li><a target="_blank"
+      href="http://search.cpan.org/search?module=HTML%3A%3AEntities">HTML::Entities</a></li>
+</ul>
+
+<p>Afhankelijk van de gebruikte procedure zal het bouw-proces dit zelf
+afhandelen.</p>
+
+[%- SET versie="1.04.00" -%]
+<p>In dit document wordt als voorbeeld EekBoek versie [% versie %]
+gebruikt. U dient in plaats hiervan het door u gewenste versienummer
+op te geven.</p>
+
+<ul>
+  <li><a href="#cpan">Installeren met CPAN of CPANPLUS</a></li>
+  <li><a href="#wget">Het ophalen van de source kit</a></li>
+  <li><a href="#rpm">Aanmaken van een RPM package</a></li>
+  <li><a href="linux.html#rpm">Installeren van de RPM</a></li>
+  <li><a href="#debian">Aanmaken van een DEB package</a></li>
+  <li><a href="linux.html#debian">Installeren van de DEB</a></li>
+  <li><a href="#tar">Installeren vanaf de source kit</a></li>
+</ul>
+
+<a name="cpan"></a><h2>Bouwen met CPAN of CPANPLUS</h2>
 
 Wanneer u de <strong>CPAN</strong> of <strong>CPANPLUS</strong>
 installatiemodule beschikbaar (en werkend!) heeft, kan EekBoek worden
@@ -37,16 +66,41 @@ opleveren. Indien u de melding:
 krijgt is uw versie te oud en dient u een nieuwere versie van de CPAN
 module te gebruiken.
 
-<h2>Bouwen vanaf source</h2>
+<a name="wget"></a><h2>Het ophalen van de source kit</h2>
 
-Hiertoe dient u de <strong>.tar.gz</strong> file van de gewenste
-versie te downloaden van een van de <a
-href="../download.html">download sites</a>. In het navolgende wordt
-als voorbeeld de te installeren versie [% vv = "1.01.01"; vv %] gebruikt.
+U kunt de <strong>.tar.gz</strong> file van de gewenste
+versie downloaden van een van de <a
+href="../download.html">download sites</a>, bijvoorbeeld  met
+een webtool als <b>wget</b>:</p>
+<blockquote class="code">wget [% site.dl %]/EekBoek-[% versie %].tar.gz
+</blockquote>
 
-<blockquote class="code">$ <strong>wget [% site.dl %]/EekBoek-[% vv %].tar.gz</strong>
---16:31:22--  [% site.dl %]/EekBoek-[% vv %].tar.gz
-           => `EekBoek-[% vv %].tar.gz'
+<a name="rpm"></a><h2>Aanmaken van een RPM</h2>
+
+Als u beschikt over de <b>rpmbuild</b> tools kunt u een RPM bouwen
+direct uit de source kit:
+<blockquote class="code">rpmbuild -ta EekBoek-<i>[% versie %]</i>.tar.gz
+</blockquote>
+
+<a name="debian"></a><h2>Aanmaken van een DEB kit</h2>
+
+Als u beschikt over de Debian <b>dpkg</b> tools kunt u een Debian
+package (DEB) bouwen als volgt:
+<blockquote class="code">tar -zxf EekBoek-<i>[% versie %]</i>.tar.gz
+cd EekBoek-<i>[% versie %]</i>
+fakeroot dpkg-buildpackage -b
+</blockquote>
+
+<p>U vindt de aangemaakte kits &eacute;&eacute;n niveau hoger, dus in
+de directory waar de source is uitgepakt.</p>
+
+<a name="tar"></a><h2>Installeren vanaf source</h2>
+
+Deze procedure verloopt als volgt.
+
+<blockquote class="code">$ <strong>wget [% site.dl %]/EekBoek-[% versie %].tar.gz</strong>
+--16:31:22--  [% site.dl %]/EekBoek-[% versie %].tar.gz
+           => `EekBoek-[% versie %].tar.gz'
 Resolving www.eekboek.nl... 195.35.176.141
 Connecting to www.eekboek.nl|195.35.176.141|:80... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -54,11 +108,11 @@ Length: 308,864 (302K) [application/x-tar]
 
 100%[====================================>] 308,864      370.91K/s             
 
-16:31:23 (370.38 KB/s) - `EekBoek-[% vv %].tar.gz' saved [308864/308864]
+16:31:23 (370.38 KB/s) - `EekBoek-[% versie %].tar.gz' saved [308864/308864]
 
-$ <strong>wget [% site.dl %]/EekBoek-[% vv %].tar.gz.sig</strong>
---16:31:42--  [% site.dl %]/EekBoek-[% vv %].tar.gz.sig
-           => `EekBoek-[% vv %].tar.gz.sig'
+$ <strong>wget [% site.dl %]/EekBoek-[% versie %].tar.gz.sig</strong>
+--16:31:42--  [% site.dl %]/EekBoek-[% versie %].tar.gz.sig
+           => `EekBoek-[% versie %].tar.gz.sig'
 Resolving www.eekboek.nl... 195.35.176.141
 Connecting to www.eekboek.nl|195.35.176.141|:80... connected.
 HTTP request sent, awaiting response... 200 OK
@@ -66,24 +120,22 @@ Length: 65 [application/x-tar]
 
 100%[====================================>] 65            --.--K/s             
 
-16:31:42 (2.21 MB/s) - `EekBoek-[% vv %].tar.gz.sig' saved [65/65]
+16:31:42 (2.21 MB/s) - `EekBoek-[% versie %].tar.gz.sig' saved [65/65]
 
-$ <strong>gpg --verify EekBoek-[% vv %].tar.gz.sig</strong>
+$ <strong>gpg --verify EekBoek-[% versie %].tar.gz.sig</strong>
 gpg: Signature made Fri 13 Oct 2006 03:59:11 PM CEST using DSA key ID C26FE4F7
 gpg: Good signature from "EekBoek Software <info@eekboek.nl>"
-$ <strong>tar -zxf EekBoek-[% vv %].tar.gz</strong> 
-$ <strong>cd EekBoek-[% vv %]</strong>
+$ <strong>tar -zxf EekBoek-[% versie %].tar.gz</strong> 
+$ <strong>cd EekBoek-[% versie %]</strong>
 $ <strong>perl Build.PL</strong> 
 Creating custom builder _build/lib/MyModuleBuilder.pm in _build/lib
 Checking whether your kit is complete...
 Looks good
 
 Checking prerequisites...
-Package 'Config::IniFiles' already declared with version '2.38'
-ignoring new version ''.
 Looks good
 
-Creating new 'Build' script for 'EekBoek' version '[% vv %]'
+Creating new 'Build' script for 'EekBoek' version '[% versie %]'
 $ <strong>./Build test</strong>
 lib/EB/css/balres.css -> blib/lib/EB/css/balres.css
 lib/EB/Report/BTWAangifte.pm -> blib/lib/EB/Report/BTWAangifte.pm

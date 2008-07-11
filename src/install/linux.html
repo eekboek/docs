@@ -16,7 +16,15 @@ De uitvoer begint met de melding
 
 De Perl versie moet tenminste 5.8.6 zijn.
 
-<h2>Installeren met YUM</h2>
+<ul>
+  <li><a href="#yum">Installeren met YUM</a></li>
+  <li><a href="#rpm">Installeren met RPM</a></li>
+  <li><a href="#debian">Installeren met DPKG of APT-GET</a></li>
+  <li><a href="#opt">Optionele modules voor meer gemak en functionaliteit</a></li>
+</ul>
+
+
+<a name="yum"></a><h2>Installeren met YUM</h2>
 
 <p>Installatie met het installatieprogramma <strong>yum</strong> is de
 meest eenvoudige methode. Dit programma wordt op veel moderne Linux
@@ -62,10 +70,12 @@ dan kan dit eenvoudig met de opdracht:
 <p>Zoals gezegd wordt dan steeds de meeste recente versie
 ge&iuml;nstalleerd.</p>
 
+<p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
+
 <p>Voor ingebruikname van EekBoek moet u eerst de database
 configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
 
-<h2>Installeren met RPM</h2>
+<a name="rpm"></a><h2>Installeren met RPM</h2>
 
 <p>Als het systeem geen <strong>yum</strong> heeft, maar wel
 <strong>rpm</strong>, dan dient u steeds expliciet op te geven waar de
@@ -102,61 +112,45 @@ dienen uitgevoerd te worden als super-user <strong>root</strong>.</p>
 dan dienen de stappen 2 t/m 4 opnieuw te worden uitgevoerd, met
 uiteraard het nieuwe versienummer.
 
+<p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
+
 <p>Voor ingebruikname van EekBoek moet u eerst de database
 configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
 
-<h2>Installeren met Alien</h2>
+<a name="debian"></a><h2>Installeren met DPKG of APT-GET</h2>
 
 <p>Voor het installeren op Debian, of daarvan afgeleide
-Linux-varianten zoals Ubuntu, is het pakket Alien te gebruiken. Dit
-verbouwt het Eekboek-rpm pakket om tot een voor de Debian installer
-<strong>apt</strong> geschikt deb pakket.</p>
+Linux-varianten zoals Ubuntu, dient u een Debian package, een
+zogenaamde &ldquo;.deb&rdquo; te hebben. Deze kunt u indien nodig
+<a href="build.html#debian">zelf aanmaken</a>.</p>
+<p>Voor het installeren dient u als super-user <strong>root</strong>
+de volgende opdracht uit te voeren:</p>
 
-<ol>
-  <li><p>Eekboek maakt gebruik van verschillende Perl-onderdelen, en we
-      installeren het Eekboek-pakket via Alien. We gebruiken daarnaast
-      fakeroot om dit te kunnen afronden zonder root-rechten.</p>
-      <p>Om
-      alle benodigdheden klaar te zetten, voer de volgende opdracht
-      uit als root: 
-      <blockquote class="code">apt-get install fakeroot alien lsb-rpm lintian
-      libconfig-inifiles-perl libterm-readline-gnu-perl
-      libarchive-zip-perl libhtml-parser-perl</blockquote>
-      <strong>Let op:</strong> het bovenstaande moet als
-      &eacute;&eacute;n enkele regel worden ingetikt.
-      <p>Hierna kunt u uitloggen als root, en weer verder werken als
-      gewone gebruiker.</p>
+<blockquote class="code">dpkg -i eekboek__<var>versie</var>all.deb</blockquote>
 
-  <li><p>Importeer de EekBoek public key in <strong>gpg</strong>. Deze
-      heeft u straks nodig om de gedownloade pakketten te
-      verifi&euml;ren.
-      <blockquote class="code">wget [% site.gpgkey %]
-gpg --import RPM-GPG-KEY-EekBoek</blockquote></p>
-      <!-- WAAR KOMT GPG VANDAAN? -->
-      
-  <li>Open met de browser de Eekboek directory <a   href="[% site.dl
-      %]">[% site.dl %]</a>, zoek   de meest recente
-      eekboek-versie en download de <strong>noarch.rpm</strong>
-      alsmede de <strong>noarch.rpm.sig</strong>.
-      <p>U kunt dit ook direct downloaden vanaf de commandline:
-      <blockquote class="code">wget [% site.dl %]/EekBoek-<var>versie</var>.noarch.rpm
-wget [% site.dl %]/EekBoek-<var>versie</var>.noarch.rpm.sig</blockquote>
-  <li><p>Verifieer de software als volgt:
-      <blockquote class="code">gpg EekBoek-<var>versie</var>.noarch.rpm.sig</blockquote>
-      De  uitvoer moet duidelijk aangeven dat de verificatie klopt:
-      <blockquote class="code">gpg: Good signature from "EekBoek Software <info@eekboek.nl>"</blockquote>
-
-  <li>Om van het rpm een deb te
-      maken voert u de volgende opdracht uit:
-      <blockquote class="code">fakeroot alien EekBoek-<var>versie</var>.noarch.rpm</blockquote>
-      <p>Dit maakt een bestand genaamd
-      <strong>eekboek__<var>versie</var>all.deb</strong>. Dit kunt u
-      vervolgens installeren (als root) als volgt:
-      <blockquote class="code">dpkg -i eekboek__<var>versie</var>all.deb</blockquote></li>
-</ol>
-<p>Wilt u in de toekomst een nieuwe versie van
-EekBoek installeren, dan dienen de stappen 3 t/m 5 opnieuw te
-worden uitgevoerd, met uiteraard het nieuwe versienummer.</p>
+<p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
 
 <p>Voor ingebruikname van EekBoek moet u eerst de database
 configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
+
+<a name="opt"></a><h2>Optionele modules voor meer gemak en functionaliteit</h2>
+
+<p>De volgende modules zijn niet strikt nodig, maar bieden wel meer
+gebruiksgemak en functionaliteit.</p>
+
+<p><strong>Term::ReadLine::Gnu</strong></p>
+
+<p>Als u deze module installeert kunt u in de EekBoek shell gebruik
+maken van handige completion, waarbij automatisch dagboeken,
+rekeningnummers en relatiecodes worden opgezocht en aangevuld.</p>
+
+<p>U kunt deze module voor uw systeem opsporen via de zoekmachine <a
+href="http://rpm.bone.net/">RPM Bone</a>.</p>
+
+<p><strong>Archive::Tar</strong></p>
+
+<p>Als u deze module installeert kan EekBoek export en import van
+enkelvoudige archief-bestanden uitvoeren.</p>
+
+<p>Deze module kan doorgaans als een standaard package via het normale
+installatiemechanisme worden ge&iuml;nstalleerd.</p>
