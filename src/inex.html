@@ -9,6 +9,10 @@ bestanden kan vervolgens weer worden ge&iuml;mporteerd. De
 resulterende administratie is dan zoveel mogelijk identiek aan het
 origineel.</p>
 
+<p>Ook is het mogelijk een zogenaamde <a href="#XAF">XML Auditfile
+Financieel</a> (XAF) te produceren ten behoeve van accountantskantoren
+en de belastingdienst.</p>
+
 <h3>Export</h3>
 
 <p>De opdracht tot exporteren is <code>export</code> en heeft
@@ -41,8 +45,8 @@ data. Een eventueel reeds bestaand bestand wordt daarbij overschreven.</p>
 bestanden. Het kan daarom ook met standaard <code>zip</code> utilities worden
 benaderd, bijvoorbeeld:</p>
 
-<blockquote class="code">$ <strong>unzip -v export.ebx</strong>
-Archive:  export.ebx
+<blockquote class="code">$ <strong>unzip -v export.ebz</strong>
+Archive:  export.ebz
 Export van dataset sample aangemaakt door EekBoek 0.61 op 2006-06-20
  Length   Method    Size  Ratio   Date   Time   CRC-32    Name
 --------  ------  ------- -----   ----   ----   ------    ----
@@ -71,4 +75,32 @@ ebshell --import --file=<var>archive</var></blockquote>
 
 <p>In dit geval moeten de <code>--import</code> en
 <code>--file</code> of <code>--dir</code> opties achteraan de
-opdrachregel staan. </p>
+opdrachtregel staan. </p>
+
+<a name="XAF"></a><h3>Aanmaken XML Auditfile Financieel</h3>
+
+<p>Iedere ondernemer krijgt op gezette tijden te maken met een
+controle van de Belastingdienst. E&eacute;n van de meest tijdrovende
+bezigheden daarbij is het verzamelen en overzichtelijk maken van de
+gegevens die de Belastingdienst voor de controle nodig heeft. Om te
+komen tot administratieve lastenverlichting voor het bedrijfsleven
+heeft de Belastingdienst in 1999 de Auditfile ontwikkeld, waarin de
+meeste gegevens die voor de controle noodzakelijk zijn, zijn
+opgenomen. Door technische vooruitgang heeft het XML-platform daarna
+de XML Auditfile Financieel ontwikkeld. Het platform is een
+samenwerkingsverband van SRA (samenwerkende registeraccountants &amp;
+accountants-administratieconsulenten), softwareleveranciers en de
+Belastingdienst.</p>
+
+<p>In tegenstelling tot de &lsquo;oude&rsquo; Auditfile kunt u met de
+XML Auditfile Financieel maximaal gebruik maken van de mogelijkheden
+om gegevens uit te wisselen tussen de verschillende
+standaardpakketten, zoals die worden gebruikt in de
+accountantspraktijk.</p>
+
+<p>De opdracht tot aanmaken van een XAF is <code>export</code> en
+heeft &eacute;&eacute;n argument: de bestemming.</p>
+
+<blockquote class="code">export --xaf=<var>bestand</var></blockquote>
+
+
