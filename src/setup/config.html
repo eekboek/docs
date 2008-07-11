@@ -14,6 +14,21 @@ directory cre&euml;ert u dan een configuratiebestand met de naam
 
 <blockquote class="code">[database]
 name = mijndb
+driver = postgresql
 </blockquote>
 
-waarbij <var>mijndb</var> de gewenste naam van de database is.</p>
+waarbij <var>mijndb</var> de gewenste naam van de database
+is.<br>Indien u met de SQLite database wilt werken, dient u als driver
+<code>sqlite</code> op te geven.</p>
+
+<p>In deze directory dient u de volgende vier bestanden aan te maken:
+<ul>
+<li><code>schema.dat</code> - de administratiegegevens;
+<li><code>relaties.eb</code> - de relaties (debiteuren en
+    crediteuren);
+<li><code>opening.eb</code> - de openingsbalans;
+<li><code>mutaties.eb</code> - de mutaties (boekingen). Dit bestand
+    zal in eerste instantie leeg zijn.
+</ul>
+<p>De volgende secties van de documentatie beschrijven wat er in deze
+bestanden moet komen.</p>
