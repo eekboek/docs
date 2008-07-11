@@ -1,4 +1,7 @@
 menu "Opzetten werkomgeving" config
-menu "Aanmaken database" createdb
 menu "Administratiegegevens" schema
+menu "Relaties" relaties
 menu "Opening" opening
+menu "Mutaties" mutaties
+menu "Aanmaken administratie" init
+
