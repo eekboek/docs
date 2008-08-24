@@ -4,16 +4,77 @@
 
 <table border="1" width="100%" cellpadding="5">
   <tr valign="top">
-    <td><code>-f <var>cfg</var><br>--config=<var>cfg</var></code></td>
-    <td>Specificeert een extra configuratiebestand. Zie <a href="../config.html">Configuratiebestanden</a>.
+    <td><code>--boekjaar=<var>code</var></code></td>
+    <td>Selecteer een boekjaar uit een administratie die meerdere
+	boekjaren omvat.
     </td>
   </tr>
   <tr valign="top">
-    <td><code>-X</code></td>
-    <td>De standaard-configuratiebestanden worden niet gelezen. Dit is
-	uiteraard alleen zinvol in combinatie met
-	<code>--config</code>. Zie <a
-	href="../config.html">Configuratiebestanden</a>.
+    <td><code>--init</code></td>
+    <td>Initialiseer een nieuwe administratie uitgaande van de <a href="../intro/working.html#best4">vier
+	bestanden</a> die zich in de huidige directory bevinden.
+	<br>Zie de EekBoek opdracht <a href="../inex.html#import">import</a> voor details.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-c<br>--command</code></td>
+    <td>De rest van de opdrachtregel wordt als een EekBoek shell opdracht
+	ge&iuml;nterpreteerd.
+    </td>
+  </tr>
+[%#  <tr valign="top">
+    <td><code>--dataset=<var>name</var></code></td>
+    <td><strong>Deze optie komt te vervallen. Gebruik in plaats
+	hiervan <code>--config</code>.</strong>
+	<br>De opgegeven database wordt gebruikt in plaats van de
+	standaard database. Zie <a
+	href="../config.html#database">Configuratiebestanden,
+	sectie Database</a>.
+    </td>
+  </tr> -%]
+  <tr valign="top">
+    <td><code>-e<br>--echo</code></td>
+    <td>In batch mode worden alle ingelezen commando's ook
+	weggeschreven (ge-echo-t) naar de standaard uitvoer.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--export <var>export-parameters</var></code></td>
+    <td>Exporteer een administratie.
+	<br>Zie de EekBoek opdracht <a href="../inex.html#export">export</a> voor details.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>--import <var>import-parameters</var></code></td>
+    <td>Importeer een administratie.
+	<br>Zie de EekBoek opdracht <a href="../inex.html#import">import</a> voor details.
+	<br>Deze opdracht impliceert <code>--createdb</code>.
+    </td>
+  </tr>
+</table>
+
+<h4>De volgende opdrachten zijn alleen voor experts.</h4>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>--createdb</code></td>
+    <td>Cre&euml;er een lege database. Indien de database al bestaat
+	wordt deze geheel leeggemaakt, anders wordt een nieuwe, lege
+	database aangemaakt.
+	<br>Deze opdracht is alleen zinvol in combinatie met de
+	opdracht <code>--schema</code>, zie hieronder.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-D
+	<var>var</var>=<var>waarde</var><br>--define&nbsp;<var>var</var>=<var>waarde</var></code></td>
+    <td>Definieer configuratievariabelen. <var>var</var>
+	heeft de vorm <var>sectie</var><code>:</code><var>naam</var>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-f <var>cfg</var><br>--config=<var>cfg</var></code></td>
+    <td>Specificeert een extra configuratiebestand. Zie <a href="../config.html">Configuratiebestanden</a>.
     </td>
   </tr>
   <tr valign="top">
@@ -26,75 +87,8 @@
     </td>
   </tr>
   <tr valign="top">
-    <td><code>-D
-	<var>var</var><code>=</code><var>waarde</var><br>--define&nbsp;<var>var</var><code>=</code><var>waarde</var></code></td>
-    <td>Definieer configuratievariabelen. &lsquo;<var>var</var>&rsquo;
-	is van de vorm &lsquo;<var>sectie</var><code>:</code><var>naam</var>&rsquo;
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>-c<br>--command</code></td>
-    <td>De rest van de opdrachtregel wordt als een ebshell opdracht
-	ge&iuml;nterpreteerd.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>-e<br>--echo</code></td>
-    <td>In batch mode worden alle ingelezen commando's ook
-	weggeschreven (ge-echo-t) naar de standaard uitvoer.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--dataset=<var>name</var></code></td>
-    <td><strong>Deze optie komt te vervallen. Gebruik in plaats
-	hiervan <code>--config</code>.</strong>
-	<br>De opgegeven database wordt gebruikt in plaats van de
-	standaard database. Zie <a
-	href="../config.html#database">Configuratiebestanden,
-	sectie Database</a>.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--boekjaar=<var>code</var></code></td>
-    <td>Selecteer een boekjaar uit een administratie die meerdere
-	boekjaren omvat.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--init</code></td>
-    <td>Initialiseer een nieuwe administratie.
-	<br>Dit is gelijk aan de opties <code>--import --dir .</code>,
-	maar gemakkelijker.
-	<br>Zie de EekBoek opdracht <a href="inex.html#import">import</a> voor details.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--import <var>import-parameters</var></code></td>
-    <td>Importeer een administratie.
-	<br>Zie de EekBoek opdracht <a href="inex.html#import">import</a> voor details.
-	<br>Deze opdracht impliceert <code>--createdb</code>.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--export <var>export-parameters</var></code></td>
-    <td>Exporteer een administratie.
-	<br>Zie de EekBoek opdracht <a href="inex.html#export">export</a> voor details.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--createdb</code></td>
-    <td><strong>Waarschuwing: alleen voor experts.</strong>
-	<br>Cre&euml;er een lege database. Indien de database al bestaat
-	wordt deze geheel leeggemaakt, anders wordt een nieuwe, lege
-	database aangemaakt.
-	<br>Deze opdracht is alleen zinvol in combinatie met de
-	opdracht <code>--schema</code>, zie hieronder.
-    </td>
-  </tr>
-  <tr valign="top">
     <td><code>--schema=<var>name</var></code></td>
-    <td><strong>Waarschuwing: alleen voor experts.</strong>
-	<br>Initialiseer de administratie met het opgegeven schema. Dit
+    <td>Initialiseer de administratie met het opgegeven schema. Dit
 	kan uitsluitend indien de te gebruiken database nog helemaal
 	leeg is.
 	<br>Als de opgegeven schemanaam alleen letters,
@@ -107,6 +101,14 @@
 	locatie waar EekBoek is ge&iuml;nstalleerd.
 	<br>Als de opgegeven schemanaam andere tekens bevat  wordt het als een
 	bestandsnaam beschouwd en wordt het schema vanuit dat bestand geladen.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-X</code></td>
+    <td>De standaard-configuratiebestanden worden niet gelezen. Dit is
+	uiteraard alleen zinvol in combinatie met
+	<code>--config</code>. Zie <a
+	href="../config.html">Configuratiebestanden</a>.
     </td>
   </tr>
 </table>

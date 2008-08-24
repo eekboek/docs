@@ -2,9 +2,10 @@
 
 <h2>De Verlies/Winst Rekening</h2>
 
-<p>De "Verlies/Winst Rekening", "Resultatenrekening" of
-"Exploitatierekening" is een staat van opbrengsten en kosten (of baten
-en lasten), over de hele periode van het boekjaar.<p>
+<p>De &ldquo;Verlies/Winst Rekening&rdquo;,
+&ldquo;Resultatenrekening&rdquo; of &ldquo;Exploitatierekening&rdquo;
+is een staat van opbrengsten en kosten (of baten en lasten), over de
+hele periode van het boekjaar.<p>
 
 [%# Dit is wat anders dan inkomsten en uitgaven.
 
@@ -13,8 +14,8 @@ Opbrengsten versus inkomsten.
 In jaar 1 kunnen er inkomsten uit contributies zijn, die betrekking
 hebben op het lidmaatschap in jaar 2. Deze horen niet als opbrengst in
 de exploitatierekening van jaar 1 opgenomen te worden, maar als
-opbrengst in jaar 2. In jaar 1 boekt men "vooruit ontvangen
-contributies" credit op de balans onder de rubriek schulden op korte
+opbrengst in jaar 2. In jaar 1 boekt men &ldquo;vooruit ontvangen
+contributies&rdquo; credit op de balans onder de rubriek schulden op korte
 termijn.
 
 Kosten versus uitgaven
@@ -22,8 +23,8 @@ Kosten versus uitgaven
 De telefoonrekening over de laatste 2 maanden van jaar 1 wordt pas
 betaald in (januari) jaar 2. De telefoonkosten worden als kosten in
 jaar 1 geboekt in de exploitatierekening. De uitgave die pas in jaar 2
-plaats vindt wordt als "te betalen kosten" credit op de balans van
-jaar 1 geboekt, onder de rubriek schulden op korte termijn.
+plaats vindt wordt als &ldquo;te betalen kosten&rdquo; credit op de
+balans van jaar 1 geboekt, onder de rubriek schulden op korte termijn.
 
 %]
 
@@ -71,17 +72,17 @@ aangemaakt over het lopende boekjaar.</p>
 <h2>Uitvoer (rapportage op grootboekrekening)</h2>
 
 <blockquote class="code">                            Verlies/Winst
-Periode: 2004-01-01 t/m 2004-12-31
-EekBoek Demo Administratie 2004                    EekBoek, 2004-12-31
+Periode: 2007-01-01 t/m 2007-12-31
+EekBoek Demo Administratie 2007                    EekBoek, 2007-12-31
 
 RekNr   Grootboekrekening                             Debet     Credit
 ----------------------------------------------------------------------
         ...
-4900    Telefoon- en faxkosten                       530,62
+6900    Telefoon- en faxkosten                       510,29
         ...
-8000    Omzet advisering BTW hoog                              1200,00
+8100    Omzet advisering                                       1200,00
         ...
-        << Winst >>                                 7079,82
+        << Winst >>                                 7079,81
 ----------------------------------------------------------------------
         TOTAAL Resultaten                           8700,00    8700,00
 </blockquote>
@@ -109,21 +110,26 @@ programma-versie met de rapportagedatum.</p>
 <h2>Uitvoer (verdichte rapportage)</h2>
 
 <blockquote class="code">                            Verlies/Winst
-Periode: 2004-01-01 t/m 2004-12-31
-EekBoek Demo Administratie 2004                    EekBoek, 2004-12-31
+Periode: 2007-01-01 t/m 2007-12-31
+EekBoek Demo Administratie 2007                    EekBoek, 2007-12-31
 
 RekNr   Verdichting/Grootboekrekening                 Debet     Credit
 ----------------------------------------------------------------------
-5       Bedrijfsopbrengsten
-51       Netto omzet
-8000      Omzet advisering BTW hoog                            1200,00
-8200      Omzet editing                                        1000,00
-8300      Omzet cursussen                                      6500,00
-51       Totaal Netto omzet                                    8700,00
+6       Kosten
+68       Afschrijvingen
+6800      Afschr. kosten inv. &amp; inr.                 411,26
+6810      Afschr. kosten computers                   396,82
+68       Totaal Afschrijvingen                       808,08
 
-5       Totaal Bedrijfsopbrengsten                             8700,00
+69       Algemene kosten
+6900      Telefoon- en faxkosten                     510,29
+6905      Internetkosten                             269,42
+6980      Bankkosten                                  32,40
+69       Totaal Algemene kosten                      812,11
+
+6       Totaal Kosten                               1620,19
         ...
-        << Winst >>                                 7079,82
+        << Winst >>                                 7079,81
 ----------------------------------------------------------------------
         TOTAAL Resultaten                           8700,00    8700,00
 </blockquote>

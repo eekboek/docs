@@ -25,9 +25,9 @@
 	<br>Indien geen stylesheet wordt opgegeven wordt een
 	stylesheet genoemd naar de rapportage gebruikt. Bijvoorbeeld,
 	voor een balans rapportage wordt stylesheet
-	'<code>css/balans.css</code>' gebruikt. Met de optie
+	<code>css/balans.css</code> gebruikt. Met de optie
 	<code>--style=other</code> zou de gebruikte stylesheet worden:
-	'<code>css/other.css</code>'
+	<code>css/other.css</code>
     </td>
   </tr>
   <tr valign="top">
