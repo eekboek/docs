@@ -57,42 +57,36 @@ perl -MCPANPLUS -e "install qw(EekBoek)"</blockquote>
 archief, uitgepakt, gebouwd en ge&iuml;nstalleerd, waarbij eventueel
 benodigde aanvullende modules ook worden meegenomen.</p>
 
-<p>Let op! Oudere versies van de CPAN module kunnen problemen
-opleveren. Indien u de melding:
-
-<blockquote class="code">Package seems to come without Makefile.PL.
-  Writing one on our own (setting NAME to EekBoek)
-</blockquote>
-krijgt is uw versie te oud en dient u een nieuwere versie van de CPAN
-module te gebruiken.
-
 <a name="wget"></a><h2>Het ophalen van de source kit</h2>
 
-U kunt de <strong>.tar.gz</strong> file van de gewenste
+<p>U kunt de <strong>.tar.gz</strong> file van de gewenste
 versie downloaden van een van de <a
 href="../download.html">download sites</a>, bijvoorbeeld  met
 een webtool als <b>wget</b>:</p>
-<blockquote class="code">wget [% site.dl %]/EekBoek-[% versie %].tar.gz
-</blockquote>
+<blockquote class="code">wget [% site.dl %]/EekBoek-<var>versie</var>.tar.gz</blockquote>
+<p>De <var>versie</var> is bijvoorbeeld [% versie %]. Vergeet niet in het
+hieronderstaande steeds de juiste versie te gebruiken!</p>
 
 <a name="rpm"></a><h2>Aanmaken van een RPM</h2>
 
 Als u beschikt over de <b>rpmbuild</b> tools kunt u een RPM bouwen
 direct uit de source kit:
-<blockquote class="code">rpmbuild -ta EekBoek-<i>[% versie %]</i>.tar.gz
+<blockquote class="code">rpmbuild -ta EekBoek-[% versie %].tar.gz
 </blockquote>
 
+<!--
 <a name="debian"></a><h2>Aanmaken van een DEB kit</h2>
 
 Als u beschikt over de Debian <b>dpkg</b> tools kunt u een Debian
 package (DEB) bouwen als volgt:
-<blockquote class="code">tar -zxf EekBoek-<i>[% versie %]</i>.tar.gz
+<blockquote class="code">tar -zxf EekBoek-[% versie %].tar.gz
 cd EekBoek-<i>[% versie %]</i>
 fakeroot dpkg-buildpackage -b
 </blockquote>
 
 <p>U vindt de aangemaakte kits &eacute;&eacute;n niveau hoger, dus in
 de directory waar de source is uitgepakt.</p>
+-->
 
 <a name="tar"></a><h2>Installeren vanaf source</h2>
 

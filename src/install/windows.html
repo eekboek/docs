@@ -12,8 +12,8 @@ ActivePerl versie 5.8.8 of later te installeren. Meer
 informatie hierover op de <a
 href="http://www.activestate.com/Products/ActivePerl">ActiveState web site</a>.</p>
 
-<p>Controleer na installatie eerst of de versie van Perl toereikend
-is. Open daartoe een command prompt window en geef de opdracht:</p>
+<p>Controleer eerst of de versie van Perl toereikend is. Open daartoe
+een command prompt window en geef de opdracht:</p>
 
 <blockquote class="code">perl --version</blockquote>
 
@@ -21,13 +21,16 @@ is. Open daartoe een command prompt window en geef de opdracht:</p>
 
 <blockquote class="code">This is perl, v5.8.8 built for ...</blockquote>
 
-<p>De Perl versie moet tenminste 5.8.8 zijn.</p>
+<p>De Perl versie moet tenminste 5.8.8 zijn. Recentere versies kunt u
+installeren vanaf de <a
+href="http://www.activestate.com/Products/ActivePerl">ActiveState web
+site</a>.</p>
 
 <p>Let verder op dat veel van de genoemde bestandsnamen zowel hoofd-
 als kleine letters bevatten, en deze <em>exact zo</em> moeten worden
 ingegeven! 
 
-<h2>Installeren met PPM (ActivePerl build 817 en later)</h2>
+<h2>Installeren met PPM</h2>
 
 <p>ActivePerl komt met versie 4 van het installatieprogramma
 <strong>ppm</strong>, de Perl Package Manager.</p>
@@ -35,55 +38,35 @@ ingegeven!
 <p>De volgende stappen dienen te worden uitgevoerd:</p>
 
 <ol>
-  <li><p>Open een command prompt window.</li>
-  <li><p>Geef de opdracht:
-      <blockquote class="code">ppm install --area=perl [% site.dl %]/EekBoek.ppd</blockquote>
-      Let op de hoofdletters <strong>E</strong> en <strong>B</strong>!
-      <p>Het is mogelijk dat <strong>ppm</strong> enkele aanvullende
-      pakketten wil installeren.
-  </li>
-</ol>
-
-<p>Krijgt u de opmerking dat Config-IniFiles niet kan worden gevonden
-dan is de PPM repository nog niet geïnitialiseerd. Voer dan het
-volgende commando uit:</p>
-<blockquote class="code">ppm install Config-IniFiles</blockquote>
-Dit installeert de benodigde module, en zorgt tevens ervoor dat de PPM
-repository wordt geïnitialiseerd.</p>
-
-</p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
-dan kan dit eenvoudig met de opdracht:</p>
-
-<blockquote class="code">ppm upgrade --area=perl [% site.dl %]/EekBoek.ppd</blockquote>
-
-<p>Hiermee wordt steeds de meeste recente versie
-ge&iuml;nstalleerd.</p>
-
-<h2>Installeren met PPM (ActivePerl build 816 en eerder)</h2>
-
-<p>Deze ActivePerl komt met versie 3 van het installatieprogramma
-<strong>ppm</strong>, de Perl Package Manager. Installatie van EekBoek
-is hiermee erg eenvoudig.</p>
-
-<p>De volgende stappen dienen daartoe te worden uitgevoerd:</p>
-
-<ol>
-  <li><p>Open een command prompt window.</li>
-  <li><p>Geef de opdracht:
-      <blockquote class="code">ppm install [% site.dl %]/EekBoek.ppd</blockquote>
-      Let op de hoofdletters <strong>E</strong> en <strong>B</strong>!
-      <p>Het is mogelijk dat <strong>ppm</strong> enkele aanvullende
-      pakketten wil installeren.
-  </li>
+  <li><p>Start de Perl Package Manager.</p>
+      <p>Kunt u deze niet zo snel vinden, gebruik dan Start > Run >
+      Open > <code>ppm</code> .</p></li>
+  <li><p>Open het Preferences window met Ctrl-P en open de
+      &lsquo;Repositories&rsquo; tab.</p></li>
+  <li><p>Voeg de EekBoek repository toe.</p>
+      <blockquote class="code">Name:     EekBoek
+Location: http://www.eekboek.nl/repo/windows</blockquote>
+      <p>Er volgt enige activiteit.</p></li>
+  <li><p>Open de &lsquo;Areas&rsquo; tab. Kies de area waar u EekBoek
+      wilt installeren. Als u het niet weet, kies dan
+      &lsquo;site&rsquo;. Noteer de bij deze keuze behorende Prefix,
+      b.v. <code>C:/Perl/site</code>. Druk dan op de OK knop.</p></li>
+  <li>In het hoofdscherm kunt u nu de gewenste EekBoek versie kiezen
+      en installeren.</p></li>
+  <li><p>Sluit <code>ppm</code> af.</p>
+  <li><p>Om de ge&iuml;nstalleerde EekBoek te kunnen draaien moet het
+      juiste pad worden toegevoegd aan uw PATH environment variabele.
+      Raadpleeg daarvoor de systeemdocumentatie.</p>
+      <p>Het juiste pad is de Prefix welke u eerder noteerde, waarin
+      alle &lsquo;/&rsquo; door &lsquo;\&rsquo; zijn vervangen, en de
+      tekst &lsquo;/bin&rsquo; is toegevoegd. Is bijvoorbeeld de
+      prefix <code>C:/Perl/site</code> dan moet het pad 
+      <code>C:\Perl\site\bin</code> worden toegevoegd.</p></li>
 </ol>
 
 </p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
-dan kan dit eenvoudig met de opdracht:</p>
-
-<blockquote class="code">ppm upgrade [% site.dl %]/EekBoek.ppd</blockquote>
-
-<p>Hiermee wordt steeds de meeste recente versie
-ge&iuml;nstalleerd.</p>
+dan kan dit eenvoudig door de Perl Package Manager opnieuw te starten
+en in het hoofdscherm de nieuwe versie van EekBoek te kiezen.</p>
 
 <h2>Configureren van de database</h2>
 
@@ -105,23 +88,23 @@ eindigen.</p>
 <ol>
   <li><p>Cre&euml;er een nieuwe folder, bijvoorbeeld <strong>sample</strong>.</li>
   <li><p>Open een geschikte editor, bijvoorbeeld Notepad of Wordpad,
-      en tik het navolgende in:
+      en tik het navolgende in:</p>
       <blockquote class="code">[database]
 name = sample
 driver = sqlite</blockquote>
+      <p>Dit zijn dus drie regels!</p></li>
   <li><p>Sla dit bestandje op onder de naam
       <strong>.eekboek.conf</strong> (let op: de naam begint met een
-      puntje) in de eerder aangemaakte folder.
+      puntje) in de eerder aangemaakte folder.</p></li>
   <li><p>Open een command prompt window in deze folder, en geef daar
-      de volgende opdracht:
-      <blockquote class="code">ebshell --import --dir c:\Perl\site\lib\EB\examples</blockquote>
-      De probeer-database wordt nu geladen.
-      <p>Let op: het kan zijn dat de examples directory ergens anders
-staat. Zoek indien nodig naar het bestand <strong>mutaties.eb</strong>
-en kijk waar de betreffende example directory staat.
+      de volgende opdracht:</p>
+      <blockquote class="code">ebshell --createsampledb</blockquote>
+      <p>De probeer-database wordt nu geladen.</p></li>
+  <li><p>U kunt nu met de probeer-database gaan spelen door in dit
+      command prompt window de volgende
+      opdracht in te geven:</p>
+      <blockquote class="code">ebshell</blockquote></li>
 </ol>
 
-Na het aanmaken van de probeer-database kunt u hiermee gaan spelen door <em>in de <strong>sample</strong> directory</em> in een command prompt window de volgende opdracht te geven:
-<blockquote class="code">ebshell</blockquote>
 <p>Raadpleeg verder de <a href="../docs/index.html">EekBoek documentatie</a>.</p>
       

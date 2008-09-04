@@ -3,7 +3,8 @@
 <h2>Systeemeisen</h2>
 
 <p>Elk modern GNU/Linux systeem is in staat om zonder problemen EekBoek
-te installeren en te draaien.</p>
+te installeren en te draaien. Heeft u een recent Debian systeem, dan
+is EekBoek zelfs als standaardpakket beschikbaar.</p>
 
 <p>Controleer eerst of de versie van Perl toereikend is. Open daartoe
 een terminal window en geef de opdracht:
@@ -19,7 +20,7 @@ De Perl versie moet tenminste 5.8.6 zijn.
 <ul>
   <li><a href="#yum">Installeren met YUM</a></li>
   <li><a href="#rpm">Installeren met RPM</a></li>
-  <li><a href="#debian">Installeren met DPKG of APT-GET</a></li>
+  <li><a href="#debian">Installeren met APT-GET</a></li>
   <li><a href="#opt">Optionele modules voor meer gemak en functionaliteit</a></li>
 </ul>
 
@@ -36,44 +37,55 @@ dat dit programma zelf onthoudt waar de te installeren software
 vandaan moet worden gehaald, en automatisch de meest recente versie
 installeert.</p>
 
-<p>De volgende stappen dienen uitgevoerd te worden als super-user
+<p>De volgende stappen dienen te worden uitgevoerd als super-user
 <strong>root</strong>.
 
 <ol>
-  <li>Installeer de EekBoek OpenPGP key, waarmee de bestanden kunnen
-      worden gecontroleerd op echtheid en correctheid:
+  <li><p>Installeer de EekBoek OpenPGP key, waarmee de bestanden kunnen
+      worden gecontroleerd op echtheid en correctheid:</p>
       <blockquote class="code">rpm --import [% site.gpgkey %]</blockquote></li>
-  <li>Open met de browser de yum repository <a href="[% site.yum %]">[% site.yum %]</a>, zoek de laatste versie van <strong>Eekboek-yum</strong>, klik erop, en download de <strong>noarch.rpm</strong> kit.
-  <br>Als u het versienummer weet kunt u ook direct downloaden vanaf de command line, bijvoorbeeld met
-      het programma <strong>wget</strong>:
-      <blockquote class="code">wget [% site.dl %]/EekBoek-yum-<var>versie</var>.noarch.rpm</blockquote>
-      <p>De <var>versie</var> is iets als 1.0-1.</li>
-  <li>Verifieer de kit:
+
+  <li><p>Open met de browser de yum repository <a href="[% site.yum
+      %]">[% site.yum %]</a>, zoek de laatste versie van
+      <strong>Eekboek-yum</strong>, klik erop, en download de
+      betreffende <strong>noarch.rpm</strong> kit.</p></li>
+
+  <li><p>Verifieer de gedownloade kit:</p>
       <blockquote class="code">rpm -K EekBoek-yum-<var>versie</var>.noarch.rpm</blockquote>
-      De uitvoer ziet er ongeveer zo uit:
-      <blockquote class="code">EekBoek-yum-<var>versie</var>.noarch.rpm: (sha1) dsa sha1 md5 gpg OK</blockquote>
-      Let er op dat in de uitvoer met name de tekst &ldquo;<code>gpg OK</code>&rdquo; voorkomt als teken dat de verificatie van
-      de herkomst is geslaagd.</p></li>
-  <li>Installeer de eekboek repository kit:
+
+      <p>De <var>versie</var> is iets als 1.04-3.
+      De uitvoer ziet er ongeveer zo uit:</p>
+      <blockquote class="code">EekBoek-yum-1.04-3.noarch.rpm: (sha1) dsa sha1 md5 gpg OK</blockquote>
+      <p>Let er op dat in de uitvoer met name de tekst
+      &ldquo;<code>gpg OK</code>&rdquo; voorkomt als teken dat de
+      verificatie van de herkomst is geslaagd.</p></li>
+
+  <li><p>Installeer de eekboek repository kit:</p>
       <blockquote class="code">rpm -ivh EekBoek-yum-<var>versie</var>.noarch.rpm</blockquote></li>
-  <li>Installeer EekBoek:
-      <blockquote class="code">yum install EekBoek</blockquote>
-      Het is mogelijk dat <strong>yum</strong> enkele aanvullende
-      pakketten wil installeren.
+
+  <li><p>Installeer EekBoek.</p>
+      <p>Wilt u EekBoek gaan gebruiken met een PostgreSQL database:</p>
+      <blockquote class="code">yum install EekBoek-db-postgresql</blockquote>
+      <p>Wilt u EekBoek gaan gebruiken met een SQLite database:</p>
+      <blockquote class="code">yum install EekBoek-db-sqlite</blockquote>
+      <p>U kunt ook beide installeren. De keuze welke database wordt
+      gebruikt wordt namelijk in een van de configuratiebestanden vastgelegd.</p>
+      <p>Het is mogelijk dat <strong>yum</strong> enkele aanvullende
+      pakketten wil installeren.</p>
   </li>
 </ol>
 
-</p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
-dan kan dit eenvoudig met de opdracht:
-<blockquote class="code">yum upgrade EekBoek</blockquote>
+<p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
+dan kan dit eenvoudig met de opdracht:</p>
+<blockquote class="code">yum upgrade EekBoek-db-<var>database</var></blockquote>
 
-<p>Zoals gezegd wordt dan steeds de meeste recente versie
+<p>Hiermee wordt dan steeds de meeste recente versie
 ge&iuml;nstalleerd.</p>
 
 <p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
 
 <p>Voor ingebruikname van EekBoek moet u eerst de database
-configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
+configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.</p>
 
 <a name="rpm"></a><h2>Installeren met RPM</h2>
 
@@ -81,57 +93,129 @@ configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
 <strong>rpm</strong>, dan dient u steeds expliciet op te geven waar de
 te installeren software vandaan moet worden gehaald, alsmede de versie
 van de te installeren software.</p>
-<p>De volgende stappen
-dienen uitgevoerd te worden als super-user <strong>root</strong>.</p>
+
+<p>Er zijn drie EekBoek packages:</p>
+<table border="1" size="100%" cellpadding="5">
+  <tr>
+    <td>EekBoek</td>
+    <td>Dit is het basispackage. Deze heeft u altijd nodig.</td>
+  </tr>
+  <tr>
+    <td>EekBoek-db-postgresql</td>
+    <td>Dit package heeft u nodig als u EekBoek met de PostgreSQL
+	database wilt gebruiken.</td>
+  </tr>
+  <tr>
+    <td>EekBoek-db-sqlite</td>
+    <td>Dit package heeft u nodig als u EekBoek met de SQLite database
+	wilt gebruiken.</td>
+  </tr>
+</table>
+
+<p>U dient altijd het basispackage, plus tenminste &eacute;&eacute;n
+van de database packages te installeren.</p>
+
+<p>De volgende stappen dienen uitgevoerd te worden als super-user
+<strong>root</strong>.</p>
 
 <ol>
   <li>Installeer de EekBoek OpenPGP key, waarmee de bestanden kunnen
       worden gecontroleerd op echtheid en correctheid:
       <blockquote class="code">rpm --import [% site.gpgkey %]</blockquote></li>
-  <li>Open met de browser de yum repository <a href="[% site.yum %]">[% site.yum %]</a>, zoek de laatste versie van <strong>Eekboek</strong>, klik erop, en download de <strong>noarch.rpm</strong> kit.
-  <br>Als u het versienummer weet kunt u ook direct downloaden vanaf de command line, bijvoorbeeld met
-      het programma <strong>wget</strong>:
-      <blockquote class="code">wget [% site.dl %]/EekBoek-<var>versie</var>.noarch.rpm</blockquote>
-      <p>De <var>versie</var> is iets als 1.01.00-1.</li>
-  <li>Verifieer de kit:
-      <blockquote class="code">rpm -K EekBoek-<var>versie</var>.noarch.rpm</blockquote>
+
+  <li><p>Open met de browser de yum repository <a href="[% site.yum
+      %]">[% site.yum %]</a>, zoek de laatste versie van
+      <strong>Eekboek</strong>, klik erop, en download de betreffende
+      <strong>noarch.rpm</strong> packages.</p></li>
+
+  <li>Verifieer de kits:
+      <blockquote class="code">rpm -K EekBoek*-<var>versie</var>.noarch.rpm</blockquote>
       De uitvoer ziet er ongeveer zo uit:
-      <blockquote class="code">EekBoek-<var>versie</var>.noarch.rpm: (sha1) dsa sha1 md5 gpg OK</blockquote>
-      Let er op dat in de uitvoer met name de tekst &ldquo;<code>gpg OK</code>&rdquo; voorkomt als teken dat de verificatie van
-      de herkomst is geslaagd.</p></li>
-      <li>Installeer de eekboek kit:
-      <blockquote class="code">rpm -ivh EekBoek-<var>versie</var>.noarch.rpm</blockquote>
-      Het is mogelijk dat <strong>rpm</strong> aangeeft dat nog enkele
+      <blockquote class="code">EekBoek-1.04-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK
+EekBoek-db-postgresql-1.04-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK
+EekBoek-db-sqlite-1.04-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK</blockquote>
+      <p>Let er op dat in de uitvoer met name de tekst
+      &ldquo;<code>gpg OK</code>&rdquo; voorkomt als teken dat de
+      verificatie van de herkomst is geslaagd.</p></li>
+  <li><p>Installeer de gewenste packages.</p>
+      <p>Wilt u EekBoek gaan gebruiken met een PostgreSQL database:</p>
+      <blockquote class="code">rpm -ivh EekBoek-<var>versie</var>.noarch.rpm EekBoek-db-postgresql<var>versie</var>.noarch.rpm</blockquote>
+      <p>Wilt u EekBoek gaan gebruiken met een SQLite database:</p>
+      <blockquote class="code">rpm -ivh EekBoek-<var>versie</var>.noarch.rpm EekBoek-db-sqlite<var>versie</var>.noarch.rpm</blockquote>
+      <p>U kunt ook alle packages installeren. De keuze welke database
+      wordt gebruikt wordt namelijk in een van de
+      configuratiebestanden vastgelegd.</p>
+      <p>Het is mogelijk dat <strong>rpm</strong> aangeeft dat nog enkele
       aanvullende pakketten nodig zijn. Deze dient u dan eerst te
       installeren en vervolgens de installatie van EekBoek opnieuw uit
-      te voeren.
+      te voeren.</p>
       </li>
 </ol>
 
-</p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
+<p>Wilt u in de toekomst een nieuwe versie van EekBoek installeren,
 dan dienen de stappen 2 t/m 4 opnieuw te worden uitgevoerd, met
-uiteraard het nieuwe versienummer.
+uiteraard het nieuwe versienummer.</p>
 
 <p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
 
 <p>Voor ingebruikname van EekBoek moet u eerst de database
-configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
+configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.</p>
 
-<a name="debian"></a><h2>Installeren met DPKG of APT-GET</h2>
+<a name="debian"></a><h2>Installeren met APT-GET</h2>
 
-<p>Voor het installeren op Debian, of daarvan afgeleide
-Linux-varianten zoals Ubuntu, dient u een Debian package, een
-zogenaamde &ldquo;.deb&rdquo; te hebben. Deze kunt u indien nodig
-<a href="build.html#debian">zelf aanmaken</a>.</p>
+<p>Er zijn twee EekBoek packages:</p>
+
+<table border="1" size="100%" cellpadding="5">
+  <tr>
+    <td valign="top">eekboek</td>
+    <td valign="top">Dit is het basispackage. Deze heeft u altijd nodig. Dit
+	package bevat tevens de ondersteuning voor de SQLite
+	database.</td>
+  </tr>
+  <tr>
+    <td nowrap valign="top">eekboek-db-postgresql</td>
+    <td valign="top">Dit package heeft u nodig als u EekBoek met de PostgreSQL
+	database wilt gebruiken.</td>
+  </tr>
+</table>
+
+<p>Eekboek wordt standaard meegeleverd met Debian unstable. De
+verwachting is dat het vanaf ongeveer oktober 2008 zal worden
+meegeleverd met Debian testing en met afgeleide systemen zoals Ubuntu.
+Is dat bij u het geval dan kunt u direct doorgaan met punt 3.</p>
+
 <p>Voor het installeren dient u als super-user <strong>root</strong>
-de volgende opdracht uit te voeren:</p>
+de volgende stappen uit te voeren.
 
-<blockquote class="code">dpkg -i eekboek__<var>versie</var>all.deb</blockquote>
+<ol>
+  <li><p>Voeg de Debian repository toe aan de lijst van repositories.
+      U kunt dit doen door de volgende opdracht uit te voeren:</p>
+      <blockquote class="code">echo 'deb http://www.eekboek.nl/repo/debian/ ./' > /etc/apt/sources.list.d/eekboek.list</blockquote>
+      <p>U hoeft dit uiteraard maar eenmalig te doen.</p>
+  </li>
+
+  <li><p>Update de repository index:</p>
+      <blockquote class="code">apt-get update</blockquote></li>
+
+  <li><p>Installeer de gewenste packages.</p>
+      <p>Wilt u EekBoek gaan gebruiken met een SQLite database:</p>
+      <blockquote class="code">apt-get install eekboek</blockquote>
+      <p>Wilt u EekBoek gaan gebruiken met een PostgreSQL database dan
+      installeert u beide packages:</p>
+      <blockquote class="code">apt-get install eekboek eekboek-db-postgresql</blockquote>
+      <p>U kunt ook altijd alle packages installeren. De keuze welke
+      database wordt gebruikt wordt namelijk in een van de
+      configuratiebestanden vastgelegd.</p>
+      <p>Het is mogelijk dat <strong>apt-get</strong> adviseert nog
+      enkele aanvullende pakketten toe te voegen. Het verdient
+      aanbeveling dit advies op te volgen.</p>
+      </li>
+</ol>
 
 <p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
 
 <p>Voor ingebruikname van EekBoek moet u eerst de database
-configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.
+configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.</p>
 
 <a name="opt"></a><h2>Optionele modules voor meer gemak en functionaliteit</h2>
 
@@ -144,13 +228,10 @@ gebruiksgemak en functionaliteit.</p>
 maken van handige completion, waarbij automatisch dagboeken,
 rekeningnummers en relatiecodes worden opgezocht en aangevuld.</p>
 
-<p>U kunt deze module voor uw systeem opsporen via de zoekmachine <a
-href="http://rpm.bone.net/">RPM Bone</a>.</p>
-
 <p><strong>Archive::Tar</strong></p>
 
 <p>Als u deze module installeert kan EekBoek export en import van
 enkelvoudige archief-bestanden uitvoeren.</p>
 
-<p>Deze module kan doorgaans als een standaard package via het normale
-installatiemechanisme worden ge&iuml;nstalleerd.</p>
+<p>Deze modules kunnen doorgaans als een standaard package via het
+normale installatiemechanisme worden ge&iuml;nstalleerd.</p>
