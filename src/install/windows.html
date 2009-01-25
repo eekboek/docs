@@ -7,6 +7,19 @@
 <p>Elk modern Microsoft Windows systeem (vanaf Windows98) is in staat
 om zonder problemen EekBoek te installeren en te draaien.</p>
 
+<p>Helaas heeft Microsoft met de komst van Windows Vista een nieuwe
+stap gezet om de controle over uw computer verder naar zich toe te
+trekken. De licentievoorwaarden van Windows Vista geven Microsoft het
+recht om, onder het voorwendsel van veiligheid, de inhoud van uw
+computer te bekijken en zo nodig programma's en bestanden te
+verwijderen.
+<br>Wij vinden dit niet verenigbaar met het streven van EekBoek om u
+juist de volledige en voortdurende zeggenschap over uw eigen gegevens
+te geven. <strong>Wij moeten daarom het gebruik van EekBoek op Windows
+Vista afraden.</strong>
+<br>Wilt u desondanks toch EekBoek gebruiken dan vindt u hieronder
+welke stappen daartoe moeten worden ondernomen.</p>
+
 <p>Om EekBoek te kunnen draaien is Perl nodig. Daartoe dient u
 ActivePerl versie 5.8.8 of later te installeren. Meer
 informatie hierover op de <a
@@ -44,8 +57,8 @@ ingegeven!
   <li><p>Open het Preferences window met Ctrl-P en open de
       &lsquo;Repositories&rsquo; tab.</p></li>
   <li><p>Voeg de EekBoek repository toe.</p>
-      <blockquote class="code">Name:     EekBoek
-Location: http://www.eekboek.nl/repo/windows</blockquote>
+      <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt">Name:     EekBoek</blockquote>
+      <blockquote class="code" style="margin-top:0pt;padding-top:0pt">Location: http://www.eekboek.nl/repo/windows</blockquote>
       <p>Er volgt enige activiteit.</p></li>
   <li><p>Open de &lsquo;Areas&rsquo; tab. Kies de area waar u EekBoek
       wilt installeren. Als u het niet weet, kies dan
@@ -89,10 +102,15 @@ eindigen.</p>
   <li><p>Cre&euml;er een nieuwe folder, bijvoorbeeld <strong>sample</strong>.</li>
   <li><p>Open een geschikte editor, bijvoorbeeld Notepad of Wordpad,
       en tik het navolgende in:</p>
-      <blockquote class="code">[database]
-name = sample
-driver = sqlite</blockquote>
-      <p>Dit zijn dus drie regels!</p></li>
+      <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt">[database]</blockquote>
+      <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt;margin-top:0pt;padding-top:0pt">name = sample</blockquote>
+      <blockquote class="code" style="margin-top:0pt;padding-top:0pt">driver = sqlite</blockquote>
+      <p>Let op: dit zijn drie regels!</p></li>
+  <li><p>Wanneer u Windows Vista gebruikt, dient u nog de volgende
+      regels toe te voegen:</p>
+      <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt">[security]</blockquote>
+      <blockquote class="code" style="margin-top:0pt;padding-top:0pt">override_security_for_vista = 1</blockquote></p>
+      <p>Let opt: dit zijn twee regels!</p></li>
   <li><p>Sla dit bestandje op onder de naam
       <strong>.eekboek.conf</strong> (let op: de naam begint met een
       puntje) in de eerder aangemaakte folder.</p></li>

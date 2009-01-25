@@ -72,6 +72,9 @@ driver = postgres</blockquote>
   <li><p>Open een terminal window in deze directory, en geef daar
       de volgende opdracht:
       <blockquote class="code">ebshell --createsampledb</blockquote>
+
+      [%#
+
       Oudere versies van EekBoek ondersteunen deze opdracht nog niet.
       U dient dan als volgt te handelen:
       <blockquote class="code">ebshell --import --dir /usr/lib/EekBoek-<var>versie</var>/lib/EB/example</blockquote>
@@ -88,11 +91,18 @@ en kijk waar de betreffende example directory staat.
       gecomprimeerde bestanden eerst worden hersteld, door bijvoorbeeld
       in de example directory de volgende opdracht uit te voeren:
       <blockquote class="code">gunzip *.gz</blockquote>
+
+      %]
+
+      U krijgt nu een verslag te zien van het aanmaken van de
+      database, het openen van de administratie, en het invoeren van
+      enkele boekingen. De afsluitende opmerking &ldquo;!Geen openstaande
+      posten gevonden&rdquo; is normaal en duidt niet op een fout.
+      
 </ol>
 
 Na het aanmaken van de probeer-database kunt u hiermee gaan spelen
-door <em>in de example directory</em> in een terminal
-window de volgende opdracht te geven:
+door in dit terminal window de volgende opdracht te geven:
 <blockquote class="code">ebshell</blockquote>
 <p>Raadpleeg verder de <a href="../docs/index.html">EekBoek documentatie</a>.</p>
 
