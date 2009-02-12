@@ -259,7 +259,22 @@ zijn daarom voor alle talen hetzelfde, en enigszins taal-neutraal
 	Memoriaaldagboek waarvoor geen overeenstemmende open post kan
 	worden gevonden te verdelen over meerdere open posten.
 	<br>De boeking wordt alleen uitgevoerd indien er meerdere
-	open posten zijn die tezamen exact het gewenste bedrag uitmaken.
+	open posten zijn die tezamen exact het gewenste bedrag
+	uitmaken.
+	<br>Alleen open posten met een boekingsdatum op of voor de
+	boekingsdatum van de betaling komen in aanmerking. Zie ook
+	<code>bkm_multi_delta</code> hieronder.
+  </tr>
+  <tr valign="top">
+    <td><a name="strategy_bkm_multi_delta"></a><code>bkm_multi_delta</code></td>
+    <td>Bij het bepalen van boekingen welke in aanmerking kunnen komen
+	voor een gecombineerde betaling worden alleen de boekingen
+	bekeken met een boekingsdatum op of voor de boekingsdatum van
+	de betaling. Het kan echter voorkomen dat betalingen
+	boekhoudkundig eerder worden verwerkt dan de factuur.
+	<code>bkm_multi_delta</code> kan worden ingesteld op het
+	aantal dagen dat de boekingsdatum van de factuur na de
+	boekingsdatum dan de betaling mag liggen.
   </tr>
   <tr valign="top">
     <td><a name="strategy_iv_vc"></a><code>iv_vc</code></td>
