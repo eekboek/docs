@@ -57,7 +57,15 @@ dropdb -hlocalhost -Ujansen -W jansen</blockquote>
 
 <ol>
   <li><p>Cre&euml;er een nieuwe directory, bijvoorbeeld <strong>sample</strong>.</li>
-  <li><p>Start een geschikte editor en tik het navolgende in:
+  <li><p>Open een terminal window en ga in de nieuwe directory
+      staan.</p></li>
+  <li><p>Geef vervolgens de opdracht:
+      <blockquote class="code">ebshell --createsampleconfig</blockquote>
+      Dit cre&euml;ert een bestand <strong>.eekboek.conf</strong> in
+      de huidige directory. In dit bestand zijn alle standaard
+      instellingen van EekBoek als voorbeeld opgenomen.</p></li>
+  <li><p>Open <strong>.eekboek.conf</strong> in een geschikte
+      editor. Wijzig de <strong>[database]</strong> sectie in het navolgende:
       <blockquote class="code">[database]
 name = sample
 user = jansen
@@ -65,12 +73,9 @@ password = pietersen
 host = localhost
 driver = postgres</blockquote>
       Uiteraard gebruikt u de echte waarden voor de toegekende
-      PostgreSQL gebruikersnaam, toegangscode, en het databasesysteem.
-  <li><p>Sla dit bestandje op onder de naam
-      <strong>.eekboek.conf</strong> (let op: de naam begint met een
-      puntje) in de eerder aangemaakte directory.
-  <li><p>Open een terminal window in deze directory, en geef daar
-      de volgende opdracht:
+      PostgreSQL gebruikersnaam, toegangscode, en het databasesysteem.</p></li>
+  <li><p>Sla dit bestandje weer op.</p></li>
+  <li><p>Geef in het terminal window de volgende opdracht:
       <blockquote class="code">ebshell --createsampledb</blockquote>
 
       [%#
@@ -97,7 +102,7 @@ en kijk waar de betreffende example directory staat.
       U krijgt nu een verslag te zien van het aanmaken van de
       database, het openen van de administratie, en het invoeren van
       enkele boekingen. De afsluitende opmerking &ldquo;!Geen openstaande
-      posten gevonden&rdquo; is normaal en duidt niet op een fout.
+      posten gevonden&rdquo; is normaal en duidt niet op een fout.</p></li>
       
 </ol>
 
@@ -129,34 +134,31 @@ eindigen.</p>
 
 <ol>
   <li><p>Cre&euml;er een nieuwe directory, bijvoorbeeld <strong>sample</strong>.</li>
-  <li><p>Start een geschikte editor en tik het navolgende in:
+  <li><p>Open een terminal window en ga in de nieuwe directory
+      staan.</p></li>
+  <li><p>Geef vervolgens de opdracht:
+      <blockquote class="code">ebshell --createsampleconfig</blockquote>
+      Dit cre&euml;ert een bestand <strong>.eekboek.conf</strong> in
+      de huidige directory. In dit bestand zijn alle standaard
+      instellingen van EekBoek als voorbeeld opgenomen.</p></li>
+  <li><p>Open <strong>.eekboek.conf</strong> in een geschikte
+      editor. Wijzig de <strong>[database]</strong> sectie in het navolgende:
       <blockquote class="code">[database]
 name = sample
-driver = sqlite</blockquote>
-  <li><p>Sla dit bestandje op onder de naam
-      <strong>.eekboek.conf</strong> (let op: de naam begint met een
-      puntje) in de eerder aangemaakte directory.
-  <li><p>Open een terminal window in deze directory, en geef daar
-      de volgende opdracht:
-      <blockquote class="code">ebshell --import --dir /usr/lib/EekBoek-<var>versie</var>/lib/EB/examples</blockquote>
-      Hierin is <var>versie</var> de versie van EekBoek die u gebruikt.
-      De probeer-database wordt nu geladen.
-      <p>Let op: het kan zijn dat de examples directory ergens anders
-staat. Zoek indien nodig naar het bestand <strong>mutaties.eb</strong>
-en kijk waar de betreffende example directory staat.
-      <p>Let op: het lijkt erop dat na installatie met
-      <strong>alien</strong> sommige voorbeeldbestanden gecomprimeerd
-      worden ge&iuml;nstalleerd. In plaats van bijvoorbeeld
-      <code>mutaties.eb</code> staat er dan
-      <code>mutaties.eb.gz</code>. Voor het importeren moeten alle
-      gecomprimeerde bestanden eerst worden hersteld, door bijvoorbeeld
-      in de example directory de volgende opdracht uit te voeren:
-      <blockquote class="code">gunzip *.gz</blockquote>
+driver = sqlite</blockquote></p></li>
+  <li><p>Sla dit bestandje weer op.</p></li>
+  <li><p>Geef in het terminal window de volgende opdracht:
+      <blockquote class="code">ebshell --createsampledb</blockquote>
+      U krijgt nu een verslag te zien van het aanmaken van de
+      database, het openen van de administratie, en het invoeren van
+      enkele boekingen. De afsluitende opmerking &ldquo;!Geen openstaande
+      posten gevonden&rdquo; is normaal en duidt niet op een fout.</p></li>
 </ol>
 
-Na het aanmaken van de probeer-database kunt u hiermee gaan spelen
-door <em>in de <strong>sample</strong> directory</em> in een terminal
-window de volgende opdracht te geven:
-<blockquote class="code">ebshell</blockquote>
-<p>Raadpleeg verder de <a href="../docs/index.html">EekBoek documentatie</a>.</p>
+<p>Na het aanmaken van de probeer-database kunt u hiermee gaan spelen
+door in dit terminal window de volgende opdracht te geven:
+<blockquote class="code">ebshell</blockquote></p>
+
+<p>Raadpleeg verder de <a href="../docs/index.html">EekBoek
+documentatie</a>.</p>
       

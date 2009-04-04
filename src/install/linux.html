@@ -182,12 +182,17 @@ configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.</p>
 <p>Eekboek wordt standaard meegeleverd met Debian unstable. De
 verwachting is dat het vanaf ongeveer oktober 2008 zal worden
 meegeleverd met Debian testing en met afgeleide systemen zoals Ubuntu.
-Is dat bij u het geval dan kunt u direct doorgaan met punt 3.</p>
+Is dat bij u het geval dan kunt u direct doorgaan met punt 4.</p>
 
 <p>Voor het installeren dient u als super-user <strong>root</strong>
 de volgende stappen uit te voeren.
 
 <ol>
+  <li><p>Installeer de EekBoek OpenPGP key, waarmee de bestanden kunnen
+      worden gecontroleerd op echtheid en correctheid:</p>
+      <blockquote class="code">wget -O - [% site.gpgkey %] | apt-key add -</blockquote>
+      <p>U hoeft dit uiteraard maar eenmalig te doen.</p>
+  </li>
   <li><p>Voeg de Debian repository toe aan de lijst van repositories.
       U kunt dit doen door de volgende opdracht uit te voeren:</p>
       <blockquote class="code">echo 'deb http://www.eekboek.nl/repo/debian/ ./' > /etc/apt/sources.list.d/eekboek.list</blockquote>

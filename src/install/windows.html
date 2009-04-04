@@ -100,29 +100,37 @@ eindigen.</p>
 
 <ol>
   <li><p>Cre&euml;er een nieuwe folder, bijvoorbeeld <strong>sample</strong>.</li>
-  <li><p>Open een geschikte editor, bijvoorbeeld Notepad of Wordpad,
-      en tik het navolgende in:</p>
+  <li><p>Open een command prompt window in deze folder, en geef daar
+      de volgende opdracht:</p>
+      <blockquote class="code">ebshell --createsampleconfig</blockquote>
+      <p>Dit cre&euml;ert een bestand <strong>.eekboek.conf</strong> in
+      de huidige directory. In dit bestand zijn alle standaard
+      instellingen van EekBoek als voorbeeld opgenomen.</p></li>
+
+  <li><p>Open  <strong>.eekboek.conf</strong> in een geschikte editor,
+      bijvoorbeeld Notepad of Wordpad. Wijzig de <strong>[database]</strong> sectie in het navolgende:</p>
       <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt">[database]</blockquote>
       <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt;margin-top:0pt;padding-top:0pt">name = sample</blockquote>
       <blockquote class="code" style="margin-top:0pt;padding-top:0pt">driver = sqlite</blockquote>
       <p>Let op: dit zijn drie regels!</p></li>
-  <li><p>Wanneer u Windows Vista gebruikt, dient u nog de volgende
-      regels toe te voegen:</p>
-      <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt">[security]</blockquote>
-      <blockquote class="code" style="margin-top:0pt;padding-top:0pt">override_security_for_vista = 1</blockquote></p>
-      <p>Let opt: dit zijn twee regels!</p></li>
-  <li><p>Sla dit bestandje op onder de naam
-      <strong>.eekboek.conf</strong> (let op: de naam begint met een
-      puntje) in de eerder aangemaakte folder.</p></li>
-  <li><p>Open een command prompt window in deze folder, en geef daar
-      de volgende opdracht:</p>
+  <li><p>Wanneer u Windows Vista gebruikt, dient u nog de sectie
+      <strong>[security]</strong> op te zoeken, en daar de punt-komma
+      voor de regel
+      <blockquote class="code">override_security_for_vista = 1</blockquote>
+      te verwijderen.</p></li>
+  <li><p>Sla dit bestandje weer op.</p></li>
+  <li><p>Geef in de command prompt window de volgende opdracht:</p>
       <blockquote class="code">ebshell --createsampledb</blockquote>
-      <p>De probeer-database wordt nu geladen.</p></li>
-  <li><p>U kunt nu met de probeer-database gaan spelen door in dit
+      <p>U krijgt nu een verslag te zien van het aanmaken van de
+      database, het openen van de administratie, en het invoeren van
+      enkele boekingen. De afsluitende opmerking &ldquo;!Geen openstaande
+      posten gevonden&rdquo; is normaal en duidt niet op een fout.</p></li>
+</ol>
+
+<p>U kunt nu met de probeer-database gaan spelen door in dit
       command prompt window de volgende
       opdracht in te geven:</p>
-      <blockquote class="code">ebshell</blockquote></li>
-</ol>
+      <blockquote class="code">ebshell</blockquote>
 
 <p>Raadpleeg verder de <a href="../docs/index.html">EekBoek documentatie</a>.</p>
       
