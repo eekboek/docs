@@ -1,5 +1,6 @@
 title "Documentatie"
 menu "Inleiding"	      intro
+menu "Installeren"	      install
 menu "De EekBoek shell"       ebshell
 menu "Configuratie"           config
 menu "Opzetten administratie" setup
