@@ -3,8 +3,8 @@
 <h3>Configuratiebestanden</h3>
 
 <p>De configuratie van EekBoek wordt vastgelegd in
-configuratiebestanden. Deze bestanden zijn gemodelleerd naar een va de
-vele de-facto standaards, die van de INI files.</p>
+configuratiebestanden. Deze bestanden zijn gemodelleerd naar een van
+de vele de-facto standaards, die van de z.g. INI-files.</p>
 
 <p>Bij het opstarten zal EekBoek de volgende configuratiebestanden
 verwerken indien ze aanwezig zijn:</p>
@@ -23,31 +23,41 @@ verwerken indien ze aanwezig zijn:</p>
       <br>In dit bestand kan een gebruiker bijvoorbeeld 
       taalinstellingen en andere voorkeuren opnemen.
       Wanneer er met slechts &eacute;&eacute;n administratie wordt gewerkt 
-      kan hier ook de naam van de te gebruiken database worden opgenomen.
+      kan hier ook de naam van de te gebruiken database worden
+      opgenomen.
   </li>
   <li>Het administratie-specifieke configuratiebestand. Op een Unix of Linux
       systeem is dit het bestand
-      <code>.eekboek.conf</code> in de huidige directory.
+      <code>eekboek.conf</code> in de huidige directory.
       <br>Wanneer met meerdere administraties wordt gewerkt is dit een
       goede plek om de naam van de te gebruiken database op te nemen.
+      <br><strong>Let op:</strong> EekBoek versie 1 gebruikte de naam
+      <code>.eekboek.conf</code>, dus met een punt aan het begin.
+      EekBoek versie 2 zal een bestand met deze naam gebruiken wanneer
+      het bestand zonder punt niet aanwezig is.
   </li>
 </ol>
 
 <p>De gegevens uit de specifieke bestanden hebben voorrang boven die uit
 meer generieke bestanden.</p>
 
-<p>De EekBoek shell <code>ebshell</code> kan bovendien op de command
-line een <a href="ebshell/clo.html#config">configuratie-optie</a>
+<p>Aan de EekBoek programma's kan bovendien op de command line een <a
+href="ebshell/clo.html#config">configuratie-optie</a>
 <code>--config</code> worden meegegeven. Met deze optie wordt een
 niet-standaard configuratiebestand aangewezen dat in de plaats van het
 administratie-specifieke bestand komt. Tevens is het mogelijk om met
-de command line optie <code>-X</code> de EekBoek shell te instrueren
-alle standaard-configuratiebestanden te negeren. Dit is uiteraard
-alleen zinvol in combinatie met <code>--config</code>.</p>
+de command line optie <code>-X</code> op te geven dat alle
+standaard-configuratiebestanden genegeerd moeten worden. Dit is
+uiteraard alleen zinvol in combinatie met <code>--config</code>.</p>
 
 <p>Configuratie-variabelen kunnen ook worden gezet op de command line
 bij het opstarten van EekBoek. Zie hiervoor <a
 href="ebshell/clo.html">Command line opties.</a></p>
+
+<p>De benodigde configuratiebestanden worden automatisch aangemaakt
+bij het opstarten van EekBoek. Zie <a href="setup/config.html">&ldquo;Het opzetten van de werkomgeving&rdquo;</a>.</p>
+
+<h4>De inhoud van de configuratiebestanden</h4>
 
 <p>De configuratiebestanden zijn verdeeld in secties, die elk een of
 meer variabelen kunnen bevatten. Bijvoorbeeld</p>
@@ -80,6 +90,16 @@ bestanden zelf geen gebruik maken van internationalisatie. De
 gebruikte namen van secties en variabelen in de configuratiebestanden
 zijn daarom voor alle talen hetzelfde, en enigszins taal-neutraal
 (lees: engels-achtig).</em></p>
+
+<p><a name="general"></a><b>Sectie "General"</b></p>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><a name="general_admdir"></a><code>admdir</code></td>
+    <td>De standaardplek voor administraties.
+    <br>Default: <code>.eekboek/admdir</code> in de home-directory van de gebruiker.</td>
+  </tr>
+</table>
 
 <p><a name="locale"></a><b>Sectie "Locale"</b></p>
 
