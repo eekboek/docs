@@ -2,9 +2,10 @@
 [% META title = "Installeren op GNU/Linux systemen" %]
 <h2>Systeemeisen</h2>
 
-<p>Elk modern GNU/Linux systeem is in staat om zonder problemen EekBoek
-te installeren en te draaien. Heeft u een recent Debian systeem, dan
-is EekBoek zelfs als standaardpakket beschikbaar.</p>
+<p>Elk modern GNU/Linux systeem is in staat om zonder problemen
+EekBoek te installeren en te draaien. Heeft u een recent Fedora,
+Debian of Ubuntu systeem, dan is EekBoek zelfs als standaardpakket
+beschikbaar.</p>
 
 <p>Controleer eerst of de versie van Perl toereikend is. Open daartoe
 een terminal window en geef de opdracht:
@@ -64,12 +65,17 @@ installeert.</p>
       <blockquote class="code">rpm -ivh EekBoek-yum-<var>versie</var>.noarch.rpm</blockquote></li>
 
   <li><p>Installeer EekBoek.</p>
-      <p>Wilt u EekBoek gaan gebruiken met een PostgreSQL database:</p>
-      <blockquote class="code">yum install EekBoek-db-postgresql</blockquote>
       <p>Wilt u EekBoek gaan gebruiken met een SQLite database:</p>
-      <blockquote class="code">yum install EekBoek-db-sqlite</blockquote>
-      <p>U kunt ook beide installeren. De keuze welke database wordt
+      <blockquote class="code">yum install EekBoek</blockquote>
+      <p>Wilt u EekBoek gaan gebruiken met een PostgreSQL database:</p>
+      <blockquote class="code">yum install EekBoek EekBoek-db-postgresql</blockquote>
+      <p>Als U de PostgreSQL ondersteuning installeert kunt nog steeds
+      ook SQLite gebruiken. De keuze welke database wordt
       gebruikt wordt namelijk in een van de configuratiebestanden vastgelegd.</p>
+      <p>Standaard wordt EekBoek ge&iuml;nstalleerd inclusief de grafische
+      shell. Mocht dit niet gewenst zijn dan kunt u in plaats van
+      <code>EekBoek</code> het package <code>EekBoek-cli</code> te installeren.</p>
+
       <p>Het is mogelijk dat <strong>yum</strong> enkele aanvullende
       pakketten wil installeren.</p>
   </li>
@@ -84,9 +90,6 @@ ge&iuml;nstalleerd.</p>
 
 <p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
 
-<p>Voor ingebruikname van EekBoek moet u eerst de database
-configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.</p>
-
 <a name="rpm"></a><h2>Installeren met RPM</h2>
 
 <p>Als het systeem geen <strong>yum</strong> heeft, maar wel
@@ -94,11 +97,16 @@ configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.</p>
 te installeren software vandaan moet worden gehaald, alsmede de versie
 van de te installeren software.</p>
 
-<p>Er zijn drie EekBoek packages:</p>
+<p>Er zijn vijf EekBoek packages:</p>
 <table border="1" size="100%" cellpadding="5">
   <tr>
-    <td>EekBoek</td>
-    <td>Dit is het basispackage. Deze heeft u altijd nodig.</td>
+    <td>EekBoek-cli</td>
+    <td>Dit is het basispackage, inclusief ondersteuning voor SQLite.
+	Deze heeft u altijd nodig.</td>
+  </tr>
+  <tr>
+    <td>EekBoek-gui</td>
+    <td>Dit is de grafische shell.</td>
   </tr>
   <tr>
     <td>EekBoek-db-postgresql</td>
@@ -106,14 +114,17 @@ van de te installeren software.</p>
 	database wilt gebruiken.</td>
   </tr>
   <tr>
-    <td>EekBoek-db-sqlite</td>
-    <td>Dit package heeft u nodig als u EekBoek met de SQLite database
-	wilt gebruiken.</td>
+    <td>EekBoek-contrib</td>
+    <td>Dit package bevat door de EekBoek gebruikers zelf ontwikkelde
+	hulpmiddelen en bestanden.</td>
+  </tr>
+  <tr>
+    <td>EekBoek</td>
+    <td>Dit is een pseudo-package waarmee u in &eacute;&eacute;n keer
+	de packages <code>cli</code>, <code>gui</code> en
+	<code>contrib</code>kunt installeren.</td>
   </tr>
 </table>
-
-<p>U dient altijd het basispackage, plus tenminste &eacute;&eacute;n
-van de database packages te installeren.</p>
 
 <p>De volgende stappen dienen uitgevoerd te worden als super-user
 <strong>root</strong>.</p>
@@ -131,20 +142,16 @@ van de database packages te installeren.</p>
   <li>Verifieer de kits:
       <blockquote class="code">rpm -K EekBoek*-<var>versie</var>.noarch.rpm</blockquote>
       De uitvoer ziet er ongeveer zo uit:
-      <blockquote class="code">EekBoek-1.04-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK
-EekBoek-db-postgresql-1.04-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK
-EekBoek-db-sqlite-1.04-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK</blockquote>
+      <blockquote class="code">EekBoek-2.00-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK
+EekBoek-db-postgresql-2.00-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK
+EekBoek-cli-2.00-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK
+EekBoek-gui-2.00-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK
+EekBoek-contrib-2.00-1.noarch.rpm: (sha1) dsa sha1 md5 gpg OK</blockquote>
       <p>Let er op dat in de uitvoer met name de tekst
       &ldquo;<code>gpg OK</code>&rdquo; voorkomt als teken dat de
       verificatie van de herkomst is geslaagd.</p></li>
   <li><p>Installeer de gewenste packages.</p>
-      <p>Wilt u EekBoek gaan gebruiken met een PostgreSQL database:</p>
-      <blockquote class="code">rpm -ivh EekBoek-<var>versie</var>.noarch.rpm EekBoek-db-postgresql<var>versie</var>.noarch.rpm</blockquote>
-      <p>Wilt u EekBoek gaan gebruiken met een SQLite database:</p>
-      <blockquote class="code">rpm -ivh EekBoek-<var>versie</var>.noarch.rpm EekBoek-db-sqlite<var>versie</var>.noarch.rpm</blockquote>
-      <p>U kunt ook alle packages installeren. De keuze welke database
-      wordt gebruikt wordt namelijk in een van de
-      configuratiebestanden vastgelegd.</p>
+      <blockquote class="code">rpm -ivh <var>package</var>-<var>versie</var>.noarch.rpm</blockquote>
       <p>Het is mogelijk dat <strong>rpm</strong> aangeeft dat nog enkele
       aanvullende pakketten nodig zijn. Deze dient u dan eerst te
       installeren en vervolgens de installatie van EekBoek opnieuw uit
@@ -158,24 +165,35 @@ uiteraard het nieuwe versienummer.</p>
 
 <p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
 
-<p>Voor ingebruikname van EekBoek moet u eerst de database
-configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.</p>
-
 <a name="debian"></a><h2>Installeren met APT-GET</h2>
 
 <p>Er zijn twee EekBoek packages:</p>
 
 <table border="1" size="100%" cellpadding="5">
   <tr>
-    <td valign="top">eekboek</td>
-    <td valign="top">Dit is het basispackage. Deze heeft u altijd nodig. Dit
-	package bevat tevens de ondersteuning voor de SQLite
-	database.</td>
+    <td>eekboek-cli</td>
+    <td>Dit is het basispackage, inclusief ondersteuning voor SQLite.
+	Deze heeft u altijd nodig.</td>
   </tr>
   <tr>
-    <td nowrap valign="top">eekboek-db-postgresql</td>
-    <td valign="top">Dit package heeft u nodig als u EekBoek met de PostgreSQL
+    <td>eekboek-gui</td>
+    <td>Dit is de grafische shell.</td>
+  </tr>
+  <tr>
+    <td>eekboek-db-postgresql</td>
+    <td>Dit package heeft u nodig als u EekBoek met de PostgreSQL
 	database wilt gebruiken.</td>
+  </tr>
+  <tr>
+    <td>eekboek-contrib</td>
+    <td>Dit package bevat door de EekBoek gebruikers zelf ontwikkelde
+	hulpmiddelen en bestanden.</td>
+  </tr>
+  <tr>
+    <td>eekboek</td>
+    <td>Dit is een pseudo-package waarmee u in &eacute;&eacute;n keer
+	de packages <code>cli</code>, <code>gui</code> en
+	<code>contrib</code>kunt installeren.</td>
   </tr>
 </table>
 
@@ -203,14 +221,10 @@ de volgende stappen uit te voeren.
       <blockquote class="code">apt-get update</blockquote></li>
 
   <li><p>Installeer de gewenste packages.</p>
-      <p>Wilt u EekBoek gaan gebruiken met een SQLite database:</p>
       <blockquote class="code">apt-get install eekboek</blockquote>
-      <p>Wilt u EekBoek gaan gebruiken met een PostgreSQL database dan
-      installeert u beide packages:</p>
-      <blockquote class="code">apt-get install eekboek eekboek-db-postgresql</blockquote>
-      <p>U kunt ook altijd alle packages installeren. De keuze welke
-      database wordt gebruikt wordt namelijk in een van de
-      configuratiebestanden vastgelegd.</p>
+      <p>Als U de PostgreSQL ondersteuning installeert kunt nog steeds
+      ook SQLite gebruiken. De keuze welke database wordt
+      gebruikt wordt namelijk in een van de configuratiebestanden vastgelegd.</p>
       <p>Het is mogelijk dat <strong>apt-get</strong> adviseert nog
       enkele aanvullende pakketten toe te voegen. Het verdient
       aanbeveling dit advies op te volgen.</p>
@@ -218,9 +232,6 @@ de volgende stappen uit te voeren.
 </ol>
 
 <p>Overweeg ook om <a href="#opt">de optionele modules</a> te installeren.</p>
-
-<p>Voor ingebruikname van EekBoek moet u eerst de database
-configureren volgens <a href="dblinux.html">deze aanwijzingen</a>.</p>
 
 <a name="opt"></a><h2>Optionele modules voor meer gemak en functionaliteit</h2>
 
@@ -233,10 +244,5 @@ gebruiksgemak en functionaliteit.</p>
 maken van handige completion, waarbij automatisch dagboeken,
 rekeningnummers en relatiecodes worden opgezocht en aangevuld.</p>
 
-<p><strong>Archive::Tar</strong></p>
-
-<p>Als u deze module installeert kan EekBoek export en import van
-enkelvoudige archief-bestanden uitvoeren.</p>
-
-<p>Deze modules kunnen doorgaans als een standaard package via het
+<p>Optionele modules kunnen doorgaans als een standaard package via het
 normale installatiemechanisme worden ge&iuml;nstalleerd.</p>

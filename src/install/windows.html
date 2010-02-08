@@ -15,8 +15,8 @@ computer te bekijken en zo nodig programma's en bestanden te
 verwijderen.
 <br>Wij vinden dit niet verenigbaar met het streven van EekBoek om u
 juist de volledige en voortdurende zeggenschap over uw eigen gegevens
-te geven. <strong>Wij moeten daarom het gebruik van EekBoek op Windows
-Vista afraden.</strong>
+te geven. <strong>Wij raden daarom het gebruik van EekBoek op Windows
+af.</strong>
 <br>Wilt u desondanks toch EekBoek gebruiken dan vindt u hieronder
 welke stappen daartoe moeten worden ondernomen.</p>
 
@@ -81,56 +81,6 @@ ingegeven!
 dan kan dit eenvoudig door de Perl Package Manager opnieuw te starten
 en in het hoofdscherm de nieuwe versie van EekBoek te kiezen.</p>
 
-<h2>Configureren van de database</h2>
-
-<p>Hoewel EekBoek met meerdere databasesystemen kan werken is het
-onder Microsoft Windows het meest eenvoudig om <a
-href="http://www.sqlite.org">SQLite</a> te gebruiken.
-Dit mini-databasesysteem wordt meegeleverd met ActivePerl.</p>
-
-<p>U kunt verifi&euml;ren dat SQLite beschikbaar is door in een
-command prompt window de volgende opdracht uit te voeren:</p>
-
-<blockquote class="code">perl -MDBD::SQLite -e 0</blockquote>
-
-<p>Deze opdracht dient zonder problemen, en ook zonder uitvoer, te
-eindigen.</p>
-
-<h3>Aanmaken van de probeer-database</h3>
-
-<ol>
-  <li><p>Cre&euml;er een nieuwe folder, bijvoorbeeld <strong>sample</strong>.</li>
-  <li><p>Open een command prompt window in deze folder, en geef daar
-      de volgende opdracht:</p>
-      <blockquote class="code">ebshell --createsampleconfig</blockquote>
-      <p>Dit cre&euml;ert een bestand <strong>.eekboek.conf</strong> in
-      de huidige directory. In dit bestand zijn alle standaard
-      instellingen van EekBoek als voorbeeld opgenomen.</p></li>
-
-  <li><p>Open  <strong>.eekboek.conf</strong> in een geschikte editor,
-      bijvoorbeeld Notepad of Wordpad. Wijzig de <strong>[database]</strong> sectie in het navolgende:</p>
-      <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt">[database]</blockquote>
-      <blockquote class="code" style="margin-bottom:0pt;padding-bottom:0pt;margin-top:0pt;padding-top:0pt">name = sample</blockquote>
-      <blockquote class="code" style="margin-top:0pt;padding-top:0pt">driver = sqlite</blockquote>
-      <p>Let op: dit zijn drie regels!</p></li>
-  <li><p>Wanneer u Windows Vista gebruikt, dient u nog de sectie
-      <strong>[security]</strong> op te zoeken, en daar de punt-komma
-      voor de regel
-      <blockquote class="code">override_security_for_vista = 1</blockquote>
-      te verwijderen.</p></li>
-  <li><p>Sla dit bestandje weer op.</p></li>
-  <li><p>Geef in de command prompt window de volgende opdracht:</p>
-      <blockquote class="code">ebshell --createsampledb</blockquote>
-      <p>U krijgt nu een verslag te zien van het aanmaken van de
-      database, het openen van de administratie, en het invoeren van
-      enkele boekingen. De afsluitende opmerking &ldquo;!Geen openstaande
-      posten gevonden&rdquo; is normaal en duidt niet op een fout.</p></li>
-</ol>
-
-<p>U kunt nu met de probeer-database gaan spelen door in dit
-      command prompt window de volgende
-      opdracht in te geven:</p>
-      <blockquote class="code">ebshell</blockquote>
 
 <p>Raadpleeg verder de <a href="../docs/index.html">EekBoek documentatie</a>.</p>
       
