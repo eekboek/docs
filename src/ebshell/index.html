@@ -24,7 +24,7 @@ bestand als standaardinvoer wordt meegegeven:</p>
 <p>In batch mode geldt dat lege regels, en regels die met een
 <code>#</code>-teken beginnen worden genegeerd. Verder mogen
 opdrachten over meerdere regels worden gespreid door het plaatsen van
-een <code>\</code>-teken aan het eind van de regel,
+een <code>\</code>-teken aan het eind van alle regels behalve de laatste,
 bijvoorbeeld:</p>
 
 <blockquote class="code">postbank:12 12-03-2004 "Diverse boekingen" \
@@ -36,7 +36,7 @@ opgestart, dan draait hij interactief en zal opdrachten lezen vanaf de
 terminal. Elke ingelezen regel vormt een opdracht.
 
 Het inlezen van opdrachten vindt indien mogelijk plaats door middel
-van de perl module <code>Term::ReadLine::Gnu</code>. Zie de <a
+van de Perl module <code>Term::ReadLine::Gnu</code>. Zie de <a
 href="http://search.cpan.org/dist/Term-ReadLine-Gnu">documentatie
 van deze module</a> voor alle mogelijkheden. Uitgevoerde opdrachten
 worden tot in bepaalde mate bewaard en kunnen later worden
