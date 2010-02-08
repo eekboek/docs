@@ -2,6 +2,7 @@ title "Documentatie"
 menu "Inleiding"	      intro
 menu "Installeren"	      install
 menu "De EekBoek shell"       ebshell
+menu "De grafische EekBoek shell"       ebwxshell
 menu "Configuratie"           config
 menu "Opzetten administratie" setup
 menu "Boekingen"	      bookings
