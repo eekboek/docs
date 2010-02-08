@@ -1,0 +1,42 @@
+[%# $Id$ %]
+
+<h3>De volgende command line opdrachten zijn alleen voor experts.</h3>
+
+<table border="1" width="100%" cellpadding="5">
+  <tr valign="top">
+    <td><code>--wizard</code></td>
+    <td>Forceer het opstarten van de administratie selectie wizard ook
+	als er een configuratiebestand in de huidige directory
+	aanwezig is.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-D
+	<var>var</var>=<var>waarde</var><br>--define&nbsp;<var>var</var>=<var>waarde</var></code></td>
+    <td>Definieer configuratievariabelen. <var>var</var>
+	heeft de vorm <var>sectie</var><code>:</code><var>naam</var>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-f <var>cfg</var><br>--config=<var>cfg</var></code></td>
+    <td>Specificeert een administratie-specifiek configuratiebestand. Zie <a href="../config.html">Configuratiebestanden</a>.
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-P<br>--printcfg</code></td>
+    <td>De rest van de opdrachtregel wordt 
+	ge&iuml;nterpreteerd als namen van configuratie-variabelen
+	en de bijbehorenden waardes worden uitgeprint. Zie <a
+	href="../config.html">Configuratiebestanden</a>.
+	<br><em>Deze optie moet als eerste op de commandoregel voorkomen.</em>
+    </td>
+  </tr>
+  <tr valign="top">
+    <td><code>-X</code></td>
+    <td>De standaard-configuratiebestanden worden niet gelezen. Dit is
+	uiteraard alleen zinvol in combinatie met
+	<code>--config</code>. Zie <a
+	href="../config.html">Configuratiebestanden</a>.
+    </td>
+  </tr>
+</table>
