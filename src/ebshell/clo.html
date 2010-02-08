@@ -15,16 +15,6 @@
 	ge&iuml;nterpreteerd.
     </td>
   </tr>
-[%#  <tr valign="top">
-    <td><code>--dataset=<var>name</var></code></td>
-    <td><strong>Deze optie komt te vervallen. Gebruik in plaats
-	hiervan <code>--config</code>.</strong>
-	<br>De opgegeven database wordt gebruikt in plaats van de
-	standaard database. Zie <a
-	href="../config.html#database">Configuratiebestanden,
-	sectie Database</a>.
-    </td>
-  </tr> -%]
   <tr valign="top">
     <td><code>-e<br>--echo</code></td>
     <td>In batch mode worden alle ingelezen commando's ook
@@ -53,36 +43,14 @@
   </tr>
 </table>
 
-<h4>De volgende opdrachten zijn in het begin nuttig.</h4>
-
-<table border="1" width="100%" cellpadding="5">
-  <tr valign="top">
-    <td><code>--createsampleconfig</code></td>
-    <td>Cre&euml;er een voorbeeld-configuratiebestand
-	<strong>.eekboek.conf</strong> in de huidige directory. Dit
-	bestand bevat alle standaard EekBoek configuratiesettings als
-	voorbeeld. Er worden verder geen andere acties uitgevoerd.
-	<br>Zie ook: <a href="../config.html">Configuratie</a>.
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--createsampledb</code></td>
-    <td>Initialiseer een voorbeeld-administratie uitgaande van de
-	gegevens zoals vastgelegd in het configuratiebestand.
-    </td>
-  </tr>
-</table>
-
 <h4>De volgende opdrachten zijn alleen voor experts.</h4>
 
 <table border="1" width="100%" cellpadding="5">
   <tr valign="top">
-    <td><code>--createdb</code></td>
-    <td>Cre&euml;er een lege database. Indien de database al bestaat
-	wordt deze geheel leeggemaakt, anders wordt een nieuwe, lege
-	database aangemaakt.
-	<br>Deze opdracht is alleen zinvol in combinatie met de
-	opdracht <code>--schema</code>, zie hieronder.
+    <td><code>--wizard</code></td>
+    <td>Forceer het opstarten van de administratie selectie wizard ook
+	als er een configuratiebestand in de huidige directory
+	aanwezig is.
     </td>
   </tr>
   <tr valign="top">
@@ -104,23 +72,6 @@
 	en de bijbehorenden waardes worden uitgeprint. Zie <a
 	href="../config.html">Configuratiebestanden</a>.
 	<br><em>Deze optie moet als eerste op de commandoregel voorkomen.</em>
-    </td>
-  </tr>
-  <tr valign="top">
-    <td><code>--schema=<var>name</var></code></td>
-    <td>Initialiseer de administratie met het opgegeven schema. Dit
-	kan uitsluitend indien de te gebruiken database nog helemaal
-	leeg is.
-	<br>Als de opgegeven schemanaam alleen letters,
-	cijfers en onderstrepingen bevat wordt het schema gezocht in de volgende
-	plaatsen:
-	<br><code>./<var>naam</var>.dat</code>
-	<br><code>schema/<var>naam</var>.dat</code>
-	<br><code><var>EBLIB</var>/schema/<var>naam</var>.dat</code>
-	<br>In het laatste geval staat <var>EBLIB</var> voor de
-	locatie waar EekBoek is ge&iuml;nstalleerd.
-	<br>Als de opgegeven schemanaam andere tekens bevat  wordt het als een
-	bestandsnaam beschouwd en wordt het schema vanuit dat bestand geladen.
     </td>
   </tr>
   <tr valign="top">
