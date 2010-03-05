@@ -169,23 +169,29 @@ van teken mag wisselen.</p>
 <a name="dbk"></a><h3>De dagboeken</h3>
 
 <p>Dagboeken worden gedefinieerd in het onderdeel
-&ldquo;dagboeken&rdquo;. EekBoek ondersteunt vijf soorten dagboeken:
-Kas, Bank, Inkoop, Verkoop en Memoriaal. Elk dagboek heeft een unieke,
-alfanumerieke code (max. 4 tekens). Deze wordt in een toekomstige
-versie gebruikt om boekstuknummers te produceren. Verder moet voor elk
-dagboek worden opgegeven van welke soort het is.</p> <p>Bij dagboeken
-van het soort Kas en Bank moet altijd een tegenrekening worden
-opgegeven. <br>Bij dagboeken van het soort Inkoop en Verkoop mag een
-tegenrekening worden opgegeven. Indien deze ontbreekt wordt de
-betreffende standaardrekening genomen, zie <a
-href="../stdacc.html">Koppelingen</a>. <br>Bij dagboeken van het soort
-Memoriaal mag een tegenrekening worden opgegeven.</p>
+&ldquo;dagboeken&rdquo;. EekBoek ondersteunt vijf typen dagboeken:
+Kas, Bank, Inkoop, Verkoop en Memoriaal.</p>
+
+<p>Elke administratie heeft een of meer dagboeken. Elk dagboek heeft
+een vrij te kiezen naam en een alfanumerieke of numerieke code van
+maximaal 4 tekens. Zowel de naam als de code moeten uniek zijn. Verder
+moet voor elk dagboek worden opgegeven van welk type het is.</p>
+
+<p>Bij dagboeken van het type Kas en Bank moet altijd een
+tegenrekening worden opgegeven.
+
+<br>Bij dagboeken van het type Inkoop en Verkoop mag een tegenrekening
+worden opgegeven. Indien deze ontbreekt wordt de betreffende
+standaardrekening genomen, zie <a href="../stdacc.html">Koppelingen</a>.
+<br>Bij dagboeken van het type Memoriaal mag een tegenrekening worden
+opgegeven.</p>
 
 <p>Een illustratief voorbeeld:</p>
 
 <blockquote class="code">Dagboeken
    K  Kas            :type=kas        :rekening=2300
    P  Postbank       :type=bank       :rekening=2320  :dc
+   R  Rabobank       :type=bank       :rekening=2330  :dc
    I  Inkoop         :type=inkoop
    V  Verkoop        :type=verkoop
    M  Memoriaal      :type=memoriaal</blockquote>
