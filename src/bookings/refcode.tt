@@ -1,0 +1,7 @@
+<p>Aan een boeking kan ook een referentienaam worden toegekend met
+<code>--ref=<var>XXXX</var></code>. De opgegeven code moet tenminste
+&eacute;&eacute;n letter of onderstreep bevatten. Bij het boeken van
+betalingen kan aan deze boeking worden gerefereerd door de relatiecode
+en referentie op te geven, gescheiden door een dubbele punt
+'<code>:</code>'.</p>
+
