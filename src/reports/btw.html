@@ -209,6 +209,27 @@ Berekening
   </tr>
 </table>
 
+<h3>Definitief of niet?</h3>
+
+<p>De opdracht 'btwaangifte' is een rapportage-opdracht. Er wordt dus een
+lijstje voor de aangifte gemaakt, verder niets. Er wordt wel
+gecontroleerd of de direct eraan voorafgaande BTW periode is
+afgesloten voor BTW boekingen.</p>
+
+<p>Om de periode af te sluiten dient de optie <code>--definitief</code>
+te worden toegepast. Er kunnen dan geen BTW-gerelateerde boekingen
+meer worden uitgevoerd in deze periode.</p>
+
+<p><em>Het is niet mogelijk een BTW periode af te sluiten zonder
+dat er direct eraan voorafgaande periode ook is
+afgesloten.</em></p>
+
+Indien u steeds de gehele administratie opnieuw opbouwt uit de
+bestanden dan moet u na elke kwartaalaangifte de volgende opdracht
+toevoegen aan <code>mutaties.eb</code>:
+
+<blockquote class="code">btwaangifte --noreport --definitief <i>periode</i></blockquote>
+
 <h3>Er is een verschil ...</h3>
 
 <p>De onder 1a en 1b genoemde bedragen aan omzetbelasting zijn
