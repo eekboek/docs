@@ -51,7 +51,7 @@ verdichting, waarbij het hoogste niveau hoofdverdichting wordt
 genoemd. Er zijn standaard maximaal 9 hoofdverdichtingen, genummerd 1
 tot en met 9. De verdichtingen zijn genummerd van 10 tot en met 99. De
 grootboekrekeningen dragen nummers vanaf 100. Deze grenzen kunnen
-indien nodig worden gewijzigd.</p>
+indien nodig <a href="#verdichting">worden gewijzigd</a>.</p>
 
 <p>In het schema-bestand worden de hoofdverdichtingen en verdichtingen 
 opgegeven op (ingesprongen) regels, met daarin het nummer gevolgd door
@@ -230,6 +230,24 @@ standaard het bedrag exclusief BTW aangeven.</p>
 
 <p>De rekeningen waarop de BTW moet worden geboekt worden
 gespecifieerd met <a href="../stdacc.html">koppelingen</a>.
+
+<a name="verdichting"></a><h3>Uitbreiden van het aantal verdichtingen</h3>
+
+<p>Soms kan het zijn dat het maximale aantal mogelijke verdichtingen
+en hoofdverdichtingen niet toereikend is. Dit kan dan worden
+uitgebreid door in het schemabestand v&oacute;&oacute;r de definitie
+van de balans- en resultaatrekeningen de opdracht
+&lsquo;<code>Verdichting</code>&rsquo; te gebruiken.</p>
+
+<blockquote class="code">Verdichting <var>maxhvd</var> <var>maxvrd</var></blockquote>
+
+<p>De beschikbare nummers voor een hoofdverdichting zijn dan 1 t/m
+<var>maxhvd</var>; voor de verdichtingen zijn de nummers
+<var>maxhvd</var>+1 t/m <var>maxvrd</var> beschikbaar.</p>
+
+<p>De standaardwaarden zijn:</p>
+
+<blockquote class="code">Verdichting 9 99</blockquote>
 
 <h3>Opnieuw aanmaken schema-gegevens</h3>
 
