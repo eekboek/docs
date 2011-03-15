@@ -2,9 +2,12 @@
 
 use strict;
 use warnings;
+use HTML::Entities;
+use Encode;
 
-open(my $ix,  ">ix.html"     );
-open(my $det, ">details.html");
+open(my $ix,  ">", "ix.html"     );
+open(my $det, ">", "details.html");
+#binmode( STDIN, ":encoding(utf-8)");
 
 print {$ix} ("<head>\n",
 	     "<link rel=\"stylesheet\" href=\"cheat.css\">\n",
@@ -18,6 +21,7 @@ print {$det} ("<head>\n",
 my $did = 0;
 while ( <> ) {
     chomp;
+    $_ = decode( "utf-8", $_ );
     if ( /^eb\> help (\w+)/ ) {
 	my $target = $1;
 	print {$ix} ("<br>") if $did;
@@ -27,12 +31,8 @@ while ( <> ) {
 	$did++;
 	next;
     }
-    s/&/&amp;/g;
 
-    s/ë/&euml;/g;
-    s/ï/&iuml;/g;
-    s/é/&eacute;/g;
-    s/ó/&oacute;/g;
+    $_ = encode_entities($_);
 
     if ( /(^...+   +)([^ ].*)/ ) {
 	my ($l, $r) = ($1, $2);
@@ -44,8 +44,9 @@ while ( <> ) {
 	varfix($_);
     }
 
-    s;"help (\w+)";<a href="#$1">$1</a>;g;
-    print {$det} $_, "\n";
+    s;&lt\;(\w+)&gt\;;<var>$1</var>;g;
+    s;&quot\;help (\w+)&quot\;;<a href="#$1">$1</a>;g;
+    print {$det} encode("utf-8", $_), "\n";
 }
 
 print {$det} ("</pre>\n<hr/>\n") if $did;

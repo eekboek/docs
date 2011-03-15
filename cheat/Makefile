@@ -6,9 +6,9 @@ ix.html : orig.txt cheater.pl
 	perl cheater.pl orig.txt
 
 orig :
-	ebshell --db=sample -c help | \
+	ebshell -f ebcheat.conf  -c help | \
 	  sed -n 's/^  \* \(.*\)/help \1/p' | \
-	  ebshell --echo --db=sample > orig.txt
+	  ebshell --echo -f ebcheat.conf > orig.txt
 
 install :
 	for i in cheat.css kop.html ix.html details.html index.html; \
