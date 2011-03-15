@@ -6,5 +6,6 @@ etc
 lib
 src/images
 src/css
-cheat
+cheat/ix.html
+cheat/details.html
 quickref.*
