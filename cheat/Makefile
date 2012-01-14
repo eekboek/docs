@@ -2,10 +2,10 @@
 
 all:	ix.html
 
-ix.html : orig.txt cheater.pl
+ix.html : ebsqlite_sample orig.txt cheater.pl
 	perl cheater.pl orig.txt
 
-orig :
+orig.txt :
 	ebshell -f ebcheat.conf  -c help | \
 	  sed -n 's/^  \* \(.*\)/help \1/p' | \
 	  ebshell --echo -f ebcheat.conf > orig.txt
@@ -15,3 +15,10 @@ install :
 	do \
 	  echo '[% META type = "text" %]' | cat - $$i > ../doc/src/cheat/$$i; \
 	done
+
+clean :
+	rm -f *~
+	rm -f orig.txt details.html ix.html ebsqlite* 
+
+ebsqlite_sample :
+	ebshell --import --file=leeg.ebz -f ebcheat.conf
