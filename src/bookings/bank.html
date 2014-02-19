@@ -1,5 +1,5 @@
 <h2>Giro- en Bankafschriften</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) - 1 %]
 <p>Deze afschriften worden geboekt in een dagboek van het type Bank.
 Zo'n dagboek heet typisch &ldquo;Postgiro&rdquo; of
 &ldquo;Rabobank&rdquo;. De keuze van de naam is vrij, en er mogen
@@ -46,7 +46,7 @@ dagboek gekoppelde grootboekrekening.</p>
 
 <p>Syntaxvoorbeeld van een boekstukkop:</p>
 
-<blockquote class="code">postbank:16 19-09-2007 "KPN, ACME"</blockquote>
+<blockquote class="code">postbank:16 19-09-[% bkm_year %] "KPN, ACME"</blockquote>
 
 <p>De onderdelen:</p>
 
@@ -64,7 +64,7 @@ dagboek gekoppelde grootboekrekening.</p>
     </td>
   </tr>
   <tr valign="top">
-    <td><code>11-09-2007</code></td>
+    <td><code>11-09-[% bkm_year %]</code></td>
     <td>De boekingsdatum in <a href="../date.html">een van de ondersteunde vormen</a>.</td>
   </tr>
   <tr valign="top">
@@ -78,7 +78,7 @@ dagboek gekoppelde grootboekrekening.</p>
 
 <p>Syntaxvoorbeeld van een boekingsregel &ldquo;betaling aan crediteur&rdquo;:</p>
 
-<blockquote class="code">crd 04-09-2007 KPN -131,68</blockquote>
+<blockquote class="code">crd 04-09-[% bkm_year %] KPN -131,68</blockquote>
 
 <p>De onderdelen:</p>
 
@@ -89,7 +89,7 @@ dagboek gekoppelde grootboekrekening.</p>
     </td>
   </tr>
   <tr valign="top">
-    <td><code>04-09-2007</code></td>
+    <td><code>04-09-[% bkm_year %]</code></td>
     <td>De boekingsdatum voor deze boekstukregel.
 	<br>Deze mag worden weggelaten, in welk geval de boekingsdatum
 	van het boekstuk wordt gebruikt.
@@ -123,7 +123,7 @@ dagboek gekoppelde grootboekrekening.</p>
 
 <p>Syntaxvoorbeeld van een boekingsregel &ldquo;betaling van debiteur&rdquo;:</p>
 
-<blockquote class="code">deb 06-09-2007 ACME 369,82</blockquote>
+<blockquote class="code">deb 06-09-[% bkm_year %] ACME 369,82</blockquote>
 
 <p>De onderdelen:</p>
 
@@ -134,7 +134,7 @@ dagboek gekoppelde grootboekrekening.</p>
     </td>
   </tr>
   <tr valign="top">
-    <td><code>06-09-2007</code></td>
+    <td><code>06-09-[% bkm_year %]</code></td>
     <td>De boekingsdatum voor deze boekstukregel.
 	<br>Deze mag worden weggelaten, in welk geval de boekingsdatum
 	van het boekstuk wordt gebruikt.
@@ -167,7 +167,7 @@ dagboek gekoppelde grootboekrekening.</p>
 
 <p>Syntaxvoorbeeld van een vrije boekingsregel:</p>
 
-<blockquote class="code">std 07-09-2007 Girotel -3,50 4980</blockquote>
+<blockquote class="code">std 07-09-[% bkm_year %] Girotel -3,50 4980</blockquote>
 
 <p>De onderdelen:</p>
 
@@ -178,7 +178,7 @@ dagboek gekoppelde grootboekrekening.</p>
     </td>
   </tr>
   <tr valign="top">
-    <td><code>07-09-2007</code></td>
+    <td><code>07-09-[% bkm_year %]</code></td>
     <td>De boekingsdatum voor deze boekstukregel.
 	<br>Deze mag worden weggelaten, in welk geval de boekingsdatum
 	van het boekstuk wordt gebruikt.

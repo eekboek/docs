@@ -9,9 +9,11 @@ expliciete BTW-specifcatie op te geven, zie verderop.</p>
 <p>Er zijn drie factoren die een rol spelen bij het bepalen van de
 omzetbelasting.</p>
 <ol>
-  <li>De BTW tariefgroep: Hoog, Laag, Priv&eacute;, Anders, of Nul.
+  <li>De BTW tariefgroep: Hoog, Laag, Priv&eacute;, Anders, Nul, of Geen.
       <br>Dit bepaalt de hoogte van de in rekening te brengen BTW, en
-      waar deze op de BTW aangifte moet worden vermeld.</p></li>
+      waar deze op de BTW aangifte moet worden vermeld.<br>
+      Tariefgroep &lsquo;Geen&rsquo; houdt in dat geen BTW wordt
+      berekend, en er dus ook niets op de aangifte wordt vermeld.</p></li>
   <li>Voor inkoop- en verkoopboekingen: de BTW-status van de relatie.
       <br>Bepalend is of de relatie binnen of buiten de EU is
       gevestigd, of dat BTW is verlegd.</p></li>
@@ -20,7 +22,7 @@ omzetbelasting.</p>
       <br>BTW berekend op kostenboekingen wordt bij de uiteindelijke
       BTW aangifte verrekend als voorheffing. De BTW berekend op omzet
       moet bij de aangifte worden afgedragen. Daarnaast bepaalt deze
-      indeling of een boeking zonder BTW, dus met tarief
+      indeling of een boeking met tariefgroep
       &lsquo;Nul&rsquo;, moet worden opgevoerd op de aangifte. Enkel
       boekingen op neutrale grootboekrekeningen worden niet
       meegenomen in de BTW aangifte.</p></li>
@@ -131,8 +133,8 @@ exclusief BTW is.</p>
 <blockquote class="code">inkoop 31-01 LCIER "Materiaal" 100,00@L-</blockquote>
 <p>Pas het lage BTW tarief toe. Het opgegeven bedrag is exclusief de BTW.</p>
 
-<blockquote class="code">inkoop 01-10 LCIER "Materiaal" 100,00@h19-</blockquote>
-<p>Pas BTW tarief &lsquo;<code>h19</code>&rsquo; toe. Het opgegeven bedrag is exclusief de BTW.</p>
+<blockquote class="code">inkoop 01-10 LCIER "Materiaal" 100,00@h21-</blockquote>
+<p>Pas BTW tarief &lsquo;<code>h21</code>&rsquo; toe. Het opgegeven bedrag is exclusief de BTW.</p>
 
 
 <a name="Afr"></a><h2>BTW-afrondingen</h2>
@@ -141,7 +143,7 @@ exclusief BTW is.</p>
 berekend per boekstukregel. Soms worden in fakturen de boekstukregels
 opgeteld, en daarover de BTW berekend. Hierdoor kunnen
 afrondingsverschillen ontstaan. Wanneer aan een boeking een
-totaalbedrag is meegegenve (de <code>--totaal</code> optie) zal het
+totaalbedrag is meegegeven (de <code>--totaal</code> optie) zal het
 boekstuktotaal niet kloppen met de opgegeven waarde en de boeking zal
 dan worden geweigerd.
 

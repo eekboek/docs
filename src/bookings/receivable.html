@@ -1,5 +1,5 @@
 <h2>Verkoopfakturen</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) - 1 %]
 <p>Verkoopfakturen worden geboekt in een dagboek van het type Verkoop.
 Zo'n dagboek heet typisch &ldquo;Verkoop&rdquo; of
 &ldquo;Verkopen&rdquo;. De keuze van de naam is vrij, en er mogen
@@ -13,7 +13,7 @@ We nemen hier als voorbeeld het dagboek &ldquo;Verkoop&rdquo;.</p>
 
 <p>Syntaxvoorbeeld van een boekstukkop:</p>
 
-<blockquote class="code">verkoop:12 11-09-2007 Consultancy ACME</blockquote>
+<blockquote class="code">verkoop:12 11-09-[% bkm_year %] Consultancy ACME</blockquote>
 
 <p>De onderdelen:</p>
 
@@ -29,7 +29,7 @@ We nemen hier als voorbeeld het dagboek &ldquo;Verkoop&rdquo;.</p>
     </td>
   </tr>
   <tr valign="top">
-    <td><code>11-09-2007</code></td>
+    <td><code>11-09-[% bkm_year %]</code></td>
     <td>De boekingsdatum in <a href="../date.html">een van de ondersteunde vormen</a>.</td>
   </tr>
   <tr valign="top">
@@ -101,7 +101,7 @@ de oorspronkelijke, als de credit-faktuur worden getoond.</p>
 <p>De beide boekingen dienen daarom tegen elkaar te worden weggeboekt
 in een <a href="memorial.html">memoriaalboeking</a>, bijvoorbeeld:
 
-<blockquote class="code">memoriaal 20-11-2007 Creditering \
+<blockquote class="code">memoriaal 20-11-[% bkm_year %] Creditering \
   deb ACME  369,82 \
   deb ACME -369,82
 </blockquote>

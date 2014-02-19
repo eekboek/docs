@@ -1,5 +1,5 @@
 <h2>Het opzetten van de werkomgeving</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) %]
 <p>EekBoek versie 2 werkt met een administratie directory, dit is een
 directory waar alle administratiebestanden worden ondergebracht. De
 standaardplek voor deze directory is afhankelijk van het gebruikte
@@ -47,7 +47,7 @@ de Enter toets. Door een vraag met een &lsquo;-&rsquo; teken te
 beantwoorden gaat de wizard terug naar de vorige vraag.</p>
 
 <blockquote class="code">$ ebshell
-EekBoek 2.00.00 -- Copyright 2005-2010 Squirrel Consultancy
+EekBoek 2.04.00 -- Copyright 2005-[% bkm_year %] Squirrel Consultancy
 
 Geef een unieke naam voor de nieuwe administratie. Deze wordt
 gebruikt voor rapporten en dergelijke.
@@ -57,14 +57,14 @@ Naam [Mijn eerste EekBoek]:
 Geef het boekjaar voor deze administatie. De administatie
 begint op 1 januari van het opgegeven jaar.
 
-Begindatum <1990..2020> [2010]: 
+Begindatum <1990..2020> [[% bkm_year %]]: 
 
 Geef een unieke code voor de administratie. Deze wordt gebruikt
 als interne naam voor de database en administratiefolders.
 De standaardwaarde is afgeleid van de administratienaam en de
 begindatum.
 
-Code [mijn_eerste_eekboek_2010]: 
+Code [mijn_eerste_eekboek_[% bkm_year %]]: 
 
 U kunt een van de meegeleverde sjablonen gebruiken voor uw
 administratie.
@@ -89,8 +89,8 @@ Database <1..2> [2]:
 Gereed om de administratieve bestanden en de database aan te maken.
 
 Doorgaan [Ja]: 
-EekBoek 2.00.00 -- Copyright 2005-2010 Squirrel Consultancy
-%Lege database mijn_eerste_eekboek_2010 is aangemaakt
+EekBoek 2.04.00 -- Copyright 2005-[% bkm_year %] Squirrel Consultancy
+%Lege database mijn_eerste_eekboek_[% bkm_year %] is aangemaakt
 ...
 
 De administratie is aangemaakt. U kunt meteen aan de slag.
@@ -107,7 +107,7 @@ administratie kunnen werken.</p>
 
 <p>Als de wizard gereed is met het aanmaken van de administratie dan
 vindt u in de administratie directory een subdirectory met de naam
-<code>mijn_eerste_eekboek_2010</code>, met daarin de volgende bestanden:</p>
+<code>mijn_eerste_eekboek_[% bkm_year %]</code>, met daarin de volgende bestanden:</p>
 
 <ul>
 <li><code>eekboek.conf</code> - het administratie-specifieke

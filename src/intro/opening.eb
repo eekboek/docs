@@ -10,11 +10,11 @@ adm_naam "EekBoek Demo Administratie"
 adm_btwperiode jaar
 
 # Begindatum van deze administratie.
-adm_begindatum 2007
+adm_begindatum 2013
 
 # Standaard wordt voor als boekjaarcode het jaartal gebruikt. U kunt
 # ook iets anders opgeven.
-adm_boekjaarcode "2007"
+adm_boekjaarcode "2013"
 
 # Data voor openingsbalans:
 
@@ -34,7 +34,7 @@ adm_balans 3100  2443,18        # Kapitaal
 # Eerst, indien nodig, de betreffende relatie toevoegen:
 #relatie --dagboek=inkoop KESTER "Repro van Kesteren" 6950
 # Dan het openstaande boekstuk:
-#adm_relatie inkoop:2006:67 2006-12-11 "KESTER" "Printwerk" 48,79
+#adm_relatie inkoop:2012:67 2006-12-11 "KESTER" "Printwerk" 48,79
 
 # Open de administratie.
 adm_open

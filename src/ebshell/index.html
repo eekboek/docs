@@ -1,5 +1,5 @@
 <h2>De EekBoek Shell</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) - 1 %]
 <p>De EekBoek Shell <code>ebshell</code> is een tekst-interface voor
 het EekBoek systeem.</p>
 
@@ -25,7 +25,7 @@ opdrachten over meerdere regels worden gespreid door het plaatsen van
 een <code>\</code>-teken aan het eind van alle regels behalve de laatste,
 bijvoorbeeld:</p>
 
-<blockquote class="code">postbank:12 12-03-2004 "Diverse boekingen" \
+<blockquote class="code">postbank:12 12-03-[% bkm_year %] "Diverse boekingen" \
       crd XS4ALL 21,78 \
       deb ACME 632,11</blockquote>
 
@@ -72,18 +72,18 @@ wordt verwacht, zal het indrukken van de TAB toets proberen de relatie
 code op te zoeken en af te maken. Zijn er meerdere mogelijkheden dan
 worden deze getoond:</p>
 
-<blockquote class="code">eekboek> inkopen:24 16-08-2007 XS<font color="red">[TAB]</font>
-inkopen:24 16-08-2007 XS4ALL <font color="red"><blink>_</blink></font></blockquote>
+<blockquote class="code">eekboek> inkopen:24 16-08-[% bkm_year %] XS<font color="red">[TAB]</font>
+inkopen:24 16-08-[% bkm_year %] XS4ALL <font color="red"><blink>_</blink></font></blockquote>
 
 <p>In boekingsopdrachten, op plaatsen waar een grootboekrekening wordt
 verwacht, zal het indrukken van de TAB toets proberen dit nummer op te
 zoeken en af te maken, Zijn er meerdere mogelijkheden dan worden deze
 getoond, samen met de beschrijving van de grootboekrekening:</p>
 
-<blockquote class="code">eekboek> inkopen:24 16-08-2007 XS4ALL Kosten 690<font color="red">[TAB]</font>
+<blockquote class="code">eekboek> inkopen:24 16-08-[% bkm_year %] XS4ALL Kosten 690<font color="red">[TAB]</font>
      6900  Telefoon- en faxkosten
      6905  Internetkosten
-inkopen:24 16-08-2007 XS4ALL Kosten 490<font color="red"><blink>_</blink></font></blockquote>
+inkopen:24 16-08-[% bkm_year %] XS4ALL Kosten 490<font color="red"><blink>_</blink></font></blockquote>
 
 <h3>Emacs ondersteuning</h3>
 
