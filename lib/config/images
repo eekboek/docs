@@ -29,15 +29,9 @@ site.image = {
       height = 47
       url    = "http://www.tt2.org/"
   }
-  background = {
-      src    = "$site.url.images/bg.gif"
-  }
-}
+};
 
 # Postprocessing images used by this site. Please DO NOT override.
-
-# Set the background.
-site.background = site.image.background;
 
 # Calculate width for the left column.
 IF site.image.logo.width < site.image.name.width;
