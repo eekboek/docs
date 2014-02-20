@@ -1,5 +1,5 @@
 <h2>Het Grootboekoverzicht</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) - 1 %]
 <p>Het Grootboekoverzicht geeft evenals het <a
 href="journaal.html">Journaal</a> een overzicht van alle uitgevoerde
 boekingen. In tegenstelling tot het Journaal zijn in het geval van het
@@ -40,8 +40,9 @@ de rapportage aanvangt.
 <h3>Selectie</h3>
 
 <p>Voor een selectief overzicht kunt u &eacute;&eacute;n of meer
-grootboekrekeningen opgeven. Het resulterende overzicht zal dan alleen
-de boekingen met betrekking tot deze rekeningen tonen.</p>
+grootboekrekeningen of verdichtingen opgeven. Het resulterende
+overzicht zal dan alleen de boekingen met betrekking tot deze
+rekeningen tonen.</p>
 
 <p>Het is ook mogelijk om de namen, of gedeelten van namen van
 grootboekrekeningen op te geven.</p>
@@ -52,15 +53,15 @@ grootboekrekeningen aangemaakt over het lopende boekjaar.</p>
 <h3>Uitvoer</h3>
 
 <blockquote class="code">                                         Grootboek
-Periode: 2007-01-01 t/m 2007-12-31
-EekBoek Demo Administratie 2007                                          EekBoek, 2007-12-31
+Periode: [% bkm_year %]-01-01 t/m [% bkm_year %]-12-31
+EekBoek Demo Administratie [% bkm_year %]                                          EekBoek, [% bkm_year %]-12-31
 
  GrBk  Grootboek/Boekstuk                   Datum      Debet     Credit  BoekstukNr  Relatie
 --------------------------------------------------------------------------------------------
  1101  Afschrijving inventaris &amp;
        inrichting
         Beginsaldo                                      0,00    1304,81
-         Afschrijving                  2007-12-31       0,00     411,26  Memoriaal:1
+         Afschrijving                  [% bkm_year %]-12-31       0,00     411,26  Memoriaal:1
         Totaal mutaties                                          411,26
  1101  Totaal Afschrijving inventaris                           1716,07
 

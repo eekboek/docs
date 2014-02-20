@@ -1,5 +1,5 @@
 <h2>De Balans</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) - 1 %]
 <p>De balans is een staat van bezittingen en schulden, doorgaans
 opgemaakt aan het einde van een boekjaar.</p>
 
@@ -79,8 +79,8 @@ aangemaakt over het lopende boekjaar.</p>
 <h2>Uitvoer (rapportage op grootboekrekening)</h2>
 
 <blockquote class="code">                                Balans
-Periode: t/m 2007-12-31
-EekBoek Demo Administratie 2007                    EekBoek, 2007-12-31
+Periode: t/m [% bkm_year %]-12-31
+EekBoek Demo Administratie [% bkm_year %]                    EekBoek, [% bkm_year %]-12-31
 
 RekNr   Grootboekrekening                             Debet     Credit
 ----------------------------------------------------------------------
@@ -115,8 +115,8 @@ programma-versie met de rapportagedatum.</p>
 <h2>Uitvoer (verdichte rapportage)</h2>
 
 <blockquote class="code">                                Balans
-Periode: t/m 2007-12-31
-EekBoek Demo Administratie 2007                    EekBoek, 2007-12-31
+Periode: t/m [% bkm_year %]-12-31
+EekBoek Demo Administratie [% bkm_year %]                    EekBoek, [% bkm_year %]-12-31
 
 RekNr   Verdichting/Grootboekrekening                 Debet     Credit
 ----------------------------------------------------------------------

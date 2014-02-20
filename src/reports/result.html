@@ -1,5 +1,5 @@
 <h2>De Verlies/Winst Rekening</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) - 1 %]
 <p>De &ldquo;Verlies/Winst Rekening&rdquo;,
 &ldquo;Resultatenrekening&rdquo; of &ldquo;Exploitatierekening&rdquo;
 is een staat van opbrengsten en kosten (of baten en lasten), over de
@@ -70,8 +70,8 @@ aangemaakt over het lopende boekjaar.</p>
 <h2>Uitvoer (rapportage op grootboekrekening)</h2>
 
 <blockquote class="code">                            Verlies/Winst
-Periode: 2007-01-01 t/m 2007-12-31
-EekBoek Demo Administratie 2007                    EekBoek, 2007-12-31
+Periode: [% bkm_year %]-01-01 t/m [% bkm_year %]-12-31
+EekBoek Demo Administratie [% bkm_year %]                    EekBoek, [% bkm_year %]-12-31
 
 RekNr   Grootboekrekening                             Debet     Credit
 ----------------------------------------------------------------------
@@ -108,8 +108,8 @@ programma-versie met de rapportagedatum.</p>
 <h2>Uitvoer (verdichte rapportage)</h2>
 
 <blockquote class="code">                            Verlies/Winst
-Periode: 2007-01-01 t/m 2007-12-31
-EekBoek Demo Administratie 2007                    EekBoek, 2007-12-31
+Periode: [% bkm_year %]-01-01 t/m [% bkm_year %]-12-31
+EekBoek Demo Administratie [% bkm_year %]                    EekBoek, [% bkm_year %]-12-31
 
 RekNr   Verdichting/Grootboekrekening                 Debet     Credit
 ----------------------------------------------------------------------

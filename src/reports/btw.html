@@ -1,5 +1,5 @@
 <h2>De Aangifte Omzetbelasting</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) - 1 %]
 <p>De Aangifte Omzetbelasting, ofwel BTW Aangifte, is een bijzonder
 soort rapportage, in die zin dat deze specifiek is bedoeld om aangifte
 Omzetbelasting bij de belastingdienst te doen. De door EekBoek
@@ -54,8 +54,8 @@ worden gedaan, voor zover deze valt binnen het huidige boekjaar.</p>
 <h2>Uitvoer</h2>
 
 <blockquote class="code">                          BTW Aangifte
-Periode: 2007
-EekBoek Demo Administratie                  EekBoek, 31-12-2007
+Periode: [% bkm_year %]
+EekBoek Demo Administratie                  EekBoek, 31-12-[% bkm_year %]
 
 ---------------------------------------------------------------
 
@@ -135,18 +135,17 @@ Berekening
 <table>
   <tr valign="top">
     <td>3a</td>
-    <td>Het totaal aan boekingen inzake leveringen aan EU landen.
+    <td>Het totaal aan boekingen inzake leveringen aan niet-EU landen.
     <br>Dit betreft omzetboekingen waarbij de debiteur de btw-code
-	'<code>intra</code>' (intra-communautair) heeft.
+	'<code>extra</code>' (extra-communautair) heeft.
 	<br><em>Dit wordt nog niet volledig ondersteund.</em>
     </td>
   </tr>
   <tr valign="top">
     <td>3b</td>
-    <td>Het totaal aan boekingen inzake leveringen aan niet-EU landen.
+    <td>Het totaal aan boekingen inzake leveringen aan EU landen.
     <br>Dit betreft omzetboekingen waarbij de debiteur de btw-code
-	'<code>extra</code>' (extra-communautair) heeft.
-	<br><em>Dit wordt nog niet volledig ondersteund.</em>
+	'<code>intra</code>' (intra-communautair) heeft.
     </td>
   </tr>
 </table>
@@ -168,7 +167,6 @@ Berekening
 	en de daarover verschuldigde omzetbelasting.
 	<br>Dit betreft kostenboekingen waarbij de crediteur de btw-code
 	'<code>intra</code>' (intra-communautair) heeft.</td>
-	<br><em>Dit wordt nog niet volledig ondersteund.</em>
   </tr>
 </table>
 

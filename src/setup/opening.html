@@ -1,5 +1,5 @@
 <h2>Bestand <code>opening.eb</code> - Het openen van de administratie</h2>
-
+[% USE Date; bkm_year = date.format( date.now, "%Y" ) %]
 <p>Het openen van de administratie is de laatste stap in het
 gebruiksklaar maken. Alle opdrachten daartoe benodigd dienen te worden
 opgenomen in het bestand <code>opening.eb</code>.</p>
@@ -19,7 +19,7 @@ administratie beginnen alle met het voorvoegsel <code>adm_</code>.</p>
 
 <a name="amdgg"></a><h3>Het invoeren van administratie-specifieke gegevens</h3>
 
-<blockquote class="code">adm_naam "EekBoek Demo Administratie 2007"</blockquote>
+<blockquote class="code">adm_naam "EekBoek Demo Administratie [% bkm_year %]"</blockquote>
 
 <p>Met deze opdracht wordt de naam van de te openen administratie
 opgegeven.<br>Deze opdracht is verplicht.</p>
@@ -30,13 +30,13 @@ opgegeven.<br>Deze opdracht is verplicht.</p>
 moet worden gedaan. Mogelijke waarden zijn "jaar", "kwartaal" of
 "maand".<br>Deze opdracht is verplicht.</p>
 
-<blockquote class="code">adm_begindatum 2007</blockquote>
+<blockquote class="code">adm_begindatum [% bkm_year %]</blockquote>
 
 <p>Met deze opdracht wordt de begindatum opgegeven. Het boekjaar loopt
 dan van 1 januari tot en met 31 december van het opgegeven jaar.
 <br>Deze opdracht is verplicht.</p>
 
-<blockquote class="code">adm_boekjaarcode 2007</blockquote>
+<blockquote class="code">adm_boekjaarcode [% bkm_year %]</blockquote>
 
 <p>Met deze opdracht wordt een code (verkorte aanduiding van maximaal
 4 tekens) voor het boekjaar opgegeven. Aan de hand van deze code kan
@@ -95,7 +95,8 @@ accepteren.</p>
 staan, dan moeten die nu worden ingevoerd met een of meer
 <code>adm_relatie</code> opdrachten.</p>
 
-<blockquote class="code">adm_relatie inkoop:2006:67 2003-12-31 KESTER "Printwerk" 48,79</blockquote>
+<blockquote class="code">adm_relatie inkoop:[% bkm_year - 1 %]:67 [%
+bkm_year - 1 %]-12-31 KESTER "Printwerk" 48,79</blockquote>
 
 <p>De <code>adm_relatie</code> opdracht kent de volgende
 onderdelen:</p>
