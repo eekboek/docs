@@ -1,0 +1,36 @@
+# Standard ttree config for TT2Site.
+#
+#### DO NOT EDIT ttree.cfg. EDIT ttree.tt2 INSTEAD ####
+
+# Directories.
+src  = [% cwd %]/src
+lib  = [% cwd %]/lib
+dest = [% cwd %]/htdocs
+
+# Copy images and other non-eligible files.
+copy = \.(png|gif|jpg|pdf|txt|gz|zip|conf)$
+
+# Ignore CVS, RCS, and Emacs temporary files.
+ignore = \b(CVS|RCS|_darcs)\b
+ignore = ^#
+ignore = (^|/)\.
+ignore = ~$
+ignore = \.(tt|tt2|bak|org)$
+
+# Misc options.
+verbose
+recurse
+recursion
+
+# TT options.
+pre_process = config/main
+wrapper     = page/wrapper
+
+# Define some location variables.
+define tmplsrc = src
+define rootdir = [% cwd %]
+define debug   = 0
+absolute
+
+# Private plugins.
+plugin_base = Template::TT2Site::Plugin

@@ -1,0 +1,44 @@
+[%
+
+# Site colo(u)rs.
+
+rgb = {
+    white    = '#FFFFFF'
+    black    = '#000000'
+    red      = '#C81900'
+    orange   = '#F08900'
+    blue     = '#0000FF'
+    skyblue  = '#00AAF0'
+    paleblue = '#80C0F0'
+    midblue  = '#6080C0'
+    darkblue = '#202060'
+    misty    = '#C0C0F0'
+    ltgrey   = '#E0E0E0'
+    vltgrey  = '#F0F0F0'
+}
+
+# Save in site hash.
+site.rgb = rgb
+
+site.col = {
+    back  = rgb.white
+    text  = rgb.black
+    link  = rgb.blue
+    vlink = rgb.blue
+    alink = rgb.red
+    mlink = rgb.red
+    line  = rgb.blue
+    head  = rgb.darkblue
+    squirrel = rgb.red
+    table = {
+	edge = rgb.blue
+	back = rgb.white
+	head = rgb.misty
+	cell = rgb.ltgrey
+    }
+}
+
+#site.name = "<font color='$site.rgb.blue'>$site.short</font>";
+site.name = "<font color='$site.rgb.red'>$site.short</font>";
+
+-%]

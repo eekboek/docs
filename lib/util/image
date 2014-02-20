@@ -1,0 +1,67 @@
+[%
+
+# Image, without borders.
+
+# This template either takes a preprocessed image object (see
+# config/images), an (partial) image object, or the name of a (local)
+# image file.
+#
+# E.g. INCLUDE util/image image = site.logo
+#      INCLUDE util/image image = { src => "logo.jpg", alt => "Site Logo" }
+#      INCLUDE util/image image = "picture.png"
+#
+# Note that the title and alt attributes are not HTML escaped.
+
+UNLESS image.src.defined;
+  image = { src => image };
+END;
+
+UNLESS image.alt.defined;
+  IF image.title.defined;
+    image.alt = image.title;
+  ELSE;
+    image.alt = image.src;
+  END;
+END;
+
+UNLESS image.width.defined && image.height.defined;
+  # Try name 'as is'.
+  TRY;
+    USE Image(name = image.src);
+    # Check if we succeeded.
+    image.width  = Image.width;
+  CATCH Image;
+    # No, preprend template dir and source dir.
+    USE File(page.file, noid = 1, nostat = 1);
+    image.prefix = tmplsrc _ "/";
+    image.prefix = image.prefix _ File.dir _ "/" IF File.dir;
+    USE Image(name = image.prefix _ image.src);
+    image.width  = Image.width;
+  END;
+  image.height = Image.height;
+END;
+
+'<a href="' _ image.url _ '">' IF image.url;
+'<a href="' _ image.xurl _ '" target="_blank">' IF image.xurl;
+'<img src="' _ image.src _ '" alt="'; image.alt|html; '"';
+' align="'  _ image.align  _ '"' IF image.align;
+' valign="' _ image.valign _ '"' IF image.valign;
+IF image.title;
+  ' title="'; image.title|html; '"';
+END;
+IF image.border.defined;
+  ' border="' _ image.border _ '"';
+ELSE;
+  ' border="0"';
+END;
+IF image.hover;
+  ' onMouseOver=' _ "'" _ 'this.src="' _ image.hover _ '"' _ "'";
+  ' onMouseOut=' _ "'" _ 'this.src="' _ image.src _ '"' _ "'";
+END;
+IF image.onclick;
+  ' onclick=' _ "'" _ image.onclick _ "'";
+END;
+' width="' _ image.width _ '" height="' _ image.height _ '">';
+'</a>' IF image.url;
+'</a>' IF image.xurl;
+%]

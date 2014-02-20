@@ -1,0 +1,25 @@
+[%
+
+USE HTML_NonAsc;	# for html_nonasc filter
+
+SWITCH page.type;
+    CASE "text";
+	content;
+
+    CASE "html";
+	content | html_nonasc WRAPPER page/html
+		      + page/layout;
+
+    CASE "listing";
+	WRAPPER page/html + page/layout;
+	"<pre>"; content; "</pre>";
+	END;
+
+    CASE "nolayout";
+	content  | html_nonasc WRAPPER page/html;
+
+    CASE;
+	THROW page.type "Invalid page type: $page.type";
+END;
+
+-%]

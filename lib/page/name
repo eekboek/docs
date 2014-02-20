@@ -1,0 +1,3 @@
+<a href="[% site.url.home %]">
+[%- INCLUDE util/image image=site.image.name | trim -%]
+</a>

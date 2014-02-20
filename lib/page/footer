@@ -1,0 +1,9 @@
+<p class="info">
+[%- site.copyright _ "<br />\n" IF site.copyright;
+    site.design _ "<br />\n" IF site.design;
+    USE date;
+    # Can't use page.date, since that's already formatted.
+    pagedate = date.format(template.modtime,'%d %B %Y, %T','nl_NL');
+    "$page.file laatste aanpassing $pagedate";
+%]
+</p>

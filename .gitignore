@@ -2,10 +2,9 @@
 *~
 #*#
 htdocs
-etc
-lib
 src/images
 src/css
 cheat/ix.html
 cheat/details.html
 quickref.*
+etc/ttree.cfg

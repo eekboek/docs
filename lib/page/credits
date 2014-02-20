@@ -1,0 +1,3 @@
+[% IF site.image.credits -%]
+[%- INCLUDE util/image image=site.image.credits | trim -%]
+[% END -%]

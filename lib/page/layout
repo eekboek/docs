@@ -1,0 +1,58 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="5">
+
+  <tr valign="top">
+    <td width="[% site.logowidth + 10 %]" align="left">
+      [% INCLUDE page/logo %]
+    </td>
+    <td>
+      [% INCLUDE page/header %]
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      [% INCLUDE page/name %]
+    </td>
+    <td>
+      [% INCLUDE page/navigate %]
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      [% INCLUDE util/line %]
+    </td>
+    <td>
+      [% INCLUDE util/line %]
+    </td>
+  </tr>
+
+  <tr valign="top">
+    <td>
+      [% INCLUDE page/menu UNLESS page.suppress_menu %]
+      [% INCLUDE page/social UNLESS page.suppress_social %]
+    </td>
+    <td>
+      [% content %]
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      [% INCLUDE util/line %]
+    </td>
+    <td>
+      [% INCLUDE util/line %]
+    </td>
+  </tr>
+
+  <tr valign="bottom">
+    <td valign="middle">
+      [% INCLUDE page/credits %]
+    </td>
+    <td align="center">
+      [% INCLUDE page/footer %]
+    </td>
+  </tr>
+
+</table>

@@ -1,0 +1,10 @@
+[%
+
+# Construct map of pages in site.
+
+USE Mapper verbose = 1;
+
+# Expand map recursively.
+PROCESS config/expand map = site.map;
+
+-%]

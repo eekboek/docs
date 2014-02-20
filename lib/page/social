@@ -1,0 +1,29 @@
+<div class="social">
+
+<table border='0' cellpadding='2' cellspacing='0'>
+  <tr>
+    <td><a href="http://www.twitter.com/EekBoek" target='_blank'>
+	<img border="0"
+	     src="[% site.url.images %]/twitter-mini.png"
+	     alt="Volg EekBoek op Twitter"
+	     title="Volg EekBoek op Twitter"/></a>
+    </td>
+    <td><a href="http://www.linkedin.com/groups?gid=3649028" target='_blank'>
+	<img border="0"
+	     src="[% site.url.images %]/linkedin-mini.png"
+	     alt="EekBoek op LinkedIn"
+	     title="EekBoek op LinkedIn"/></a>
+    </td>
+    <td><a href="http://www.youtube.com/EekBoek" target='_blank'>
+	<img border="0" src="[% site.url.images %]/youtube-mini.png"
+	     alt="Bekijk video's op het YouTube kanaal van EekBoek"
+             title="Bekijk video's op het YouTube kanaal van EekBoek"/></a>
+    </td>
+    <td><a href="http://identi.ca/eekboek" target='_blank'>
+	<img border="0" src="[% site.url.images %]/identi-ca-mini.png"
+	     alt="EekBoek op Identi.ca"
+             title="EekBoek op Identi.ca"/></a>
+    </td>
+  </tr>
+</table>
+</div>

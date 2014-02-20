@@ -1,0 +1,22 @@
+[%
+
+# Dynamically adjust the locations depending on the depth of the
+# current template.
+
+up = "../";
+tname = template.name.replace("\\\\","/");
+depth = tname.split("/").size - 1;
+
+# Top of the site.
+site.realtop = up.repeat(depth);
+site.topdir = up.repeat(depth);
+
+# Fix site hash.
+site.url = {
+    home    = "${site.realtop}index.html"
+    images  = "${site.realtop}images"
+    logo    = "${site.realtop}images"
+    css     = "${site.realtop}css"
+}
+
+-%]

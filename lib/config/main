@@ -1,0 +1,11 @@
+[%
+
+PROCESS config/page
+      + config/site
+      + config/url
+      + config/col
+      + config/images
+      + config/map
+      + config/macros
+
+-%]

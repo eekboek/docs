@@ -1,0 +1,13 @@
+EekBoek on-line documentatie
+============================
+
+Het bouwen van de documentatie vereist een recente versie van de
+Template Toolkit.
+
+GNUmakefile	Makefile
+
+src/		templates
+htdocs/		resultaat
+
+etc/		configuratie voor Template Toolkit (ttree)
+lib/		config- en hulpbestanden

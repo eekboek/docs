@@ -1,0 +1,23 @@
+[%
+
+# Define page data structure.
+
+USE Date;
+USE File("$rootdir/$tmplsrc/$template.name");
+
+page = {
+    file     = template.name
+    dir      = File.dir
+    title    = template.title
+    about    = template.about
+    type     = template.type or 'html'
+    baseurl  = template.baseurl
+    date     = template.date or Date.format(template.modtime)
+    modtime  = template.modtime
+
+    # These come from the etc/ttree.cfg settings.
+    root     = rootdir
+    src      = tmplsrc
+}
+
+-%]
