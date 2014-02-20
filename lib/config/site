@@ -26,12 +26,12 @@ IF year > firstyear;
 THEN;
   year = firstyear _ "-" _ year;
 END;
-site.copyright = "Copyright &copy; ${year} <a href=\"http://www.squirrel.nl\">Squirrel Consultancy</a>. All Rights Reserved."
+site.copyright = "Copyright &copy; ${year} <a href=\"http://www.squirrel.nl\">Squirrel Consultancy</a>. All Rights Reserved.";
 
 # Design.
 site.design = "Deze site is gemaakt met de 
 <a href='http://johan.vromans.org/tt2site/'>TT2Site
-Site Builder</a>."
+Site Builder</a>.";
 
 # Site.base data. Please DO NOT override.
 
