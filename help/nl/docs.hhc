@@ -1,0 +1,14 @@
+[% META type = "text" -%]
+<ul>
+[% INCLUDE docs.tt2 -%]
+[% INCLUDE commands.tt2 -%]
+[% INCLUDE license.tt2 -%]
+</ul>
+
+[% BLOCK item -%]
+  <li>
+      <object type="text/sitemap">
+      <param name="Name" value="[% title %]">
+      <param name="Local" value="[% link %]">
+      </object>
+[%- END %]

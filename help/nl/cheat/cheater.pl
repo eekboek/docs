@@ -1,5 +1,9 @@
 #!/usr/bin/perl -w
 
+# Read EekBoek help output, and create individual tt2 documents for
+# each topic.
+# Also creates indexes.
+
 use strict;
 use warnings;
 use HTML::Entities;
@@ -7,7 +11,7 @@ use Encode;
 
 open(my $ix,  ">", "ix.html"     );
 open(my $det, ">", "details.html");
-open(my $tt2, ">", "ix.tt2"      );
+open(my $tt2, ">", "commands.tt2"      );
 my $top;
 
 #binmode( STDIN, ":encoding(utf-8)");
@@ -23,11 +27,11 @@ print {$det} ("<head>\n",
 print {$tt2} ("<li>\n",
 	      "<object type=\"text/sitemap\">\n",
 	      "<param name=\"Name\" value=\"Commando&rsquo;s\">\n",
-	      "<param name=\"Local\" value=\"details.html\">\n",
+	      "<param name=\"Local\" value=\"commands.html\">\n",
 	      "</object>\n",
 	      "<ul>\n");
 
-
+mkdir("topics") unless -d "topics";
 my $did = 0;
 while ( <> ) {
     chomp;
@@ -43,7 +47,7 @@ while ( <> ) {
 	undef $top;
 	open( $top, ">", "topics/$target.html"      );
 	print {$top} ("[% META type = \"text\" -%]\n",
-		      "<h2>$target</h2>\n",
+		      "<strong>$target</strong>\n",
 		      "<pre>");
 	$did++;
 	next;
@@ -62,7 +66,7 @@ while ( <> ) {
     }
 
     s;&lt\;(\w+)&gt\;;<var>$1</var>;g;
-    s;&quot\;help (\w+)&quot\;;<a href="#$1">$1</a>;g;
+    s;&quot\;help (\w+)&quot\;;<a href="$1.html">$1</a>;g;
     print {$det} encode("utf-8", $_), "\n";
     print {$top} encode("utf-8", $_), "\n";
 }

@@ -1,0 +1,5 @@
+[% META type = "text" -%]
+Contents file=docs.hhc
+Index file=docs.hhk
+Title=EekBoek Documentatie
+Default topic=index.html

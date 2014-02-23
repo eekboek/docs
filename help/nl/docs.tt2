@@ -1,0 +1,52 @@
+  <li>
+      <object type="text/sitemap">
+      <param name="Name" value="Inhoud">
+      <param name="Local" value="index.html">
+      </object>
+[% PROCESS item title="Inleiding" link="intro/index.html" %]
+[% PROCESS item title="Installeren" link="install/index.html" %]
+[% PROCESS item title="De EekBoek shell" link="ebshell/index.html" %]
+<ul>
+[% PROCESS item title="Opdrachten" link="ebshell/commands.html" %]
+[% PROCESS item title="Opties" link="ebshell/clo.html" %]
+[% PROCESS item title="Bestanden" link="ebshell/files.html" %]
+</ul>
+[% PROCESS item title="De EekBoek GUI" link="ebwxshell/index.html" %]
+<ul>
+[% PROCESS item title="Opties" link="ebwxshell/clo.html" %]
+[% PROCESS item title="Bestanden" link="ebwxshell/files.html" %]
+</ul>
+[% PROCESS item title="Configuratie" link="config.html" %]
+[% PROCESS item title="Opzetten administratie" link="setup/index.html" %]
+<ul>
+[% PROCESS item title="Opzetten werkomgeving" link="setup/config.html" %]
+[% PROCESS item title="Administratiegegevens" link="setup/schema.html" %]
+[% PROCESS item title="Relaties" link="setup/relaties.html" %]
+[% PROCESS item title="Opening" link="setup/opening.html" %]
+[% PROCESS item title="Mutaties" link="setup/mutaties.html" %]
+[% PROCESS item title="Aanmaken administratie" link="setup/init.html" %]
+</ul>
+[% PROCESS item title="Boekingen" link="bookings/index.html" %]
+<ul>
+[% PROCESS item title="Inkoopfacturen" link="bookings/payable.html" %]
+[% PROCESS item title="Verkoopfacturen" link="bookings/receivable.html" %]
+[% PROCESS item title="Bankafschriften" link="bookings/bank.html" %]
+[% PROCESS item title="Kas" link="bookings/cash.html" %]
+[% PROCESS item title="Memoriaal" link="bookings/memorial.html" %]
+</ul>
+[% PROCESS item title="Overzichten" link="reports/index.html" %]
+<ul>
+[% PROCESS item title="Openingsbalans" link="reports/open.html" %]
+[% PROCESS item title="Balans" link="reports/balans.html" %]
+[% PROCESS item title="Proef- en Saldibalans" link="reports/proef.html" %]
+[% PROCESS item title="Resultatenrekening" link="reports/result.html" %]
+[% PROCESS item title="Journaal" link="reports/journaal.html" %]
+[% PROCESS item title="Grootboek" link="reports/grootboek.html" %]
+[% PROCESS item title="Debiteuren" link="reports/debiteuren.html" %]
+[% PROCESS item title="Crediteuren" link="reports/crediteuren.html" %]
+[% PROCESS item title="Openstaande posten" link="reports/unpaid.html" %]
+[% PROCESS item title="BTW aangifte" link="reports/btw.html" %]
+</ul>
+[% PROCESS item title="Jaarafsluiting" link="yearend.html" %]
+[% PROCESS item title="Import en Export" link="inex.html" %]
+</ul>
