@@ -2,7 +2,8 @@ EekBoek on-line documentatie
 ============================
 
 Het bouwen van de documentatie vereist een recente versie van de
-Template Toolkit.
+Template Toolkit, alsmede een van de perl modules Image::Info of
+Image::Size.
 
 GNUmakefile	Makefile
 
