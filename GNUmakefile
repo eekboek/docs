@@ -1,9 +1,14 @@
 #! make -f
 
-TTREE	:= perl -Mlib=$(shell pwd)/lib /usr/bin/ttree
-TPAGE	:= perl -Mlib=$(shell pwd)/lib /usr/bin/tpage
+# Run (installed) tt2 tools, with our library for the plugins.
+TTREE	:= perl -Mlib=${PWD}/lib -S ttree
+TPAGE	:= perl -Mlib=${PWD}/lib -S tpage
+
+## CONFIG ##  Where the sources of EekBoek reside.
+EBSRC	:= $(shell cd ../src; pwd)
 EBSHELL := ebshell
-export TTREE TPAGE EBSHELL
+
+export TTREE TPAGE EBSHELL EBSRC
 
 default : all
 
@@ -31,3 +36,9 @@ clean ::
 
 htb :
 	${MAKE} -C help build
+
+htb-install :
+	${MAKE} -C help install
+
+clean ::
+	${MAKE} -C help clean

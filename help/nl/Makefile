@@ -1,3 +1,4 @@
+#! make -f
 
 default :
 	echo 
@@ -14,7 +15,11 @@ docs.htb :
 	rm -f docs.htb
 	cd htdocs; zip -r ../docs.htb *
 
+install :
+	cp docs.htb ${EBSRC}/lib/EB/res/help/nl/docs.htb
+
 clean :
 	rm -fr htdocs
-	rm -fr src/topics/*
+	rm -fr src
+	rm -f docs.htb
 	${MAKE} -C cheat clean
