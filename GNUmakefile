@@ -14,7 +14,9 @@ default : all
 
 .PHONY : html htb
 
-all : html htb
+all : htb
+
+install : htb-install
 
 ################ On-line documentation (HTML pages) ################
 
