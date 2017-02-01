@@ -10,8 +10,8 @@ de source tree (repo 'eekboek', make target 'docs').
 Vanuit deze documentatie-repo zijn de volgende targets te gebruiken:
 
 ### html
-Genereert de documentatie in HTML vorm in de directory htdocs.
+Genereert de documentatie in HTML vorm in de directory `htdocs`.
 Dit is voornamelijk om de documentatie te testen.
 
 ### htb
-Genereert help/nl/docs.htb voor de documentatiebrowser.
+Genereert `help/nl/docs.htb` voor de documentatiebrowser.
