@@ -5,10 +5,14 @@ Het bouwen van de documentatie vereist een recente versie van de
 Template Toolkit, alsmede een van de perl modules Image::Info of
 Image::Size.
 
-GNUmakefile	Makefile
+De makefile is GNUmakefile. Deze wordt aangeroepen vanuit de source
+tree (make target 'docs').
 
-src/		templates
-htdocs/		resultaat
+Vanuit deze repo zijn de volgende targets te gebruiken:
 
-etc/		configuratie voor Template Toolkit (ttree)
-lib/		config- en hulpbestanden
+==html==
+Genereert de documentatie in HTML vorm in de directory htdocs.
+Dit is voornamelijk om de documentatie te testen.
+
+=htb==
+Genereert help/nl/docs.htb voor de documentatiebrowser.
