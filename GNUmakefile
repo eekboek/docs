@@ -14,11 +14,14 @@ default : all
 
 .PHONY : html htb
 
-all : htb
+all : site-version htb
 
 install : htb-install
 
 ################ On-line documentation (HTML pages) ################
+
+site-version ::
+	echo "[% site.eekboek.latest = \"${VERSION}\"; -%]" > lib/config/macros
 
 html : etc/ttree.cfg
 	$(TTREE) -f etc/ttree.cfg
